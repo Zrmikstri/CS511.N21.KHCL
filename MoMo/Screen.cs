@@ -16,7 +16,7 @@ namespace MoMo
         {
             base.OnLoad(e);
 
-            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.Username}";
+            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.FullName}";
             label2.Text = Session.LoggedInUserInfo!.Address;
 
             Random random = new Random();
@@ -118,7 +118,7 @@ namespace MoMo
 
         private void panel1_Click(object sender, EventArgs e)
         {
-            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.Username}";
+            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.FullName}";
             label2.Text = Session.LoggedInUserInfo!.Address;
         }
     }

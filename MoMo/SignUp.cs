@@ -21,7 +21,7 @@ namespace MoMo
             if (this.ValidateChildren())
             {
                 string email = emailTextBox.Text.Trim();
-                string username = usernameTextBox.Text.Trim();
+                string citizenId = citizenIdTextBox.Text.Trim();
                 string phone = phoneTextBox.Text.Trim();
                 string address = addressTextBox.Text.Trim();
                 string password = passTextBox.Text.Trim();
@@ -29,7 +29,7 @@ namespace MoMo
                 User user = new User
                 {
                     Email = email,
-                    Username = username,
+                    CitizenId = citizenId,
                     PhoneNumber = phone,
                     Address = address,
                     Password = password
@@ -114,34 +114,34 @@ namespace MoMo
             errorProvider1.SetError(emailTextBox, "");
         }
 
-        private void usernameTextBox_Validating(object sender, CancelEventArgs e)
+        private void citizenIdTextBox_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(usernameTextBox.Text.Trim()))
+            if (string.IsNullOrEmpty(citizenIdTextBox.Text.Trim()))
             {
                 // Cancel the event and select the text to be corrected by the user
                 e.Cancel = true;
-                usernameTextBox.Select(0, usernameTextBox.Text.Length);
+                citizenIdTextBox.Select(0, citizenIdTextBox.Text.Length);
                 // Set the ErrorProvider error with the text to display
-                this.errorProvider1.SetError(usernameTextBox, "Thông tin không được để trống!");
+                this.errorProvider1.SetError(citizenIdTextBox, "Thông tin không được để trống!");
             }
             else
             {
-                bool isUsernameDuplicated = _userDbContext.Users.Any(user => user.Username == usernameTextBox.Text.Trim());
-                if (isUsernameDuplicated)
+                bool isCitizenIdDuplicated = _userDbContext.Users.Any(user => user.CitizenId == citizenIdTextBox.Text.Trim());
+                if (isCitizenIdDuplicated)
                 {
                     // Cancel the event and select the text to be corrected by the user
                     e.Cancel = true;
-                    usernameTextBox.Select(0, usernameTextBox.Text.Length);
+                    citizenIdTextBox.Select(0, citizenIdTextBox.Text.Length);
                     // Set the ErrorProvider error with the text to display
-                    this.errorProvider1.SetError(usernameTextBox, "Tên hiển thị này đã được sử dụng!");
+                    this.errorProvider1.SetError(citizenIdTextBox, "CCCD đã được đăng ký!");
                 }
             }
         }
 
-        private void usernameTextBox_Validated(object sender, EventArgs e)
+        private void citizenIdTextBox_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors
-            errorProvider1.SetError(usernameTextBox, "");
+            errorProvider1.SetError(citizenIdTextBox, "");
         }
 
         private void phoneTextBox_Validating(object sender, CancelEventArgs e)
