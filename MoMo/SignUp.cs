@@ -79,7 +79,6 @@ namespace MoMo
         {
             this.Hide();
             ((Main)this.Owner!).OpenChildForm(new Login());
-            this.Close();
         }
 
         private void emailTextBox_Validating(object sender, CancelEventArgs e)

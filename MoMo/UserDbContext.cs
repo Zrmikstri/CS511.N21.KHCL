@@ -189,25 +189,25 @@ namespace MoMo
             //    new OrderItem(99, 10),
             //    new OrderItem(100, 10));
 
-            //modelBuilder.Entity<User>().HasData(
-            //    new User
-            //    {
-            //        Id = 1,
-            //        Email = "vinh123@gmail.com",
-            //        Username = "Vinh",
-            //        PhoneNumber = "0123456789",
-            //        Address = "123 Trần Phú P10 Q5 TP.Hồ Chí Minh",
-            //        Password = "123"
-            //    },
-            //    new User
-            //    {
-            //        Id = 2,
-            //        Email = "tuan456@gmail.com",
-            //        Username = "Tuan",
-            //        PhoneNumber = "0987654321",
-            //        Address = "456 Đào Tuấn P5 Q10 TP.Hồ Chí Minh",
-            //        Password = "456"
-            //    },
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 1,
+                    Email = "vinh123@gmail.com",
+                    Username = "Vinh",
+                    PhoneNumber = "0123456789",
+                    Address = "123 Trần Phú P10 Q5 TP.Hồ Chí Minh",
+                    Password = "123"
+                },
+                new User
+                {
+                    Id = 2,
+                    Email = "tuan456@gmail.com",
+                    Username = "Tuan",
+                    PhoneNumber = "0987654321",
+                    Address = "456 Đào Tuấn P5 Q10 TP.Hồ Chí Minh",
+                    Password = "456"
+                });
             //    new User
             //    {
             //        Id = 3,

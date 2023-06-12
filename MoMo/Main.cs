@@ -16,11 +16,11 @@ namespace MoMo
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //if (Properties.Settings.Default.isRememberUsername == false)
-            //{
-            //    Properties.Settings.Default.SavedUsername = "";
-            //}
-            //Properties.Settings.Default.Save();
+            if (Properties.Settings.Default.isRememberUsername == false)
+            {
+                Properties.Settings.Default.SavedUsername = "";
+            }
+            Properties.Settings.Default.Save();
         }
 
 
@@ -53,8 +53,6 @@ namespace MoMo
             this.userDbContext.Database.EnsureDeleted();
             this.userDbContext.Database.EnsureCreated();
             this.userDbContext.Users.Load();
-
-            //var temp = this.userDbContext.Users.Include(u => u.OrderHistory).FirstOrDefault();
 
             Session.UserDbContext = this.userDbContext;
 

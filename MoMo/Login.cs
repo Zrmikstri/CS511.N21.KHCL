@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.FileIO;
-using MoMo;
 using System.ComponentModel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace MoMo
@@ -19,20 +17,18 @@ namespace MoMo
 
             this._userDbContext = new UserDbContext();
 
-            //if (Properties.Settings.Default.isRememberUsername)
-            //{
-            //    checkBox1.Checked = Properties.Settings.Default.isRememberUsername;
-            //    txtUsername.Text = Properties.Settings.Default.SavedUsername;
-            //}
+            if (Properties.Settings.Default.isRememberUsername)
+            {
+                checkBox1.Checked = Properties.Settings.Default.isRememberUsername;
+                txtUsername.Text = Properties.Settings.Default.SavedUsername;
+            }
         }
 
-        //private User checkCredentials(string username, string password)
-        //{
-        //    //return _userDbContext!.Users
-        //    //    .Include(u => u.OrderHistory)
-        //    //    .Include(u => u.ShoppingCart)
-        //    //    .SingleOrDefault(user => (username == user.Email || username == user.Username || username == user.PhoneNumber) && password == user.Password);
-        //}
+        private User checkCredentials(string username, string password)
+        {
+            return _userDbContext!.Users
+                        .SingleOrDefault(user => ( username == user.Username) && (password == user.Password));
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -45,29 +41,29 @@ namespace MoMo
             string password = txtPassword.Text;
             bool rememberMe = checkBox1.Checked;
 
-            //User user = checkCredentials(username, password);
+            User user = checkCredentials(username, password);
 
 
-            //if (user == null)
-            //{
-            //    MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng!\nVui lòng nhập lại.",
-            //       "Chú ý!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
+            if (user == null)
+            {
+                MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng!\nVui lòng nhập lại.",
+                   "Chú ý!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            //Session.LoggedInUserInfo = user;
+            Session.LoggedInUserInfo = user;
 
-            //// If remember me is checked, save username the username
-            //if (rememberMe)
-            //{
-            //    Properties.Settings.Default.SavedUsername = username;
-            //    Properties.Settings.Default.isRememberUsername = true;
-            //}
-            //else
-            //{
-            //    Properties.Settings.Default.SavedUsername = "";
-            //    Properties.Settings.Default.isRememberUsername = false;
-            //}
+            // If remember me is checked, save username the username
+            if (rememberMe)
+            {
+                Properties.Settings.Default.SavedUsername = username;
+                Properties.Settings.Default.isRememberUsername = true;
+            }
+            else
+            {
+                Properties.Settings.Default.SavedUsername = "";
+                Properties.Settings.Default.isRememberUsername = false;
+            }
 
 
             // If username and password are correct, close the login form and open home form
@@ -77,7 +73,7 @@ namespace MoMo
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            //Properties.Settings.Default.isRememberUsername = checkBox1.Checked;
+            Properties.Settings.Default.isRememberUsername = checkBox1.Checked;
         }
 
         private void iconPictureBox3_Click(object sender, EventArgs e)

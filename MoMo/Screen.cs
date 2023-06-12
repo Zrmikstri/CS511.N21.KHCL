@@ -93,7 +93,7 @@ namespace MoMo
         private void iconButton4_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            //OpenTab(new ChatTab());
+            OpenTab(new ChatTab());
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
