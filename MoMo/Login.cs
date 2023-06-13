@@ -27,7 +27,7 @@ namespace MoMo
         private User checkCredentials(string username, string password)
         {
             return _userDbContext!.Users
-                        .SingleOrDefault(user => ( username == user.Username) && (password == user.Password));
+                        .SingleOrDefault(user => ( username == user.PhoneNumber) && (password == user.Password));
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

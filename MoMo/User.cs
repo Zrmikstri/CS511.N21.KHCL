@@ -8,17 +8,17 @@
         }
 
         public int Id { get; set; }
-        public string? Username { get; set; }
-        public string? Address { get; set; }
-        public string? Email { get; set; }
-        public string? PhoneNumber { get; set; }
-        public string? Password { get; set; }
-        public string? FullName { get; set; }
-
+        public int Balance { get; set; }
+        public string Address { get; set; } = "Test Address";
+        public string Email { get; set; } = "test@test.com";
+        public string PhoneNumber { get; set; } = "0123456789";
+        public string Password { get; set; } = "Test123";
+        public string FullName { get; set; } = "Test User";
+        public string CitizenId { get; set; } = "012345678999";
         public DateTime Birthday { get; set; }
         public byte[] AvatarImage { get; set; }
 
-        //public virtual ICollection<OrderItem> OrderHistory { get; set; } = new List<OrderItem>();
-        //public virtual ICollection<CartItem> ShoppingCart { get; set; } = new List<CartItem>();
+        public virtual ICollection<Transaction> Transactions { get; } = new List<Transaction>();
+        public virtual ICollection<ChatMessage> ChatMessages { get; } = new List<ChatMessage>();
     }
 }

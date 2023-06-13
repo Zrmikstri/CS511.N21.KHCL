@@ -16,7 +16,7 @@ namespace MoMo
         {
             base.OnLoad(e);
 
-            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.Username}";
+            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.FullName}";
             label2.Text = Session.LoggedInUserInfo!.Address;
 
             Random random = new Random();
@@ -93,7 +93,7 @@ namespace MoMo
         private void iconButton4_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            OpenTab(new ChatTab());
+            OpenTab(new Contact());
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
@@ -113,12 +113,13 @@ namespace MoMo
 
             this.Hide();
             ((Main)this.Owner!).Onload(e);
+            this.Close();
 
         }
 
         private void panel1_Click(object sender, EventArgs e)
         {
-            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.Username}";
+            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.FullName}";
             label2.Text = Session.LoggedInUserInfo!.Address;
         }
     }
