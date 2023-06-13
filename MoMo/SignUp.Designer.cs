@@ -48,9 +48,6 @@
             label5 = new Label();
             label3 = new Label();
             label4 = new Label();
-            iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
-            usernameTextBox = new TextBox();
-            panel4 = new Panel();
             iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
             phoneTextBox = new TextBox();
             panel5 = new Panel();
@@ -62,6 +59,9 @@
             iconButton3 = new FontAwesome.Sharp.IconButton();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             iconButton1 = new FontAwesome.Sharp.IconButton();
+            iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            panel4 = new Panel();
+            citizenIdTextBox = new TextBox();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox7).BeginInit();
@@ -71,13 +71,13 @@
             ((System.ComponentModel.ISupportInitialize)iconPictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox5).BeginInit();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
-            panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox3).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox4).BeginInit();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -330,44 +330,6 @@
             label4.TabIndex = 57;
             label4.Text = "label4";
             // 
-            // iconPictureBox2
-            // 
-            iconPictureBox2.BackColor = Color.White;
-            iconPictureBox2.ForeColor = SystemColors.ControlText;
-            iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.User;
-            iconPictureBox2.IconColor = SystemColors.ControlText;
-            iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            iconPictureBox2.IconSize = 28;
-            iconPictureBox2.Location = new Point(3, 3);
-            iconPictureBox2.Name = "iconPictureBox2";
-            iconPictureBox2.Size = new Size(28, 28);
-            iconPictureBox2.TabIndex = 3;
-            iconPictureBox2.TabStop = false;
-            // 
-            // usernameTextBox
-            // 
-            usernameTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            usernameTextBox.BorderStyle = BorderStyle.None;
-            usernameTextBox.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            usernameTextBox.Location = new Point(36, 8);
-            usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.PlaceholderText = "Tên tài khoản";
-            usernameTextBox.Size = new Size(309, 19);
-            usernameTextBox.TabIndex = 0;
-            usernameTextBox.Validating += usernameTextBox_Validating;
-            usernameTextBox.Validated += usernameTextBox_Validated;
-            // 
-            // panel4
-            // 
-            panel4.Anchor = AnchorStyles.None;
-            panel4.BackColor = Color.White;
-            panel4.Controls.Add(iconPictureBox2);
-            panel4.Controls.Add(usernameTextBox);
-            panel4.Location = new Point(12, 142);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(372, 35);
-            panel4.TabIndex = 100;
-            // 
             // iconPictureBox3
             // 
             iconPictureBox3.BackColor = Color.White;
@@ -520,6 +482,44 @@
             iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton1.UseVisualStyleBackColor = true;
             // 
+            // iconPictureBox2
+            // 
+            iconPictureBox2.BackColor = Color.White;
+            iconPictureBox2.ForeColor = SystemColors.ControlText;
+            iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.User;
+            iconPictureBox2.IconColor = SystemColors.ControlText;
+            iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            iconPictureBox2.IconSize = 28;
+            iconPictureBox2.Location = new Point(3, 3);
+            iconPictureBox2.Name = "iconPictureBox2";
+            iconPictureBox2.Size = new Size(28, 28);
+            iconPictureBox2.TabIndex = 3;
+            iconPictureBox2.TabStop = false;
+            // 
+            // panel4
+            // 
+            panel4.Anchor = AnchorStyles.None;
+            panel4.BackColor = Color.White;
+            panel4.Controls.Add(iconPictureBox2);
+            panel4.Controls.Add(citizenIdTextBox);
+            panel4.Location = new Point(12, 142);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(372, 35);
+            panel4.TabIndex = 100;
+            // 
+            // citizenIdTextBox
+            // 
+            citizenIdTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            citizenIdTextBox.BorderStyle = BorderStyle.None;
+            citizenIdTextBox.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            citizenIdTextBox.Location = new Point(36, 8);
+            citizenIdTextBox.Name = "citizenIdTextBox";
+            citizenIdTextBox.PlaceholderText = "CCCD";
+            citizenIdTextBox.Size = new Size(309, 19);
+            citizenIdTextBox.TabIndex = 0;
+            citizenIdTextBox.Validating += citizenIdTextBox_Validating;
+            citizenIdTextBox.Validated += citizenIdTextBox_Validated;
+            // 
             // SignUp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -558,9 +558,6 @@
             ((System.ComponentModel.ISupportInitialize)iconPictureBox5).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox3).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
@@ -568,6 +565,9 @@
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -591,9 +591,6 @@
         private Label label5;
         private Label label4;
         private Label label3;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
-        private TextBox usernameTextBox;
-        private Panel panel4;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
         private TextBox phoneTextBox;
         private Panel panel5;
@@ -607,5 +604,8 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private Panel panel4;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private TextBox citizenIdTextBox;
     }
 }
