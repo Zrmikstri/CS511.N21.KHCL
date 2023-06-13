@@ -75,7 +75,7 @@ namespace MoMo
                         .HasForeignKey(e => e.ServiceId)
                         .OnDelete(DeleteBehavior.Cascade);
             });
-            
+
             // Configure the ChatMessage entity
             modelBuilder.Entity<ChatMessage>(entity =>
             {
@@ -112,79 +112,101 @@ namespace MoMo
                     PhoneNumber = "0987654321",
                     Address = "456 Đào Tuấn P5 Q10 TP.Hồ Chí Minh",
                     Password = "456"
+                },
+                new User
+                {
+                    Id = 3,
+                    Email = "ckinset0@ehow.com",
+                    PhoneNumber = "7377393940",
+                    Address = "9911 Mandrake Circle",
+                    Password = "599"
+                },
+                new User
+                {
+                    Id = 4,
+                    Email = "ltrounce1@newyorker.com",
+                    PhoneNumber = "2207764683",
+                    Address = "0 Chinook Hill",
+                    Password = "865"
+                },
+                new User
+                {
+                    Id = 5,
+                    Email = "wspeariett2@wiley.com",
+                    PhoneNumber = "5763806149",
+                    Address = "9 Hollow Ridge Way",
+                    Password = "939"
+                },
+                new User
+                {
+                    Id = 6,
+                    Email = "nswapp3@cbc.ca",
+                    PhoneNumber = "9263002147",
+                    Address = "661 Forest Run Parkway",
+                    Password = "169"
+                },
+                new User
+                {
+                    Id = 7,
+                    Email = "ibosden4@yale.edu",
+                    PhoneNumber = "2155269819",
+                    Address = "5 Algoma Plaza",
+                    Password = "538"
+                },
+                new User
+                {
+                    Id = 8,
+                    Email = "cknapman5@jugem.jp",
+                    PhoneNumber = "3578582722",
+                    Address = "5896 Vahlen Hill",
+                    Password = "923"
+                },
+                new User
+                {
+                    Id = 9,
+                    Email = "troffey6@mashable.com",
+                    PhoneNumber = "5736157050",
+                    Address = "69 Ridgeview Circle",
+                    Password = "316"
+                },
+                new User
+                {
+                    Id = 10,
+                    Email = "rclipson7@lulu.com",
+                    PhoneNumber = "6094288724",
+                    Address = "46 Haas Drive",
+                    Password = "649"
                 });
-            //    new User
-            //    {
-            //        Id = 3,
-            //        Email = "ckinset0@ehow.com",
-            //        Username = "mmelbert0",
-            //        PhoneNumber = "7377393940",
-            //        Address = "9911 Mandrake Circle",
-            //        Password = "599"
-            //    },
-            //    new User
-            //    {
-            //        Id = 4,
-            //        Email = "ltrounce1@newyorker.com",
-            //        Username = "mkinver1",
-            //        PhoneNumber = "2207764683",
-            //        Address = "0 Chinook Hill",
-            //        Password = "865"
-            //    },
-            //    new User
-            //    {
-            //        Id = 5,
-            //        Email = "wspeariett2@wiley.com",
-            //        Username = "ablanchard2",
-            //        PhoneNumber = "5763806149",
-            //        Address = "9 Hollow Ridge Way",
-            //        Password = "939"
-            //    },
-            //    new User
-            //    {
-            //        Id = 6,
-            //        Email = "nswapp3@cbc.ca",
-            //        Username = "skehri3",
-            //        PhoneNumber = "9263002147",
-            //        Address = "661 Forest Run Parkway",
-            //        Password = "169"
-            //    },
-            //    new User
-            //    {
-            //        Id = 7,
-            //        Email = "ibosden4@yale.edu",
-            //        Username = "zpook4",
-            //        PhoneNumber = "2155269819",
-            //        Address = "5 Algoma Plaza",
-            //        Password = "538"
-            //    },
-            //    new User
-            //    {
-            //        Id = 8,
-            //        Email = "cknapman5@jugem.jp",
-            //        Username = "hagius5",
-            //        PhoneNumber = "3578582722",
-            //        Address = "5896 Vahlen Hill",
-            //        Password = "923"
-            //    },
-            //    new User
-            //    {
-            //        Id = 9,
-            //        Email = "troffey6@mashable.com",
-            //        Username = "wchristophersen6",
-            //        PhoneNumber = "5736157050",
-            //        Address = "69 Ridgeview Circle",
-            //        Password = "316"
-            //    },
-            //    new User
-            //    {
-            //        Id = 10,
-            //        Email = "rclipson7@lulu.com",
-            //        Username = "tgwillim7",
-            //        PhoneNumber = "6094288724",
-            //        Address = "46 Haas Drive",
-            //        Password = "649"
-            //    });
+
+            modelBuilder.Entity<ChatMessage>().HasData(
+                new ChatMessage
+                {
+                    Id = 1,
+                    Message = "Nạp tiền điện thoại",
+                    ReceiverId = 1,
+                    SenderId = 2,
+                },
+                new ChatMessage
+                {
+                    Id = 2,
+                    Message = "Nạp tiền điện thoại",
+                    ReceiverId = 2,
+                    SenderId = 1,
+                },
+                new ChatMessage
+                {
+                    Id = 3,
+                    Message = "Nạp tiền điện thoại",
+                    ReceiverId = 1,
+                    SenderId = 3
+                },
+                new ChatMessage
+                {
+                    Id = 4,
+                    Message = "Nạp tiền điện thoạiajslkdfhaslkdfjhlaskdflaskdfjalsdkfhasldkaslkdfhalskdfhalskdfjhaslkdfhasldkafsd",
+                    ReceiverId = 3,
+                    SenderId = 1,
+                });
         }
     }
 }

@@ -93,7 +93,7 @@ namespace MoMo
         private void iconButton4_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            OpenTab(new ChatTab());
+            OpenTab(new Contact());
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
@@ -113,6 +113,7 @@ namespace MoMo
 
             this.Hide();
             ((Main)this.Owner!).Onload(e);
+            this.Close();
 
         }
 

@@ -31,7 +31,7 @@
             panel1 = new Panel();
             richTextBox1 = new RichTextBox();
             iconButton1 = new FontAwesome.Sharp.IconButton();
-            panel2 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -69,19 +69,19 @@
             iconButton1.TabIndex = 2;
             iconButton1.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // flowLayoutPanel1
             // 
-            panel2.Location = new Point(3, 60);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(390, 505);
-            panel2.TabIndex = 2;
+            flowLayoutPanel1.Location = new Point(3, 60);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(390, 503);
+            flowLayoutPanel1.TabIndex = 2;
             // 
             // Contact
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(396, 566);
-            Controls.Add(panel2);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Contact";
@@ -95,6 +95,6 @@
         private Panel panel1;
         private RichTextBox richTextBox1;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private Panel panel2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
