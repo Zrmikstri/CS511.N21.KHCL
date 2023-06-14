@@ -31,7 +31,7 @@ namespace MoMo.MyUserControl
             set { label3.Text = value; }
         }
 
-        public Image ContactAvatarUrl
+        public Image ContactAvatar
         {
             get { return pictureBox1.Image; }
             set { pictureBox1.Image = value; }
@@ -42,7 +42,7 @@ namespace MoMo.MyUserControl
             InitializeComponent();
         }
 
-        public void SetLabelPosition(string option)
+        public void SetDateLabelPosition(string option)
         {
             if (option == "dd/MM")
             {
@@ -54,6 +54,11 @@ namespace MoMo.MyUserControl
                 label2.MaximumSize = new Size(260, 23);
                 label3.Location = new Point(324, 31);
             }
+        }
+
+        public void SetDateLabelVisible(bool visible)
+        {
+            label3.Visible = visible;
         }
 
         public new event EventHandler Click

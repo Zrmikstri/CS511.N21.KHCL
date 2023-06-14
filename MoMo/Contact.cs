@@ -45,17 +45,17 @@ namespace MoMo
                 ContactItem contactItem = new ContactItem();
                 contactItem.User = contact;
                 contactItem.ContactName = contact.FullName;
-                contactItem.ContactAvatarUrl = Utils.BytesArrayToImage(contact.AvatarImage);
+                contactItem.ContactAvatar = Utils.BytesArrayToImage(contact.AvatarImage);
                 contactItem.LatestMessage = latestMessage.Message;
 
                 if (latestMessage.Date.Year != DateTime.Now.Year)
                 {
-                    contactItem.SetLabelPosition("dd/MM/yyyy");
+                    contactItem.SetDateLabelPosition("dd/MM/yyyy");
                     contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM/yyyy");
                 }
                 else
                 {
-                    contactItem.SetLabelPosition("dd/MM");
+                    contactItem.SetDateLabelPosition("dd/MM");
                     contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM");
                 }
 
