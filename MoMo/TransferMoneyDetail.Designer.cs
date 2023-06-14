@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransferMoneyDetail));
             panel2 = new Panel();
+            label2 = new Label();
+            pictureBox1 = new PictureBox();
             label1 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
-            pictureBox1 = new PictureBox();
-            label2 = new Label();
             panel1 = new Panel();
-            label5 = new Label();
-            panel4 = new Panel();
-            textBox1 = new TextBox();
             label3 = new Label();
             panel3 = new Panel();
             textBox2 = new TextBox();
+            label5 = new Label();
+            panel4 = new Panel();
+            textBox1 = new TextBox();
             panel10 = new Panel();
             pictureBox5 = new PictureBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
-            panel4.SuspendLayout();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
@@ -64,6 +64,27 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(417, 75);
             panel2.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(111, 36);
+            label2.Name = "label2";
+            label2.Size = new Size(123, 28);
+            label2.TabIndex = 4;
+            label2.Text = "0373488359";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(55, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(48, 43);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -90,27 +111,6 @@
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(55, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(48, 43);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(111, 36);
-            label2.Name = "label2";
-            label2.Size = new Size(123, 28);
-            label2.TabIndex = 4;
-            label2.Text = "0373488359";
-            // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
@@ -124,6 +124,36 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(402, 192);
             panel1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(43, 7);
+            label3.Name = "label3";
+            label3.Size = new Size(105, 20);
+            label3.TabIndex = 3;
+            label3.Text = "Số tiền chuyển";
+            // 
+            // panel3
+            // 
+            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.BackgroundImageLayout = ImageLayout.Stretch;
+            panel3.Controls.Add(textBox2);
+            panel3.Location = new Point(19, 18);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(367, 61);
+            panel3.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.Location = new Point(13, 14);
+            textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "0đ";
+            textBox2.Size = new Size(339, 27);
+            textBox2.TabIndex = 0;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label5
             // 
@@ -154,35 +184,6 @@
             textBox1.Size = new Size(339, 27);
             textBox1.TabIndex = 0;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(43, 7);
-            label3.Name = "label3";
-            label3.Size = new Size(105, 20);
-            label3.TabIndex = 3;
-            label3.Text = "Số tiền chuyển";
-            // 
-            // panel3
-            // 
-            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
-            panel3.BackgroundImageLayout = ImageLayout.Stretch;
-            panel3.Controls.Add(textBox2);
-            panel3.Location = new Point(19, 18);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(367, 61);
-            panel3.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(13, 14);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "0đ";
-            textBox2.Size = new Size(339, 27);
-            textBox2.TabIndex = 0;
-            // 
             // panel10
             // 
             panel10.BackColor = Color.White;
@@ -195,6 +196,7 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.Enabled = false;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(8, 8);
             pictureBox5.Name = "pictureBox5";
@@ -202,6 +204,7 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 5;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
             // TransferMoneyDetail
             // 
@@ -218,10 +221,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);

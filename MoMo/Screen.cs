@@ -74,7 +74,16 @@ namespace MoMo
         private void iconButton1_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            //OpenTab(new HomeTab());
+            Home home = new Home();
+            OpenTab(home);
+            home.PayClicked += Home_PayClicked;
+        }
+
+        private void Home_PayClicked(object? sender, EventArgs e)
+        {
+            this.Hide();
+            Pay pay = new Pay(this);
+            pay.Show();
         }
 
         private void iconButton2_Click(object sender, EventArgs e)

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ZXing;
+﻿using ZXing;
 
 namespace MoMo
 {
@@ -48,6 +39,26 @@ namespace MoMo
                     }
                 }
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length == 0)
+            {
+                pictureBox5.Enabled = false;
+                pictureBox5.Image = Image.FromFile(@"../../../Images/chuyentiengray.png");
+            }
+            else
+            {
+                pictureBox5.Enabled = true;
+                pictureBox5.Image = Image.FromFile(@"../../../Images/chuyentien.png");
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chuyển khoản thành công số tiền: " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(textBox1.Text)),
+                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

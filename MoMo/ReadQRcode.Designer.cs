@@ -34,6 +34,8 @@
             label1 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
+            label7 = new Label();
+            pictureBox3 = new PictureBox();
             label5 = new Label();
             label4 = new Label();
             panel3 = new Panel();
@@ -50,6 +52,7 @@
             pictureBox5 = new PictureBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -115,6 +118,8 @@
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(panel3);
@@ -127,6 +132,27 @@
             panel1.Size = new Size(395, 578);
             panel1.TabIndex = 10;
             panel1.Visible = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(141, 528);
+            label7.Name = "label7";
+            label7.Size = new Size(159, 31);
+            label7.TabIndex = 9;
+            label7.Text = "Chọn QR khác";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(72, 513);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(59, 63);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 8;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox2_Click;
             // 
             // label5
             // 
@@ -185,6 +211,7 @@
             textBox1.PlaceholderText = "0đ";
             textBox1.Size = new Size(349, 27);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // pictureBox1
             // 
@@ -260,6 +287,7 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.Enabled = false;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(8, 8);
             pictureBox5.Name = "pictureBox5";
@@ -267,6 +295,7 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 5;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
             // ReadQRcode
             // 
@@ -283,6 +312,7 @@
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
@@ -317,5 +347,7 @@
         private Panel panel5;
         private Panel panel10;
         private PictureBox pictureBox5;
+        private Label label7;
+        private PictureBox pictureBox3;
     }
 }
