@@ -100,6 +100,7 @@ namespace MoMo
                 new User
                 {
                     Id = 1,
+                    FullName = "Trần Phú Vinh",
                     Email = "vinh123@gmail.com",
                     PhoneNumber = "0123456789",
                     Address = "123 Trần Phú P10 Q5 TP.Hồ Chí Minh",
@@ -108,6 +109,7 @@ namespace MoMo
                 new User
                 {
                     Id = 2,
+                    FullName = "Đào Trần Anh Tuấn",
                     Email = "tuan456@gmail.com",
                     PhoneNumber = "0987654321",
                     Address = "456 Đào Tuấn P5 Q10 TP.Hồ Chí Minh",
@@ -183,29 +185,33 @@ namespace MoMo
                 {
                     Id = 1,
                     Message = "Nạp tiền điện thoại",
-                    ReceiverId = 1,
-                    SenderId = 2,
+                    SenderId = 1,
+                    ReceiverId = 2,
+                    IsRead = true,
                 },
                 new ChatMessage
                 {
                     Id = 2,
                     Message = "Nạp tiền điện thoại",
-                    ReceiverId = 2,
                     SenderId = 1,
+                    ReceiverId = 2,
+                    IsRead = true,
                 },
                 new ChatMessage
                 {
                     Id = 3,
                     Message = "Nạp tiền điện thoại",
                     ReceiverId = 1,
-                    SenderId = 3
+                    SenderId = 3,
+                    IsRead= true,
                 },
                 new ChatMessage
                 {
                     Id = 4,
-                    Message = "Nạp tiền điện thoạiajslkdfhaslkdfjhlaskdflaskdfjalsdkfhasldkaslkdfhalskdfhalskdfjhaslkdfhasldkafsd",
+                    Message = "Nạp tiền điện thoại",
                     ReceiverId = 3,
                     SenderId = 1,
+                    IsRead = true,
                 });
         }
     }

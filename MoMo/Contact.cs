@@ -43,6 +43,7 @@ namespace MoMo
                     .FirstOrDefault()!;
 
                 ContactItem contactItem = new ContactItem();
+                contactItem.User = contact;
                 contactItem.ContactName = contact.FullName;
                 contactItem.ContactAvatarUrl = Utils.BytesArrayToImage(contact.AvatarImage);
                 contactItem.LatestMessage = latestMessage.Message;
@@ -58,15 +59,23 @@ namespace MoMo
                     contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM");
                 }
 
-                contactItem.Click += (sender, e) => ContactItem_Click();
+                contactItem.Click += (sender, e) => ContactItem_Click(sender!, e);
 
                 flowLayoutPanel1.Controls.Add(contactItem);
             }
         }
 
-        private void ContactItem_Click()
+        private void ContactItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Clicked");
+            User receiver = (sender as ContactItem)!.User;
+
+            ChatTab message_sender = new ChatTab(Session.LoggedInUserInfo!.Id, receiver.Id);
+            message_sender.Text = Session.LoggedInUserInfo.FullName;
+            message_sender.Show();
+
+            ChatTab message_receiver = new ChatTab(receiver.Id, Session.LoggedInUserInfo!.Id);
+            message_receiver.Text = receiver.FullName;
+            message_receiver.Show();
         }
     }
 }

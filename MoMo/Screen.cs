@@ -20,8 +20,7 @@ namespace MoMo
             label2.Text = Session.LoggedInUserInfo!.Address;
 
             Random random = new Random();
-            label3.Text = Utils.FormatVNCurrency(random.Next(100, 1000) * 1000);
-            label4.Text = random.Next(100, 10000).ToString();
+            label3.Text = Utils.FormatVNCurrency(Session.LoggedInUserInfo!.Balance * 1000);
 
             HighlightButton(iconButton1);
             //OpenTab(new HomeTab());

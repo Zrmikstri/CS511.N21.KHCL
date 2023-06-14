@@ -30,7 +30,6 @@
         {
             panel1 = new Panel();
             linkLabel1 = new LinkLabel();
-            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
@@ -51,7 +50,6 @@
             // 
             panel1.BackColor = Color.FromArgb(237, 243, 233);
             panel1.Controls.Add(linkLabel1);
-            panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(iconPictureBox1);
@@ -74,17 +72,6 @@
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Đăng xuât";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.None;
-            label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(285, 81);
-            label4.Name = "label4";
-            label4.Size = new Size(40, 15);
-            label4.TabIndex = 4;
-            label4.Text = "label4";
             // 
             // label3
             // 
@@ -307,7 +294,6 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton2;
         private Panel panel2;
-        private Label label4;
         private LinkLabel linkLabel1;
     }
 }

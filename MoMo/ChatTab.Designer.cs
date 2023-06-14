@@ -28,17 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             richTextBox1 = new RichTextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel2 = new Panel();
             iconButton2 = new FontAwesome.Sharp.IconButton();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // iconButton1
             // 
             iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatAppearance.CheckedBackColor = Color.Transparent;
+            iconButton1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            iconButton1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             iconButton1.FlatStyle = FlatStyle.Flat;
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.CircleArrowRight;
             iconButton1.IconColor = Color.DodgerBlue;
@@ -60,6 +65,7 @@
             richTextBox1.Size = new Size(308, 46);
             richTextBox1.TabIndex = 3;
             richTextBox1.Text = "";
+            richTextBox1.KeyDown += richTextBox1_KeyDown;
             // 
             // flowLayoutPanel1
             // 
@@ -86,6 +92,9 @@
             // iconButton2
             // 
             iconButton2.FlatAppearance.BorderSize = 0;
+            iconButton2.FlatAppearance.CheckedBackColor = Color.Transparent;
+            iconButton2.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            iconButton2.FlatAppearance.MouseOverBackColor = Color.Transparent;
             iconButton2.FlatStyle = FlatStyle.Flat;
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.Image;
             iconButton2.IconColor = Color.DodgerBlue;
@@ -96,6 +105,11 @@
             iconButton2.Size = new Size(32, 46);
             iconButton2.TabIndex = 4;
             iconButton2.UseVisualStyleBackColor = true;
+            iconButton2.Click += iconButton2_Click;
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
             // 
             // ChatTab
             // 
@@ -105,9 +119,11 @@
             ClientSize = new Size(396, 566);
             Controls.Add(panel2);
             Controls.Add(flowLayoutPanel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "ChatTab";
             Text = "ChatTab";
+            FormClosing += ChatTab_FormClosing;
+            Load += ChatTab_Load;
             panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -118,5 +134,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel2;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

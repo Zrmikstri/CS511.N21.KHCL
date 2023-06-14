@@ -12,6 +12,7 @@ namespace MoMo.MyUserControl
 {
     public partial class ContactItem : UserControl
     {
+        public User User { get; set; } = null!;
         public string ContactName
         {
             get { return label1.Text; }

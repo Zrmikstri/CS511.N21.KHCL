@@ -11,7 +11,9 @@ namespace MoMo
     {
         public int Id { get; set; }
         public string Message { get; set; } = string.Empty;
-        public DateTime Date { get; set; }
+        public byte[]? Image { get; set; } = null;
+        public bool IsRead { get; set; } = false;
+        public DateTime Date { get; set; } = DateTime.Now;
 
         public int SenderId { get; set; }
         public virtual User Sender { get; set; } = null!;
