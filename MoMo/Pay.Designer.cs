@@ -445,6 +445,7 @@
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Pay";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Pay";
             FormClosed += Pay_FormClosed;
             panel2.ResumeLayout(false);

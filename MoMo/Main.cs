@@ -27,8 +27,8 @@ namespace MoMo
         public void OpenChildForm(Form form)
         {
             // The new form is of the same partial class as the currently active form, do nothing
-            if (activeForm != null && activeForm.GetType().Name == form.GetType().Name)
-                return;
+            //if (activeForm != null && activeForm.GetType().Name == form.GetType().Name)
+            //    return;
 
             if (activeForm != null)
                 activeForm.Close();

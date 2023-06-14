@@ -7,9 +7,16 @@ namespace MoMo
     {
         private IconButton? currentButton;
         private Form? activeForm;
+        private Main? mainForm;
+        private bool isLogOutPressed = false;
         public Screen()
         {
             InitializeComponent();
+        }
+        public Screen(object e)
+        {
+            InitializeComponent();
+            this.mainForm = (Main)e;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -119,8 +126,11 @@ namespace MoMo
             Session.UserDbContext?.Dispose();
             Session.UserDbContext = null;
 
-            this.Hide();
-            ((Main)this.Owner!).Onload(e);
+            //this.Hide();
+            //((Main)this.Owner!).Onload(e);
+            mainForm!.Show();
+            mainForm!.Onload(e);
+            isLogOutPressed = true;
             this.Close();
 
         }
@@ -129,6 +139,12 @@ namespace MoMo
         {
             label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.FullName}";
             label2.Text = Session.LoggedInUserInfo!.Address;
+        }
+
+        private void Screen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!isLogOutPressed)
+                Application.Exit();
         }
     }
 }

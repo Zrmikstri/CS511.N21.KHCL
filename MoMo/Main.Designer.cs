@@ -35,17 +35,20 @@
             // 
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(396, 741);
+            panel1.Size = new Size(453, 988);
             panel1.TabIndex = 0;
             // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 741);
+            ClientSize = new Size(453, 988);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Main";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Main";
             FormClosed += Main_FormClosed;
             ResumeLayout(false);

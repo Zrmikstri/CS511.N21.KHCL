@@ -41,7 +41,9 @@ namespace MoMo
                 Session.LoggedInUserInfo = user;
 
                 this.Hide();
-                ((Main)this.Owner!).OpenChildForm(new Screen());
+                Screen screen = new Screen((Main)this.Owner!);
+                screen.Show();
+                ((Main)this.Owner!).Hide();
             }
         }
 
