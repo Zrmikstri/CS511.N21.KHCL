@@ -17,7 +17,7 @@ namespace MoMo.MyUserControl
             InitializeComponent();
         }
 
-        private void UpdateResultList(List<User> result)
+        public void UpdateResultList(List<User> result)
         {
             if (result == null)
                 return;
