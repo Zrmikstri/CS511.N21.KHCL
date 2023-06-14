@@ -18,14 +18,60 @@ namespace MoMo
         {
             InitializeComponent();
 
-            currentList = new RecommendProfileList();
-            currentList.Dock = DockStyle.Fill;
-            panel1.Controls.Add(currentList);
+            RecommendProfileList recommendProfileList = new RecommendProfileList();
+            recommendProfileList.Dock = DockStyle.Fill;
+
+            currentList = recommendProfileList;
+            panel1.Controls.Add(recommendProfileList);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            //if (currentList != null && currentList.GetType().Name == ) { }
+            if (textBox3.Text == "")
+            {
+                RecommendProfileList recommendProfileList = new RecommendProfileList();
+                recommendProfileList.Dock = DockStyle.Fill;
+
+                currentList = recommendProfileList;
+
+                panel1.Controls.Clear();
+                panel1.Controls.Add(recommendProfileList);
+
+                return;
+            }
+
+            if (currentList != null && currentList.GetType().Name != "SearchResultList") 
+            {
+                SearchResultList searchResultList = new SearchResultList();
+                
+                searchResultList.Dock = DockStyle.Fill;
+                searchResultList.UpdateResultList(GetRecommendProfiles());
+                
+                currentList = searchResultList;
+
+                panel1.Controls.Clear();
+                panel1.Controls.Add(searchResultList);
+            }
+            else if (currentList != null && currentList.GetType().Name == "SearchResultList")
+            {
+                ((SearchResultList)currentList).UpdateResultList(GetRecommendProfiles());
+            }
+        }
+
+        private List<User> GetRecommendProfiles()
+        {
+            //List<User> result = Session.UserDbContext!.Users
+            //    .Where(user => user.FullName.Contains(textBox3.Text) || user.PhoneNumber.Contains(textBox3.Text))
+            //    .ToList();
+            //return result;
+
+            using(var db = new UserDbContext())
+            {
+                List<User> result = db.Users
+                    .Where(user => user.FullName.ToLower().Contains(textBox3.Text.ToLower()) || user.PhoneNumber.Contains(textBox3.Text))
+                    .ToList();
+                return result;
+            }
         }
     }
 }
