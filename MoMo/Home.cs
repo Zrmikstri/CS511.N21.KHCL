@@ -12,9 +12,16 @@ namespace MoMo
 {
     public partial class Home : Form
     {
+        public event EventHandler PayClicked;
         public Home()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // pay click
+            PayClicked?.Invoke(this, e);
         }
     }
 }

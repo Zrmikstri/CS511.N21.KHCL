@@ -81,6 +81,7 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.Enabled = false;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(4, 9);
             pictureBox5.Name = "pictureBox5";
@@ -88,6 +89,7 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 5;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
             // label13
             // 
@@ -333,6 +335,7 @@
             textBox1.PlaceholderText = "0đ";
             textBox1.Size = new Size(339, 27);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label5
             // 

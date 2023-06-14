@@ -40,12 +40,21 @@
             pictureBox2 = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            label6 = new Label();
+            pictureBox6 = new PictureBox();
+            label7 = new Label();
+            pictureBox7 = new PictureBox();
+            label8 = new Label();
+            pictureBox8 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             SuspendLayout();
             // 
             // label5
@@ -160,12 +169,76 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // label6
+            // 
+            label6.Location = new Point(113, 281);
+            label6.Name = "label6";
+            label6.Size = new Size(86, 44);
+            label6.TabIndex = 7;
+            label6.Text = "Chuyển tiền ngân hàng";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(123, 209);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(68, 68);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 6;
+            pictureBox6.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.Location = new Point(228, 281);
+            label7.Name = "label7";
+            label7.Size = new Size(86, 44);
+            label7.TabIndex = 9;
+            label7.Text = "Thanh toán hoá đơn";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(238, 210);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(68, 68);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 8;
+            pictureBox7.TabStop = false;
+            // 
+            // label8
+            // 
+            label8.Location = new Point(338, 281);
+            label8.Name = "label8";
+            label8.Size = new Size(86, 44);
+            label8.TabIndex = 11;
+            label8.Text = "Nạp tiền điện thoại";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Location = new Point(348, 210);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(68, 68);
+            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox8.TabIndex = 10;
+            pictureBox8.TabStop = false;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(453, 755);
+            Controls.Add(label8);
+            Controls.Add(pictureBox8);
+            Controls.Add(label7);
+            Controls.Add(pictureBox7);
+            Controls.Add(label6);
+            Controls.Add(pictureBox6);
             Controls.Add(label5);
             Controls.Add(pictureBox5);
             Controls.Add(panel1);
@@ -179,6 +252,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,5 +272,11 @@
         private PictureBox pictureBox2;
         private Label label1;
         private PictureBox pictureBox1;
+        private Label label6;
+        private PictureBox pictureBox6;
+        private Label label7;
+        private PictureBox pictureBox7;
+        private Label label8;
+        private PictureBox pictureBox8;
     }
 }
