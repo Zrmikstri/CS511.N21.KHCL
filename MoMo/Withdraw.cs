@@ -13,6 +13,7 @@ namespace MoMo
     public partial class Withdraw : Form
     {
         private Panel[] panels;
+        private Screen screen;
         public Withdraw()
         {
             InitializeComponent();
@@ -21,6 +22,17 @@ namespace MoMo
             {
                 panel.Click += panel_Click_change_color;
             }
+        }
+
+        public Withdraw(object e)
+        {
+            InitializeComponent();
+            panels = new Panel[] { panel6, panel7, panel8 };
+            foreach (var panel in panels)
+            {
+                panel.Click += panel_Click_change_color;
+            }
+            this.screen = (Screen)e;
         }
 
         private void panel_Click_change_color(object? sender, EventArgs e)
@@ -58,6 +70,12 @@ namespace MoMo
         {
             MessageBox.Show("Rút thành công số tiền: " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(textBox1.Text)),
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            screen.Show();
+            this.Close();
         }
     }
 }

@@ -15,7 +15,13 @@ namespace MoMo
         Panel[] panels;
         Label[] labels;
         int flag = 0;
+        private Screen screen;
         public PayPhoneMoney()
+        {
+            InitializeComponent();
+        }
+
+        public PayPhoneMoney(object e)
         {
             InitializeComponent();
             panels = new Panel[] { panel1, panel9, panel10, panel4, panel5, panel6, panel7, panel8, panel11 };
@@ -24,6 +30,7 @@ namespace MoMo
             {
                 panel.Click += panel_Click_change_color;
             }
+            this.screen = (Screen)e;
         }
 
         private void panel_Click_change_color(object? sender, EventArgs e)
@@ -62,6 +69,12 @@ namespace MoMo
         {
             MessageBox.Show("Nạp thành công " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(labels[flag].Text.Substring(0, labels[flag].Text.Length - 1)))
                 + " cho SĐT " + textBox1.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            screen.Show();
+            this.Close();
         }
     }
 }

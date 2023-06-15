@@ -84,6 +84,11 @@ namespace MoMo
             Home home = new Home();
             OpenTab(home);
             home.PayClicked += Home_PayClicked;
+            home.PayPhoneMoneyClicked += Home_PayPhoneMoneyClicked;
+            home.QRReceiveClicked += Home_QRReceiveClicked;
+            home.QRScanClicked += Home_QRScanClicked;
+            home.WithdrawClicked += Home_WithdrawClicked;
+            home.TransferMoneyCliked += Home_TransferClicked;
         }
 
         private void Home_PayClicked(object? sender, EventArgs e)
@@ -91,6 +96,41 @@ namespace MoMo
             this.Hide();
             Pay pay = new Pay(this);
             pay.Show();
+        }
+
+        private void Home_PayPhoneMoneyClicked(object? sender, EventArgs e)
+        {
+            this.Hide();
+            PayPhoneMoney payPhoneMoney = new PayPhoneMoney(this);
+            payPhoneMoney.Show();
+        }
+
+        private void Home_QRReceiveClicked(object? sender, EventArgs e)
+        {
+            this.Hide();
+            QRReceive qrReceive = new QRReceive(this);
+            qrReceive.Show();
+        }
+
+        private void Home_QRScanClicked(object? sender, EventArgs e)
+        {
+            this.Hide();
+            ReadQRcode qrScan = new ReadQRcode(this);
+            qrScan.Show();
+        }
+
+        private void Home_WithdrawClicked(object? sender, EventArgs e)
+        {
+            this.Hide();
+            Withdraw withdraw = new Withdraw(this);
+            withdraw.Show();
+        }
+
+        private void Home_TransferClicked(object? sender, EventArgs e)
+        {
+            this.Hide();
+            TransferMoney transferMoney = new TransferMoney(this);
+            transferMoney.Show();
         }
 
         private void iconButton2_Click(object sender, EventArgs e)

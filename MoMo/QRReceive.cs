@@ -13,10 +13,19 @@ namespace MoMo
 {
     public partial class QRReceive : Form
     {
+        private Screen screen;
         public QRReceive()
         {
             InitializeComponent();
             createDefaultQRCode();
+        }
+
+        public QRReceive(object e)
+        {
+            InitializeComponent();
+            createDefaultQRCode();
+            this.screen = (Screen)e;
+
         }
 
         public void createQRCode(string data)
@@ -54,6 +63,12 @@ namespace MoMo
                     pictureBox1.Image.Save(sfd.FileName);
                 }
             }
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            screen.Show();
+            this.Close();
         }
     }
 }

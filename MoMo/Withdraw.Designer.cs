@@ -407,6 +407,7 @@
             iconButton1.Size = new Size(65, 62);
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // panel2
             // 
@@ -430,7 +431,9 @@
             Controls.Add(panel5);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Withdraw";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Withdraw";
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();

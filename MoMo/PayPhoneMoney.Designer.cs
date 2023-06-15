@@ -123,6 +123,7 @@
             iconButton1.Size = new Size(65, 62);
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // panel3
             // 
@@ -396,7 +397,9 @@
             Controls.Add(panel1);
             Controls.Add(panel3);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "PayPhoneMoney";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PayPhoneMoney";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
