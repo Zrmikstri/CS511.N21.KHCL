@@ -64,12 +64,17 @@ namespace MoMo
         {
             MessageBox.Show(
                 "Chuyển khoản thành công số tiền: " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(textBox2.Text)),
-                "Thông báo", 
-                MessageBoxButtons.OK, 
+                "Thông báo",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
             textBox1.Clear();
             textBox2.Clear();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            StackNavigation.Pop();
         }
     }
 }

@@ -54,7 +54,7 @@ namespace MoMo.MyUserControl
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listView1.SelectedItems.Count == 0)
+            if (listView1.SelectedItems.Count == 0)
                 return;
 
             // Open Transfer money details

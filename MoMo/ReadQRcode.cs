@@ -4,16 +4,9 @@ namespace MoMo
 {
     public partial class ReadQRcode : Form
     {
-        private Screen screen;
         public ReadQRcode()
         {
             InitializeComponent();
-        }
-
-        public ReadQRcode(object e)
-        {
-            InitializeComponent();
-            this.screen = (Screen)e;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -70,8 +63,7 @@ namespace MoMo
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            screen.Show();
-            this.Close();
+            StackNavigation.Pop();
         }
     }
 }

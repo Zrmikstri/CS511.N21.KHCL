@@ -67,10 +67,8 @@ namespace MoMo
 
 
             // If username and password are correct, close the login form and open home form
-            this.Hide();
             Screen screen = new Screen((Main)this.Owner!);
-            screen.Show();
-            ((Main)this.Owner!).Hide();
+            StackNavigation.Push(screen);
             //((Main)this.Owner!).OpenChildForm(new Screen());
         }
 

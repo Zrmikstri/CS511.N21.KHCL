@@ -114,6 +114,7 @@
             iconButton1.Size = new Size(40, 42);
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // panel1
             // 
@@ -238,6 +239,7 @@
             Controls.Add(panel2);
             Margin = new Padding(3, 2, 3, 2);
             Name = "TransferMoneyDetail";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "TransferMoneyDetail";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

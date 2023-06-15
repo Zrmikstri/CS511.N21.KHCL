@@ -9,14 +9,17 @@ namespace MoMo
         private Form? activeForm;
         private Main? mainForm;
         private bool isLogOutPressed = false;
+
         public Screen()
         {
             InitializeComponent();
         }
+
         public Screen(object e)
         {
             InitializeComponent();
             this.mainForm = (Main)e;
+            OpenTab(new Home());
         }
 
         protected override void OnLoad(EventArgs e)
@@ -81,56 +84,7 @@ namespace MoMo
         private void iconButton1_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            Home home = new Home();
-            OpenTab(home);
-            home.PayClicked += Home_PayClicked;
-            home.PayPhoneMoneyClicked += Home_PayPhoneMoneyClicked;
-            home.QRReceiveClicked += Home_QRReceiveClicked;
-            home.QRScanClicked += Home_QRScanClicked;
-            home.WithdrawClicked += Home_WithdrawClicked;
-            home.TransferMoneyCliked += Home_TransferClicked;
-        }
-
-        private void Home_PayClicked(object? sender, EventArgs e)
-        {
-            this.Hide();
-            Pay pay = new Pay(this);
-            pay.Show();
-        }
-
-        private void Home_PayPhoneMoneyClicked(object? sender, EventArgs e)
-        {
-            this.Hide();
-            PayPhoneMoney payPhoneMoney = new PayPhoneMoney(this);
-            payPhoneMoney.Show();
-        }
-
-        private void Home_QRReceiveClicked(object? sender, EventArgs e)
-        {
-            this.Hide();
-            QRReceive qrReceive = new QRReceive(this);
-            qrReceive.Show();
-        }
-
-        private void Home_QRScanClicked(object? sender, EventArgs e)
-        {
-            this.Hide();
-            ReadQRcode qrScan = new ReadQRcode(this);
-            qrScan.Show();
-        }
-
-        private void Home_WithdrawClicked(object? sender, EventArgs e)
-        {
-            this.Hide();
-            Withdraw withdraw = new Withdraw(this);
-            withdraw.Show();
-        }
-
-        private void Home_TransferClicked(object? sender, EventArgs e)
-        {
-            this.Hide();
-            TransferMoney transferMoney = new TransferMoney(this);
-            transferMoney.Show();
+            OpenTab(new Home());
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
@@ -168,11 +122,9 @@ namespace MoMo
 
             //this.Hide();
             //((Main)this.Owner!).Onload(e);
-            mainForm!.Show();
             mainForm!.Onload(e);
             isLogOutPressed = true;
-            this.Close();
-
+            StackNavigation.Pop();
         }
 
         private void panel1_Click(object sender, EventArgs e)

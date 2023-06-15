@@ -14,7 +14,7 @@ namespace MoMo
     public partial class TransferMoney : Form
     {
         private UserControl currentList = null!;
-        private Screen screen = null!;
+
         public TransferMoney()
         {
             InitializeComponent();
@@ -25,18 +25,6 @@ namespace MoMo
             currentList = recommendProfileList;
             panel1.Controls.Add(recommendProfileList);
         }
-        public TransferMoney(Screen screen)
-        {
-            InitializeComponent();
-
-            RecommendProfileList recommendProfileList = new RecommendProfileList();
-            recommendProfileList.Dock = DockStyle.Fill;
-
-            currentList = recommendProfileList;
-            panel1.Controls.Add(recommendProfileList);
-            this.screen = screen;
-        }
-
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             if (textBox3.Text == "")
@@ -81,8 +69,7 @@ namespace MoMo
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            screen.Show();
-            this.Close();
+            StackNavigation.Pop();
         }
     }
 }

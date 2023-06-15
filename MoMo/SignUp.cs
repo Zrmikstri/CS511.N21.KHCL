@@ -40,10 +40,8 @@ namespace MoMo
 
                 Session.LoggedInUserInfo = user;
 
-                this.Hide();
                 Screen screen = new Screen((Main)this.Owner!);
-                screen.Show();
-                ((Main)this.Owner!).Hide();
+                StackNavigation.Push(screen);
             }
         }
 

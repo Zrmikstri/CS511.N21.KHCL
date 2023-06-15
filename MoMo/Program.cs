@@ -11,7 +11,9 @@ namespace MoMo
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new TransferMoneyDetail());
+            Main main = new Main();
+            StackNavigation.Push(main);
+            Application.Run(main);
         }
     }
 }

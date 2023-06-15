@@ -13,29 +13,16 @@ namespace MoMo
     public partial class Withdraw : Form
     {
         private Panel[] panels;
-        private Screen screen;
+
         public Withdraw()
         {
             InitializeComponent();
             panels = new Panel[] { panel6, panel7, panel8 };
             foreach (var panel in panels)
-            {
-                panel.Click += panel_Click_change_color;
-            }
+                panel.Click += panel_Click_change_color!;
         }
 
-        public Withdraw(object e)
-        {
-            InitializeComponent();
-            panels = new Panel[] { panel6, panel7, panel8 };
-            foreach (var panel in panels)
-            {
-                panel.Click += panel_Click_change_color;
-            }
-            this.screen = (Screen)e;
-        }
-
-        private void panel_Click_change_color(object? sender, EventArgs e)
+        private void panel_Click_change_color(object sender, EventArgs e)
         {
             var ClickedPanel = (Panel)sender;
             ClickedPanel.BackgroundImage = Image.FromFile(@"../../../Images/pink_round_line.png");
@@ -74,8 +61,7 @@ namespace MoMo
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            screen.Show();
-            this.Close();
+            StackNavigation.Pop();
         }
     }
 }

@@ -12,31 +12,28 @@ namespace MoMo
 {
     public partial class PayPhoneMoney : Form
     {
-        Panel[] panels;
-        Label[] labels;
+        Panel[] panels = null!;
+        Label[] labels = null!;
         int flag = 0;
-        private Screen screen;
+
         public PayPhoneMoney()
         {
             InitializeComponent();
-        }
 
-        public PayPhoneMoney(object e)
-        {
-            InitializeComponent();
             panels = new Panel[] { panel1, panel9, panel10, panel4, panel5, panel6, panel7, panel8, panel11 };
             labels = new Label[] { label1, label9, label10, label4, label5, label6, label7, label8, label11 };
+
             foreach (var panel in panels)
             {
-                panel.Click += panel_Click_change_color;
+                panel.Click += panel_Click_change_color!;
             }
-            this.screen = (Screen)e;
         }
 
-        private void panel_Click_change_color(object? sender, EventArgs e)
+        private void panel_Click_change_color(object sender, EventArgs e)
         {
             var ClickedPanel = (Panel)sender;
             ClickedPanel.BackgroundImage = Image.FromFile(@"../../../Images/rectangle_pink.png");
+
             for (int i = 0; i < panels.Length; i++)
             {
                 if (panels[i] != ClickedPanel)
@@ -53,6 +50,7 @@ namespace MoMo
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             var textBox = (TextBox)sender;
+
             if (textBox.Text.Length == 10)
             {
                 pictureBox5.Image = Image.FromFile(@"../../../Images/pay_button.png");
@@ -73,8 +71,7 @@ namespace MoMo
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            screen.Show();
-            this.Close();
+            StackNavigation.Pop();
         }
     }
 }

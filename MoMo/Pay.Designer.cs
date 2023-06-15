@@ -447,7 +447,6 @@
             Name = "Pay";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pay";
-            FormClosed += Pay_FormClosed;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);

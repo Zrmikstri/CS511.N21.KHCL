@@ -14,36 +14,22 @@ namespace MoMo
 {
     public partial class Pay : Form
     {
-        private Screen screen;
         private Panel[] panels;
         public Pay()
         {
             InitializeComponent();
-        }
 
-        public Pay(object screen)
-        {
-            InitializeComponent();
-            this.screen = (Screen)screen;
             panels = new Panel[] { panel6, panel7, panel8 };
             foreach (var panel in panels)
-            {
-                panel.Click += panel_Click_change_color;
-            }
+                panel.Click += panel_Click_change_color!;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            screen.Show();
-            this.Close();
+            StackNavigation.Pop();
         }
 
-        private void Pay_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
-        private void panel_Click_change_color(object? sender, EventArgs e)
+        private void panel_Click_change_color(object sender, EventArgs e)
         {
             var ClickedPanel = (Panel)sender;
             ClickedPanel.BackgroundImage = Image.FromFile(@"../../../Images/pink_round_line.png");
