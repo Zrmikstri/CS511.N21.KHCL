@@ -14,7 +14,7 @@ namespace MoMo
     public partial class TransferMoney : Form
     {
         private UserControl currentList = null!;
-        private Screen screen;
+        private Screen screen = null!;
         public TransferMoney()
         {
             InitializeComponent();
@@ -75,15 +75,8 @@ namespace MoMo
             List<User> result = Session.UserDbContext!.Users
                 .Where(user => user.FullName.Contains(textBox3.Text) || user.PhoneNumber.Contains(textBox3.Text))
                 .ToList();
-            return result;
 
-            //using (var db = new UserDbContext())
-            //{
-            //    List<User> result = db.Users
-            //        .Where(user => user.FullName.ToLower().Contains(textBox3.Text.ToLower()) || user.PhoneNumber.Contains(textBox3.Text))
-            //        .ToList();
-            //    return result;
-            //}
+            return result;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace MoMo
 {
     public static class Utils
     {
-        public static string FormatVNCurrency(double amount, bool isShorten = false)
+        public static string FormatVNCurrency(double amount, bool isShorten = false, bool isCurrencyHidden = false)
         {
             if (isShorten)
             {
@@ -26,15 +26,21 @@ namespace MoMo
 
             CultureInfo viVN = new CultureInfo("vi-VN");
             NumberFormatInfo nfi = viVN.NumberFormat;
-            nfi.CurrencySymbol = "VND";
+            
+            if (isCurrencyHidden)
+                nfi.CurrencySymbol = "";
+            else
+                nfi.CurrencySymbol = "VND";
+            
             nfi.CurrencyDecimalDigits = 0;
-            return amount.ToString("C", nfi);
+            return amount.ToString("C", nfi).Trim();
         }
 
         public static double VNCurrencyToDouble(string currency)
-        {
+        { 
             //Remove all non number characters using regex
             string value = System.Text.RegularExpressions.Regex.Replace(currency, "[^0-9]", "");
+            value = value.Trim();
             return double.Parse(value);
         }
 

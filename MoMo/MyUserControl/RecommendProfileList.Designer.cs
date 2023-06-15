@@ -38,10 +38,12 @@
             listView1.BackColor = SystemColors.Control;
             listView1.BorderStyle = BorderStyle.None;
             listView1.Location = new Point(0, 48);
+            listView1.MultiSelect = false;
             listView1.Name = "listView1";
             listView1.Size = new Size(396, 107);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
             // label1
             // 
