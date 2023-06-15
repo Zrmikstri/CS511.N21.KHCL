@@ -39,6 +39,7 @@
             panel3 = new Panel();
             textBox2 = new TextBox();
             panel4 = new Panel();
+            label15 = new Label();
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
             label3 = new Label();
@@ -169,11 +170,22 @@
             // 
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(label15);
             panel4.Controls.Add(textBox1);
             panel4.Location = new Point(13, 354);
             panel4.Name = "panel4";
             panel4.Size = new Size(367, 61);
             panel4.TabIndex = 3;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(313, 13);
+            label15.Name = "label15";
+            label15.Size = new Size(56, 28);
+            label15.TabIndex = 3;
+            label15.Text = "VND";
             // 
             // textBox1
             // 
@@ -182,8 +194,9 @@
             textBox1.Location = new Point(6, 13);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "0đ";
-            textBox1.Size = new Size(349, 27);
+            textBox1.Size = new Size(313, 27);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // pictureBox1
             // 
@@ -319,5 +332,6 @@
         private PictureBox pictureBox3;
         private Label label6;
         private PictureBox pictureBox2;
+        private Label label15;
     }
 }

@@ -62,6 +62,7 @@
             label14 = new Label();
             panel10 = new Panel();
             pictureBox5 = new PictureBox();
+            label15 = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -159,6 +160,7 @@
             // 
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(label15);
             panel4.Controls.Add(textBox1);
             panel4.Location = new Point(25, 134);
             panel4.Name = "panel4";
@@ -172,7 +174,7 @@
             textBox1.Location = new Point(13, 14);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "0đ";
-            textBox1.Size = new Size(339, 27);
+            textBox1.Size = new Size(303, 27);
             textBox1.TabIndex = 0;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -433,6 +435,16 @@
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(313, 13);
+            label15.Name = "label15";
+            label15.Size = new Size(56, 28);
+            label15.TabIndex = 2;
+            label15.Text = "VND";
+            // 
             // Pay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -510,5 +522,6 @@
         private Label label14;
         private Panel panel10;
         private PictureBox pictureBox5;
+        private Label label15;
     }
 }

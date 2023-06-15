@@ -61,5 +61,39 @@ namespace MoMo
         {
             StackNavigation.Pop();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            string text = textBox.Text;
+
+            if (string.IsNullOrEmpty(text))
+            {
+                pictureBox2.Image = Image.FromFile(@"../../../Images/reset_gray.png");
+                pictureBox2.Enabled = false;
+                return;
+            }
+
+            // Set limit for the amount of money
+            if (Utils.VNCurrencyToDouble(textBox.Text) > 50_000_000D)
+            {
+                MessageBox.Show("Số tiền nhận không được vượt quá 50.000.000đ", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox.Text = Utils.FormatVNCurrency(50_000_000D, isCurrencyHidden: true);
+                return;
+            }
+
+            textBox.TextChanged -= textBox1_TextChanged!;
+            textBox.Text = Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(text), isCurrencyHidden: true);
+            textBox.TextChanged += textBox1_TextChanged!;
+
+            //Move the caret to the end of the text box
+            textBox.SelectionStart = textBox.Text.Length;
+            textBox.SelectionLength = 0;
+
+
+            // Enable the button if the amount of money is greater than 0
+            pictureBox2.Image = Image.FromFile(@"../../../Images/reset.png");
+            pictureBox2.Enabled = true;
+        }
     }
 }

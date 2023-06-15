@@ -35,7 +35,8 @@ namespace MoMo
                     }
                     else
                     {
-                        MessageBox.Show("No QR Code found in the image.");
+                        MessageBox.Show("Mã QR không hợp lệ. Vui lòng thử lại", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -43,16 +44,36 @@ namespace MoMo
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0)
+            TextBox textBox = (TextBox)sender;
+            string text = textBox.Text;
+
+            if (string.IsNullOrEmpty(text))
             {
-                pictureBox5.Enabled = false;
                 pictureBox5.Image = Image.FromFile(@"../../../Images/chuyentiengray.png");
+                pictureBox5.Enabled = false;
+                return;
             }
-            else
+
+            // Set limit for the amount of money
+            if (Utils.VNCurrencyToDouble(textBox.Text) > 50_000_000D)
             {
-                pictureBox5.Enabled = true;
-                pictureBox5.Image = Image.FromFile(@"../../../Images/chuyentien.png");
+                MessageBox.Show("Số tiền chuyển không được vượt quá 50.000.000đ", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox.Text = Utils.FormatVNCurrency(50_000_000D, isCurrencyHidden: true);
+                return;
             }
+
+            textBox.TextChanged -= textBox1_TextChanged!;
+            textBox.Text = Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(text), isCurrencyHidden: true);
+            textBox.TextChanged += textBox1_TextChanged!;
+
+            //Move the caret to the end of the text box
+            textBox.SelectionStart = textBox.Text.Length;
+            textBox.SelectionLength = 0;
+
+
+            // Enable the button if the amount of money is greater than 0
+            pictureBox5.Image = Image.FromFile(@"../../../Images/chuyentien.png");
+            pictureBox5.Enabled = true;
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)

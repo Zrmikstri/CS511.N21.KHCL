@@ -61,6 +61,7 @@
             label1 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
+            label15 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel9.SuspendLayout();
@@ -333,7 +334,7 @@
             textBox1.Location = new Point(6, 13);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "0đ";
-            textBox1.Size = new Size(339, 27);
+            textBox1.Size = new Size(309, 27);
             textBox1.TabIndex = 0;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -350,6 +351,7 @@
             // 
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(label15);
             panel4.Controls.Add(textBox1);
             panel4.Location = new Point(18, 97);
             panel4.Name = "panel4";
@@ -420,6 +422,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(417, 75);
             panel2.TabIndex = 7;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(311, 13);
+            label15.Name = "label15";
+            label15.Size = new Size(56, 28);
+            label15.TabIndex = 4;
+            label15.Text = "VND";
             // 
             // Withdraw
             // 
@@ -497,5 +509,6 @@
         private Label label1;
         private FontAwesome.Sharp.IconButton iconButton1;
         private Panel panel2;
+        private Label label15;
     }
 }
