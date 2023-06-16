@@ -1,9 +1,18 @@
 ﻿using ZXing;
+using AForge.Video.DirectShow;
+using AForge.Video;
+using ZXing.Common;
+using ZXing.Windows.Compatibility;
 
 namespace MoMo
 {
     public partial class ReadQRcode : Form
     {
+        private FilterInfoCollection videoDevices;
+        private VideoCaptureDevice videoSource;
+        private bool isCameraCapturing = false;
+        private bool isCameraStart = false;
+
         public ReadQRcode()
         {
             InitializeComponent();
@@ -85,6 +94,97 @@ namespace MoMo
         private void iconButton1_Click(object sender, EventArgs e)
         {
             StackNavigation.Pop();
+        }
+
+        private void startCamera()
+        {
+            // scan qr from camera
+            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            if (videoDevices.Count == 0)
+            {
+                MessageBox.Show("No video devices found.");
+                return;
+            }
+
+            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            videoSource.NewFrame += VideoSource_NewFrame;
+            videoSource.Start();
+        }
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = false;
+            panel1.Visible = true;
+            startCamera();
+            isCameraStart = true;
+        }
+
+        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            if (isCameraCapturing)
+                return;
+            // Convert the current frame to a bitmap
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+
+            // Create a barcode reader instance
+            BarcodeReader reader = new BarcodeReader();
+
+            // Set the reader's options for QR codes
+            reader.Options = new DecodingOptions
+            {
+                PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.QR_CODE },
+                TryHarder = true
+            };
+
+            // Read the QR code from the bitmap
+            Result result = reader.Decode(bitmap);
+
+            if (result != null)
+            {
+                // QR code was successfully decoded
+                string qrCodeText = result.Text;
+                UpdateQRCodeResult(qrCodeText);
+                isCameraCapturing = true;
+                // Perform any necessary actions with the QR code text
+                // For example, display it in a label or textbox
+            }
+
+            // Update the PictureBox control with the new frame
+            pictureBox1.Image = bitmap;
+        }
+
+        private void StopCameraCapture()
+        {
+            videoSource.SignalToStop();
+            videoSource.WaitForStop();
+            videoSource = null;
+        }
+
+        private void UpdateQRCodeResult(string qrCodeTextInput)
+        {
+            // This method can be used to update a label or textbox with the QR code text
+            // You can modify it according to your specific application's needs
+            // For example, if you have a label called lblQRCodeResult, you can update it as follows:
+            //label2.Invoke((MethodInvoker)(() => label2.Text = qrCodeText));
+            string[] qrCodeText = qrCodeTextInput.Split('|');
+            label2.Text = qrCodeText[0];
+            label3.Text = qrCodeText[1];
+            textBox1.Text = qrCodeText[2];
+            textBox2.Text = qrCodeText[3];
+        }
+
+        private void ReadQRcode_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            StopCameraCapture();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            isCameraCapturing = false;
+            if (!isCameraStart)
+            {
+                startCamera();
+                isCameraStart = true;
+            }
         }
     }
 }

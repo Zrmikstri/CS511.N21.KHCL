@@ -34,6 +34,8 @@
             label1 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
+            label9 = new Label();
+            pictureBox6 = new PictureBox();
             label7 = new Label();
             pictureBox3 = new PictureBox();
             label5 = new Label();
@@ -41,6 +43,7 @@
             panel3 = new Panel();
             textBox2 = new TextBox();
             panel4 = new Panel();
+            label15 = new Label();
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
             label3 = new Label();
@@ -48,17 +51,20 @@
             label6 = new Label();
             pictureBox2 = new PictureBox();
             panel5 = new Panel();
+            label8 = new Label();
+            pictureBox4 = new PictureBox();
             panel10 = new Panel();
             pictureBox5 = new PictureBox();
-            label15 = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
@@ -120,6 +126,8 @@
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(label5);
@@ -129,11 +137,32 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(12, 129);
+            panel1.Location = new Point(12, 97);
             panel1.Name = "panel1";
-            panel1.Size = new Size(395, 578);
+            panel1.Size = new Size(395, 655);
             panel1.TabIndex = 10;
             panel1.Visible = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(137, 599);
+            label9.Name = "label9";
+            label9.Size = new Size(215, 31);
+            label9.TabIndex = 12;
+            label9.Text = "Chụp QR từ camera";
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(72, 586);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(59, 60);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 11;
+            pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // label7
             // 
@@ -205,6 +234,16 @@
             panel4.Size = new Size(367, 61);
             panel4.TabIndex = 3;
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(311, 13);
+            label15.Name = "label15";
+            label15.Size = new Size(56, 28);
+            label15.TabIndex = 3;
+            label15.Text = "VND";
+            // 
             // textBox1
             // 
             textBox1.BorderStyle = BorderStyle.None;
@@ -249,7 +288,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(119, 29);
+            label6.Location = new Point(119, 40);
             label6.Name = "label6";
             label6.Size = new Size(223, 31);
             label6.TabIndex = 8;
@@ -258,7 +297,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(33, 3);
+            pictureBox2.Location = new Point(33, 14);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(80, 77);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -271,12 +310,35 @@
             panel5.BackColor = Color.Transparent;
             panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Controls.Add(label8);
+            panel5.Controls.Add(pictureBox4);
             panel5.Controls.Add(pictureBox2);
             panel5.Controls.Add(label6);
-            panel5.Location = new Point(12, 450);
+            panel5.Location = new Point(12, 340);
             panel5.Name = "panel5";
-            panel5.Size = new Size(393, 83);
+            panel5.Size = new Size(393, 201);
             panel5.TabIndex = 11;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(125, 127);
+            label8.Name = "label8";
+            label8.Size = new Size(215, 31);
+            label8.TabIndex = 10;
+            label8.Text = "Chụp QR từ camera";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(33, 104);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(80, 77);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 9;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // panel10
             // 
@@ -300,16 +362,6 @@
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
             // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(311, 13);
-            label15.Name = "label15";
-            label15.Size = new Size(56, 28);
-            label15.TabIndex = 3;
-            label15.Text = "VND";
-            // 
             // ReadQRcode
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -323,10 +375,12 @@
             Name = "ReadQRcode";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ReadQRcode";
+            FormClosing += ReadQRcode_FormClosing;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -336,6 +390,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
@@ -365,5 +420,9 @@
         private Label label7;
         private PictureBox pictureBox3;
         private Label label15;
+        private Label label8;
+        private PictureBox pictureBox4;
+        private Label label9;
+        private PictureBox pictureBox6;
     }
 }
