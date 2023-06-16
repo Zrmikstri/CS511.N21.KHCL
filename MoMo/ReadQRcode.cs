@@ -154,9 +154,12 @@ namespace MoMo
 
         private void StopCameraCapture()
         {
-            videoSource.SignalToStop();
-            videoSource.WaitForStop();
-            videoSource = null;
+            if (!panel5.Visible)
+            {
+                videoSource.SignalToStop();
+                videoSource.WaitForStop();
+                videoSource = null;
+            }
         }
 
         private void UpdateQRCodeResult(string qrCodeTextInput)

@@ -152,7 +152,7 @@
             iconButton1.BackColor = Color.FromArgb(243, 233, 237);
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconButton1.IconColor = Color.Black;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -175,7 +175,7 @@
             iconButton2.BackColor = Color.FromArgb(243, 233, 237);
             iconButton2.FlatAppearance.BorderSize = 0;
             iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.Gear;
             iconButton2.IconColor = Color.Black;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -198,7 +198,7 @@
             iconButton4.BackColor = Color.FromArgb(243, 233, 237);
             iconButton4.FlatAppearance.BorderSize = 0;
             iconButton4.FlatStyle = FlatStyle.Flat;
-            iconButton4.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton4.IconChar = FontAwesome.Sharp.IconChar.Comments;
             iconButton4.IconColor = Color.Black;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Solid;
@@ -221,7 +221,7 @@
             iconButton5.BackColor = Color.FromArgb(243, 233, 237);
             iconButton5.FlatAppearance.BorderSize = 0;
             iconButton5.FlatStyle = FlatStyle.Flat;
-            iconButton5.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton5.IconChar = FontAwesome.Sharp.IconChar.User;
             iconButton5.IconColor = Color.Black;
             iconButton5.IconFont = FontAwesome.Sharp.IconFont.Solid;
@@ -244,7 +244,7 @@
             iconButton3.BackColor = Color.FromArgb(243, 233, 237);
             iconButton3.FlatAppearance.BorderSize = 0;
             iconButton3.FlatStyle = FlatStyle.Flat;
-            iconButton3.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton3.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
             iconButton3.IconColor = Color.Black;
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;

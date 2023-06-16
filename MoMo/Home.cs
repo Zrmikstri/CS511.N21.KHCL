@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace MoMo
@@ -15,6 +16,12 @@ namespace MoMo
         public Home()
         {
             InitializeComponent();
+            this.HorizontalScroll.Maximum = 0;
+            this.VerticalScroll.Maximum = 0;
+            this.AutoScroll = false;
+            this.VerticalScroll.Visible = false;
+            this.HorizontalScroll.Visible = false;
+            this.AutoScroll = true;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
