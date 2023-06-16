@@ -7,7 +7,6 @@ namespace MoMo
     public partial class Main : Form
     {
         public Form? activeForm;
-        public UserDbContext? userDbContext;
 
         public Main()
         {
@@ -47,15 +46,6 @@ namespace MoMo
         {
             base.OnLoad(e);
 
-            this.userDbContext = new UserDbContext();
-
-            // Uncomment the line below to start fresh with a new database.
-            this.userDbContext.Database.EnsureDeleted();
-            this.userDbContext.Database.EnsureCreated();
-            this.userDbContext.Users.Load();
-
-            Session.UserDbContext = this.userDbContext;
-
             OpenChildForm(new Login());
         }
 
@@ -64,9 +54,6 @@ namespace MoMo
             base.OnClosing(e);
 
             Utils.SaveUserInfo();
-
-            this.userDbContext?.Dispose();
-            this.userDbContext = null;
         }
 
         public void Onload(EventArgs e)

@@ -21,15 +21,19 @@ namespace MoMo.MyUserControl
         private void RecommendProfileList_Load(object sender, EventArgs e)
         {
             // Load list of user that has message with current user
-            List<int> recommendIdList = Session.UserDbContext!.ChatMessages
-                .Where(msg => msg.SenderId == Session.LoggedInUserInfo!.Id || msg.ReceiverId == Session.LoggedInUserInfo!.Id)
-                .Select(msg => msg.SenderId == Session.LoggedInUserInfo!.Id ? msg.ReceiverId : msg.SenderId)
-                .Distinct()
-                .ToList();
+            List<User> recommendList;
+            using (UserDbContext dbContext = new())
+            {
+                List<int> recommendIdList = dbContext.ChatMessages
+                    .Where(msg => msg.SenderId == Session.LoggedInUserInfo!.Id || msg.ReceiverId == Session.LoggedInUserInfo!.Id)
+                    .Select(msg => msg.SenderId == Session.LoggedInUserInfo!.Id ? msg.ReceiverId : msg.SenderId)
+                    .Distinct()
+                    .ToList();
 
-            List<User> recommendList = Session.UserDbContext.Users
-                .Where(user => recommendIdList.Contains(user.Id))
-                .ToList();
+                 recommendList = dbContext.Users
+                    .Where(user => recommendIdList.Contains(user.Id))
+                    .ToList();
+            }
 
             ImageList imageList = new ImageList();
             imageList.ImageSize = new Size(50, 50);

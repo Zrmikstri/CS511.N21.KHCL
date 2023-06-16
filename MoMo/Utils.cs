@@ -65,15 +65,18 @@ namespace MoMo
         {
             if (Session.LoggedInUserInfo != null)
             {
-                // Save the user's information from session to the database
-                User? currentUser = Session.UserDbContext?.Users
-                    .SingleOrDefault(u => u.Id == Session.LoggedInUserInfo!.Id);
-
-                // Update the user's information
-                if (currentUser != null)
+                using (UserDbContext dbContext = new())
                 {
-                    Session.UserDbContext!.Entry(currentUser!).CurrentValues.SetValues(Session.LoggedInUserInfo);
-                    Session.UserDbContext!.SaveChanges();
+                    // Save the user's information from session to the database
+                    User? currentUser = dbContext.Users
+                        .SingleOrDefault(u => u.Id == Session.LoggedInUserInfo!.Id);
+
+                    // Update the user's information
+                    if (currentUser != null)
+                    {
+                        dbContext.Entry(currentUser!).CurrentValues.SetValues(Session.LoggedInUserInfo);
+                        dbContext.SaveChanges();
+                    }
                 }
             }
         }

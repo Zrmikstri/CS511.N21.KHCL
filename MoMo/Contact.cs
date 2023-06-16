@@ -23,45 +23,49 @@ namespace MoMo
         {
             base.OnLoad(e);
 
-            // Load list of user that has message with current user
-            List<int> contactsId = Session.UserDbContext!.ChatMessages
-                .Where(msg => msg.SenderId == Session.LoggedInUserInfo!.Id || msg.ReceiverId == Session.LoggedInUserInfo!.Id)
-                .Select(msg => msg.SenderId == Session.LoggedInUserInfo!.Id ? msg.ReceiverId : msg.SenderId)
-                .Distinct()
-                .ToList();
-
-            List<User> contacts = Session.UserDbContext.Users
-                .Where(user => contactsId.Contains(user.Id))
-                .ToList();
-
-            // Load list of latest message with each contact
-            foreach (User contact in contacts)
+            // Load list of user
+            using (UserDbContext dbContext = new UserDbContext())
             {
-                ChatMessage latestMessage = Session.UserDbContext.ChatMessages
-                    .Where(msg => (msg.SenderId == Session.LoggedInUserInfo!.Id && msg.ReceiverId == contact.Id) || (msg.SenderId == contact.Id && msg.ReceiverId == Session.LoggedInUserInfo!.Id))
-                    .OrderByDescending(msg => msg.Date)
-                    .FirstOrDefault()!;
+                // Load list of user that has message with current user
+                List<int> contactsId = dbContext.ChatMessages
+                    .Where(msg => msg.SenderId == Session.LoggedInUserInfo!.Id || msg.ReceiverId == Session.LoggedInUserInfo!.Id)
+                    .Select(msg => msg.SenderId == Session.LoggedInUserInfo!.Id ? msg.ReceiverId : msg.SenderId)
+                    .Distinct()
+                    .ToList();
 
-                ContactItem contactItem = new ContactItem();
-                contactItem.User = contact;
-                contactItem.ContactName = contact.FullName;
-                contactItem.ContactAvatar = Utils.BytesArrayToImage(contact.AvatarImage);
-                contactItem.LatestMessage = latestMessage.Message;
+                List<User> contacts = dbContext.Users
+                    .Where(user => contactsId.Contains(user.Id))
+                    .ToList();
 
-                if (latestMessage.Date.Year != DateTime.Now.Year)
+                // Load list of latest message with each contact
+                foreach (User contact in contacts)
                 {
-                    contactItem.SetDateLabelPosition("dd/MM/yyyy");
-                    contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM/yyyy");
-                }
-                else
-                {
-                    contactItem.SetDateLabelPosition("dd/MM");
-                    contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM");
-                }
+                    ChatMessage latestMessage = dbContext.ChatMessages
+                        .Where(msg => (msg.SenderId == Session.LoggedInUserInfo!.Id && msg.ReceiverId == contact.Id) || (msg.SenderId == contact.Id && msg.ReceiverId == Session.LoggedInUserInfo!.Id))
+                        .OrderByDescending(msg => msg.Date)
+                        .FirstOrDefault()!;
 
-                contactItem.Click += (sender, e) => ContactItem_Click(sender!, e);
+                    ContactItem contactItem = new ContactItem();
+                    contactItem.User = contact;
+                    contactItem.ContactName = contact.FullName;
+                    contactItem.ContactAvatar = Utils.BytesArrayToImage(contact.AvatarImage);
+                    contactItem.LatestMessage = latestMessage.Message;
 
-                flowLayoutPanel1.Controls.Add(contactItem);
+                    if (latestMessage.Date.Year != DateTime.Now.Year)
+                    {
+                        contactItem.SetDateLabelPosition("dd/MM/yyyy");
+                        contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM/yyyy");
+                    }
+                    else
+                    {
+                        contactItem.SetDateLabelPosition("dd/MM");
+                        contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM");
+                    }
+
+                    contactItem.Click += (sender, e) => ContactItem_Click(sender!, e);
+
+                    flowLayoutPanel1.Controls.Add(contactItem);
+                }
             }
         }
 

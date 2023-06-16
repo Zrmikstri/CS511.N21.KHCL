@@ -60,11 +60,14 @@ namespace MoMo
 
         private List<User> GetRecommendProfiles()
         {
-            List<User> result = Session.UserDbContext!.Users
-                .Where(user => user.FullName.Contains(textBox3.Text) || user.PhoneNumber.Contains(textBox3.Text))
-                .ToList();
+            using (UserDbContext dbContext = new ())
+            {
+                List<User> result = dbContext.Users
+                    .Where(user => user.FullName.Contains(textBox3.Text) || user.PhoneNumber.Contains(textBox3.Text))
+                    .ToList();
 
-            return result;
+                return result;
+            }
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

@@ -9,6 +9,5 @@ namespace MoMo
     public static class Session
     {
         public static User? LoggedInUserInfo { get; set; }
-        public static UserDbContext? UserDbContext { get; set; }
     }
 }

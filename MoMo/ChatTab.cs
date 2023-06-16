@@ -42,14 +42,17 @@ namespace MoMo
             sentMessage.TimeAndSender = $"{DateTime.Now.ToString("HH:mm")}";
             flowLayoutPanel1.Controls.Add(sentMessage);
 
-            Session.UserDbContext!.ChatMessages.Add(new ChatMessage()
+            using (UserDbContext dbContext = new UserDbContext())
             {
-                Message = richTextBox1.Text.Trim(),
-                SenderId = senderId,
-                ReceiverId = receiverId
-            });
+                dbContext.ChatMessages.Add(new ChatMessage()
+                {
+                    Message = richTextBox1.Text.Trim(),
+                    SenderId = senderId,
+                    ReceiverId = receiverId
+                });
 
-            Session.UserDbContext!.SaveChanges();
+                dbContext.SaveChanges();
+            }
 
             flowLayoutPanel1.ScrollControlIntoView(flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1]);
             richTextBox1.Clear();
@@ -101,10 +104,14 @@ namespace MoMo
 
         private void LoadMessageHistory()
         {
-            List<ChatMessage> messagesHistory = Session.UserDbContext!.ChatMessages
-                .Where(m => (m.SenderId == senderId && m.ReceiverId == receiverId) || (m.SenderId == receiverId && m.ReceiverId == senderId))
-                .OrderBy(m => m.Date)
-                .ToList();
+            List<ChatMessage> messagesHistory;
+            using (UserDbContext dbContext = new UserDbContext())
+            {
+                messagesHistory = dbContext.ChatMessages
+                    .Where(m => (m.SenderId == senderId && m.ReceiverId == receiverId) || (m.SenderId == receiverId && m.ReceiverId == senderId))
+                    .OrderBy(m => m.Date)
+                    .ToList();
+            }
 
             foreach (ChatMessage message in messagesHistory)
             {
@@ -134,24 +141,32 @@ namespace MoMo
             // If there is a new message, add it to the flow layout panel
             // If the new message is from the current receiver, mark it as read
 
-            List<ChatMessage> messages = Session.UserDbContext!.ChatMessages
+            
+            using(UserDbContext dbContext = new())
+            {
+                List<ChatMessage> messages;
+
+                messages = dbContext.ChatMessages
                 .Where(m => m.SenderId == receiverId && m.ReceiverId == senderId && !m.IsRead)
                 .ToList();
 
-            if (messages.Count == 0)
-                return;
+                if (messages.Count == 0)
+                    return;
 
-            foreach (ChatMessage message in messages)
-            {
-                if (string.IsNullOrEmpty(message.Message) && message.Image != null)
-                    AddReceivedMessageImage(message);
-                else
-                    AddReceivedMessage(message);
+                foreach (ChatMessage message in messages)
+                {
+                    if (string.IsNullOrEmpty(message.Message) && message.Image != null)
+                        AddReceivedMessageImage(message);
+                    else
+                        AddReceivedMessage(message);
 
-                message.IsRead = true;
+                    message.IsRead = true;
+                }
+
+                dbContext.SaveChanges();
             }
 
-            Session.UserDbContext!.SaveChanges();
+
             flowLayoutPanel1.ScrollControlIntoView(flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1]);
         }
 
@@ -184,8 +199,11 @@ namespace MoMo
 
                 AddSentMessageImage(sentMessageImage);
 
-                Session.UserDbContext!.ChatMessages.Add(sentMessageImage);
-                Session.UserDbContext!.SaveChanges();
+                using(UserDbContext dbContext = new())
+                {
+                    dbContext.ChatMessages.Add(sentMessageImage);
+                    dbContext.SaveChanges();
+                }
 
                 flowLayoutPanel1.ScrollControlIntoView(flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1]);
             }

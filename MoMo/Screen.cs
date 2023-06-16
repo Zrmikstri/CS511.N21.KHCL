@@ -117,11 +117,7 @@ namespace MoMo
             Utils.SaveUserInfo();
 
             Session.LoggedInUserInfo = null;
-            Session.UserDbContext?.Dispose();
-            Session.UserDbContext = null;
 
-            //this.Hide();
-            //((Main)this.Owner!).Onload(e);
             mainForm!.Onload(e);
             isLogOutPressed = true;
             StackNavigation.Pop();

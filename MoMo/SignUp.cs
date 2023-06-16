@@ -8,12 +8,10 @@ namespace MoMo
     {
         private bool passwordHidden = true;
         private bool requiredPasswordHidden = true;
-        private UserDbContext _userDbContext;
 
         public SignUp()
         {
             InitializeComponent();
-            _userDbContext = Session.UserDbContext!;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -35,8 +33,11 @@ namespace MoMo
                     Password = password
                 };
 
-                _userDbContext.Users.Add(user);
-                _userDbContext.SaveChanges();
+                using (UserDbContext dbContext = new UserDbContext())
+                {
+                    dbContext.Users.Add(user);
+                    dbContext.SaveChanges();
+                }
 
                 Session.LoggedInUserInfo = user;
 
@@ -94,7 +95,11 @@ namespace MoMo
             }
             else
             {
-                bool isEmailDuplicated = _userDbContext.Users.Any(user => user.Email == emailTextBox.Text.Trim());
+                bool isEmailDuplicated;
+                using (UserDbContext dbContext = new())
+                {
+                    isEmailDuplicated = dbContext.Users.Any(user => user.Email == emailTextBox.Text.Trim());
+                }
 
                 if (isEmailDuplicated)
                 {
@@ -126,7 +131,12 @@ namespace MoMo
             }
             else
             {
-                bool isCitizenIdDuplicated = _userDbContext.Users.Any(user => user.CitizenId == citizenIdTextBox.Text.Trim());
+                bool isCitizenIdDuplicated;
+                using (UserDbContext dbContext = new())
+                {
+                    isCitizenIdDuplicated = dbContext.Users.Any(user => user.CitizenId == citizenIdTextBox.Text.Trim());
+                }
+
                 if (isCitizenIdDuplicated)
                 {
                     // Cancel the event and select the text to be corrected by the user
@@ -156,7 +166,12 @@ namespace MoMo
             }
             else
             {
-                bool isPhoneDuplicated = _userDbContext.Users.Any(user => user.PhoneNumber == phoneTextBox.Text.Trim());
+                bool isPhoneDuplicated;
+                using (UserDbContext dbContext = new())
+                {
+                    isPhoneDuplicated = dbContext.Users.Any(user => user.CitizenId == citizenIdTextBox.Text.Trim());
+                }
+
                 if (isPhoneDuplicated)
                 {
                     // Cancel the event and select the text to be corrected by the user
