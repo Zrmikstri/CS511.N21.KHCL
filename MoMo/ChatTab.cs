@@ -141,8 +141,8 @@ namespace MoMo
             // If there is a new message, add it to the flow layout panel
             // If the new message is from the current receiver, mark it as read
 
-            
-            using(UserDbContext dbContext = new())
+
+            using (UserDbContext dbContext = new())
             {
                 List<ChatMessage> messages;
 
@@ -199,7 +199,7 @@ namespace MoMo
 
                 AddSentMessageImage(sentMessageImage);
 
-                using(UserDbContext dbContext = new())
+                using (UserDbContext dbContext = new())
                 {
                     dbContext.ChatMessages.Add(sentMessageImage);
                     dbContext.SaveChanges();
