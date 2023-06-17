@@ -75,11 +75,8 @@ namespace MoMo
 
             ChatTab message_sender = new ChatTab(Session.LoggedInUserInfo!.Id, receiver.Id);
             message_sender.Text = Session.LoggedInUserInfo.FullName;
-            message_sender.Show();
 
-            ChatTab message_receiver = new ChatTab(receiver.Id, Session.LoggedInUserInfo!.Id);
-            message_receiver.Text = receiver.FullName;
-            message_receiver.Show();
+            StackNavigation.Push(message_sender);
         }
     }
 }
