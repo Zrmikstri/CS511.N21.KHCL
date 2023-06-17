@@ -31,11 +31,18 @@
             components = new System.ComponentModel.Container();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             richTextBox1 = new RichTextBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             panel2 = new Panel();
+            iconButton3 = new FontAwesome.Sharp.IconButton();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             timer1 = new System.Windows.Forms.Timer(components);
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            iconButton6 = new FontAwesome.Sharp.IconButton();
+            panel3 = new Panel();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // iconButton1
@@ -60,34 +67,43 @@
             // 
             richTextBox1.BorderStyle = BorderStyle.None;
             richTextBox1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox1.Location = new Point(41, 3);
+            richTextBox1.Location = new Point(79, 3);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(308, 46);
+            richTextBox1.Size = new Size(270, 46);
             richTextBox1.TabIndex = 3;
             richTextBox1.Text = "";
             richTextBox1.KeyDown += richTextBox1_KeyDown;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Dock = DockStyle.Top;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(396, 502);
-            flowLayoutPanel1.TabIndex = 4;
-            flowLayoutPanel1.WrapContents = false;
-            // 
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(iconButton3);
             panel2.Controls.Add(iconButton2);
             panel2.Controls.Add(richTextBox1);
             panel2.Controls.Add(iconButton1);
-            panel2.Location = new Point(3, 508);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 687);
             panel2.Name = "panel2";
-            panel2.Size = new Size(390, 54);
+            panel2.Size = new Size(396, 54);
             panel2.TabIndex = 0;
+            // 
+            // iconButton3
+            // 
+            iconButton3.FlatAppearance.BorderSize = 0;
+            iconButton3.FlatAppearance.CheckedBackColor = Color.Transparent;
+            iconButton3.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            iconButton3.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            iconButton3.FlatStyle = FlatStyle.Flat;
+            iconButton3.IconChar = FontAwesome.Sharp.IconChar.Microphone;
+            iconButton3.IconColor = Color.DodgerBlue;
+            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton3.IconSize = 30;
+            iconButton3.Location = new Point(41, 8);
+            iconButton3.Name = "iconButton3";
+            iconButton3.Size = new Size(32, 41);
+            iconButton3.TabIndex = 5;
+            iconButton3.UseVisualStyleBackColor = true;
+            iconButton3.Click += iconButton3_Click;
             // 
             // iconButton2
             // 
@@ -111,29 +127,99 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(0, 56);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(396, 625);
+            flowLayoutPanel1.TabIndex = 6;
+            flowLayoutPanel1.WrapContents = false;
+            // 
+            // iconButton6
+            // 
+            iconButton6.BackColor = Color.Violet;
+            iconButton6.FlatAppearance.BorderSize = 0;
+            iconButton6.FlatStyle = FlatStyle.Flat;
+            iconButton6.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            iconButton6.IconColor = Color.White;
+            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton6.IconSize = 25;
+            iconButton6.Location = new Point(12, 16);
+            iconButton6.Margin = new Padding(3, 2, 3, 2);
+            iconButton6.Name = "iconButton6";
+            iconButton6.Size = new Size(25, 25);
+            iconButton6.TabIndex = 0;
+            iconButton6.UseVisualStyleBackColor = false;
+            iconButton6.Click += iconButton6_Click;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Violet;
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(pictureBox1);
+            panel3.Controls.Add(iconButton6);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
+            panel3.Margin = new Padding(3, 2, 3, 2);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(396, 56);
+            panel3.TabIndex = 5;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(105, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 25);
+            label1.TabIndex = 2;
+            label1.Text = "label1";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(53, 11);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(35, 35);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
             // ChatTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 248, 248);
-            ClientSize = new Size(396, 566);
-            Controls.Add(panel2);
+            ClientSize = new Size(396, 741);
             Controls.Add(flowLayoutPanel1);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ChatTab";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "ChatTab";
             FormClosing += ChatTab_FormClosing;
             Load += ChatTab_Load;
             panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
         private FontAwesome.Sharp.IconButton iconButton1;
         private RichTextBox richTextBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel2;
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.Timer timer1;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconButton iconButton6;
+        private Panel panel3;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton iconButton3;
     }
 }

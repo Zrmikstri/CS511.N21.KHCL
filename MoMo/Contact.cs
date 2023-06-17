@@ -62,7 +62,7 @@ namespace MoMo
                         contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM");
                     }
 
-                    contactItem.Click += (sender, e) => ContactItem_Click(sender!, e);
+                    contactItem.Click += (sender, e) => ContactItem_Click(contactItem, e);
 
                     flowLayoutPanel1.Controls.Add(contactItem);
                 }

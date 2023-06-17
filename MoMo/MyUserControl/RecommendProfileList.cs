@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.ListView;
 
 namespace MoMo.MyUserControl
 {
@@ -15,6 +16,8 @@ namespace MoMo.MyUserControl
         public RecommendProfileList()
         {
             InitializeComponent();
+
+            
         }
 
         // Implement recommend list with user avatar and name using list view
@@ -30,7 +33,7 @@ namespace MoMo.MyUserControl
                     .Distinct()
                     .ToList();
 
-                 recommendList = dbContext.Users
+                recommendList = dbContext.Users
                     .Where(user => recommendIdList.Contains(user.Id))
                     .ToList();
             }

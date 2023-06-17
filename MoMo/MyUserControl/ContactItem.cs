@@ -66,6 +66,7 @@ namespace MoMo.MyUserControl
             add
             {
                 base.Click += value;
+
                 foreach (Control control in Controls)
                     control.Click += value;
             }
