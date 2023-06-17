@@ -15,18 +15,27 @@ namespace MoMo
         Panel[] panels = null!;
         Label[] labels = null!;
         int flag = 0;
+        string value;
+        private string[] Viettel = { "086", "096", "097", "098", "032", "033", "034", "035", "036", "037", "038", "039" };
+        private string[] Vinaphone = { "088", "091", "094", "081", "082", "086", "084", "085" };
+        private string[] Mobifone = { "089", "090", "093", "070", "079", "077", "076", "078" };
 
         public PayPhoneMoney()
         {
             InitializeComponent();
 
-            panels = new Panel[] { panel1, panel9, panel10, panel4, panel5, panel6, panel7, panel8, panel11 };
-            labels = new Label[] { label1, label9, label10, label4, label5, label6, label7, label8, label11 };
+            panels = new Panel[] { panel1, panel9, panel10, panel4, panel5, panel6, panel7, panel8, panel11, panels1, panels2, panels3, panels4, panels5 };
+            labels = new Label[] { label1, label9, label10, label4, label5, label6, label7, label8, label11, labels1, labels2, labels3, labels4, labels5 };
 
             foreach (var panel in panels)
             {
                 panel.Click += panel_Click_change_color!;
             }
+
+            panel14.HorizontalScroll.Maximum = 0;
+            panel14.AutoScroll = false;
+            panel14.HorizontalScroll.Visible = false;
+            panel14.AutoScroll = true;
         }
 
         private void panel_Click_change_color(object sender, EventArgs e)
@@ -45,6 +54,8 @@ namespace MoMo
                     flag = i;
             }
             labels[flag].ForeColor = Color.MediumVioletRed;
+            checkValue();
+            label16.Text = Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(value));
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -53,13 +64,61 @@ namespace MoMo
 
             if (textBox.Text.Length == 10)
             {
-                pictureBox5.Image = Image.FromFile(@"../../../Images/pay_button.png");
-                pictureBox5.Enabled = true;
+                // check phone number
+                if (Viettel.Contains(textBox.Text.Substring(0, 3)))
+                {
+                    pictureBox1.Image = Image.FromFile(@"../../../Images/viettel-logo.png");
+                    label2.Visible = false;
+                    pictureBox5.Image = Image.FromFile(@"../../../Images/pay_button.png");
+                    pictureBox5.Enabled = true;
+                }
+                else if (Vinaphone.Contains(textBox.Text.Substring(0, 3)))
+                {
+                    pictureBox1.Image = Image.FromFile(@"../../../Images/vinaphone-logo.png");
+                    label2.Visible = false;
+                    pictureBox5.Image = Image.FromFile(@"../../../Images/pay_button.png");
+                    pictureBox5.Enabled = true;
+                }
+                else if (Mobifone.Contains(textBox.Text.Substring(0, 3)))
+                {
+                    pictureBox1.Image = Image.FromFile(@"../../../Images/mobifone-logo.jpg");
+                    label2.Visible = false;
+                    pictureBox5.Image = Image.FromFile(@"../../../Images/pay_button.png");
+                    pictureBox5.Enabled = true;
+                }
+                else
+                {
+                    pictureBox1.Image = Image.FromFile(@"../../../Images/momo-logo.png");
+                    label2.Visible = true;
+                }
+                checkValue();
+                label16.Text = Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(value));
             }
             else
             {
                 pictureBox5.Image = Image.FromFile(@"../../../Images/pay_button_gray.png");
                 pictureBox5.Enabled = false;
+                pictureBox1.Image = Image.FromFile(@"../../../Images/momo-logo.png");
+                label2.Visible = true;
+            }
+        }
+
+        private void checkValue()
+        {
+            if (flag < 9)
+                value = labels[flag].Text.Substring(0, labels[flag].Text.Length - 1);
+            else
+            {
+                if (flag == 9)
+                    value = "19500";
+                else if (flag == 10)
+                    value = "49000";
+                else if (flag == 11)
+                    value = "98500";
+                else if (flag == 12)
+                    value = "195000";
+                else
+                    value = "492000";
             }
         }
 
@@ -72,6 +131,19 @@ namespace MoMo
         private void iconButton1_Click(object sender, EventArgs e)
         {
             StackNavigation.Pop();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent the character from being entered
+            }
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

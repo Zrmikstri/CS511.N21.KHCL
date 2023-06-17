@@ -34,6 +34,7 @@
             label111 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel3 = new Panel();
+            label2 = new Label();
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
             label3 = new Label();
@@ -57,6 +58,26 @@
             label11 = new Label();
             panel12 = new Panel();
             pictureBox5 = new PictureBox();
+            panels1 = new Panel();
+            label14 = new Label();
+            labels1 = new Label();
+            panel14 = new Panel();
+            panels5 = new Panel();
+            label21 = new Label();
+            labels5 = new Label();
+            panels4 = new Panel();
+            labels4 = new Label();
+            label20 = new Label();
+            panels3 = new Panel();
+            label17 = new Label();
+            labels3 = new Label();
+            panels2 = new Panel();
+            label15 = new Label();
+            labels2 = new Label();
+            label13 = new Label();
+            label23 = new Label();
+            label12 = new Label();
+            label16 = new Label();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -71,6 +92,12 @@
             panel11.SuspendLayout();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            panels1.SuspendLayout();
+            panel14.SuspendLayout();
+            panels5.SuspendLayout();
+            panels4.SuspendLayout();
+            panels3.SuspendLayout();
+            panels2.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -130,31 +157,45 @@
             panel3.BackColor = Color.Transparent;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.BackgroundImageLayout = ImageLayout.Stretch;
+            panel3.Controls.Add(label2);
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(12, 100);
+            panel3.Location = new Point(12, 101);
             panel3.Name = "panel3";
             panel3.Size = new Size(393, 69);
             panel3.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(116, 10);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 20);
+            label2.TabIndex = 3;
+            label2.Text = "không hợp lệ!";
+            label2.Visible = false;
             // 
             // textBox1
             // 
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(61, 31);
+            textBox1.Location = new Point(79, 33);
+            textBox1.MaxLength = 10;
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập SĐT";
             textBox1.Size = new Size(208, 24);
             textBox1.TabIndex = 2;
             textBox1.TextChanged += textBox1_TextChanged;
+            textBox1.KeyPress += textBox1_KeyPress;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(7, 8);
+            pictureBox1.Location = new Point(7, 6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(45, 45);
+            pictureBox1.Size = new Size(61, 58);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -162,7 +203,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(61, 8);
+            label3.Location = new Point(79, 10);
             label3.Name = "label3";
             label3.Size = new Size(36, 20);
             label3.TabIndex = 0;
@@ -174,7 +215,7 @@
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(6, 212);
+            panel1.Location = new Point(5, 403);
             panel1.Name = "panel1";
             panel1.Size = new Size(130, 100);
             panel1.TabIndex = 4;
@@ -196,7 +237,7 @@
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(143, 212);
+            panel4.Location = new Point(142, 403);
             panel4.Name = "panel4";
             panel4.Size = new Size(130, 100);
             panel4.TabIndex = 5;
@@ -217,7 +258,7 @@
             panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(280, 212);
+            panel5.Location = new Point(279, 403);
             panel5.Name = "panel5";
             panel5.Size = new Size(130, 100);
             panel5.TabIndex = 6;
@@ -238,7 +279,7 @@
             panel6.BackgroundImage = (Image)resources.GetObject("panel6.BackgroundImage");
             panel6.BackgroundImageLayout = ImageLayout.Stretch;
             panel6.Controls.Add(label6);
-            panel6.Location = new Point(6, 315);
+            panel6.Location = new Point(5, 506);
             panel6.Name = "panel6";
             panel6.Size = new Size(130, 100);
             panel6.TabIndex = 7;
@@ -259,7 +300,7 @@
             panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
             panel7.BackgroundImageLayout = ImageLayout.Stretch;
             panel7.Controls.Add(label7);
-            panel7.Location = new Point(143, 315);
+            panel7.Location = new Point(142, 506);
             panel7.Name = "panel7";
             panel7.Size = new Size(130, 100);
             panel7.TabIndex = 8;
@@ -280,7 +321,7 @@
             panel8.BackgroundImage = (Image)resources.GetObject("panel8.BackgroundImage");
             panel8.BackgroundImageLayout = ImageLayout.Stretch;
             panel8.Controls.Add(label8);
-            panel8.Location = new Point(280, 315);
+            panel8.Location = new Point(279, 506);
             panel8.Name = "panel8";
             panel8.Size = new Size(130, 100);
             panel8.TabIndex = 9;
@@ -301,7 +342,7 @@
             panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
             panel9.BackgroundImageLayout = ImageLayout.Stretch;
             panel9.Controls.Add(label9);
-            panel9.Location = new Point(6, 420);
+            panel9.Location = new Point(5, 611);
             panel9.Name = "panel9";
             panel9.Size = new Size(130, 100);
             panel9.TabIndex = 10;
@@ -322,7 +363,7 @@
             panel10.BackgroundImage = (Image)resources.GetObject("panel10.BackgroundImage");
             panel10.BackgroundImageLayout = ImageLayout.Stretch;
             panel10.Controls.Add(label10);
-            panel10.Location = new Point(143, 420);
+            panel10.Location = new Point(142, 611);
             panel10.Name = "panel10";
             panel10.Size = new Size(130, 100);
             panel10.TabIndex = 11;
@@ -343,7 +384,7 @@
             panel11.BackgroundImage = (Image)resources.GetObject("panel11.BackgroundImage");
             panel11.BackgroundImageLayout = ImageLayout.Stretch;
             panel11.Controls.Add(label11);
-            panel11.Location = new Point(280, 420);
+            panel11.Location = new Point(279, 611);
             panel11.Name = "panel11";
             panel11.Size = new Size(130, 100);
             panel11.TabIndex = 12;
@@ -352,11 +393,11 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(9, 31);
+            label11.Location = new Point(17, 32);
             label11.Name = "label11";
-            label11.Size = new Size(108, 28);
+            label11.Size = new Size(95, 28);
             label11.TabIndex = 0;
-            label11.Text = "1.000.000đ";
+            label11.Text = "800.000đ";
             // 
             // panel12
             // 
@@ -380,11 +421,240 @@
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
             // 
+            // panels1
+            // 
+            panels1.BackColor = Color.Transparent;
+            panels1.BackgroundImage = (Image)resources.GetObject("panels1.BackgroundImage");
+            panels1.BackgroundImageLayout = ImageLayout.Stretch;
+            panels1.Controls.Add(label14);
+            panels1.Controls.Add(labels1);
+            panels1.Location = new Point(6, 13);
+            panels1.Name = "panels1";
+            panels1.Size = new Size(123, 79);
+            panels1.TabIndex = 14;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Location = new Point(21, 49);
+            label14.Name = "label14";
+            label14.Size = new Size(79, 20);
+            label14.TabIndex = 1;
+            label14.Text = "hoàn 500đ";
+            // 
+            // labels1
+            // 
+            labels1.AutoSize = true;
+            labels1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labels1.Location = new Point(19, 19);
+            labels1.Name = "labels1";
+            labels1.Size = new Size(84, 28);
+            labels1.TabIndex = 0;
+            labels1.Text = "20.000đ";
+            // 
+            // panel14
+            // 
+            panel14.BackColor = Color.MistyRose;
+            panel14.Controls.Add(panels5);
+            panel14.Controls.Add(panels4);
+            panel14.Controls.Add(panels3);
+            panel14.Controls.Add(panels2);
+            panel14.Controls.Add(panels1);
+            panel14.Location = new Point(6, 243);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(405, 107);
+            panel14.TabIndex = 16;
+            // 
+            // panels5
+            // 
+            panels5.BackColor = Color.Transparent;
+            panels5.BackgroundImage = (Image)resources.GetObject("panels5.BackgroundImage");
+            panels5.BackgroundImageLayout = ImageLayout.Stretch;
+            panels5.Controls.Add(label21);
+            panels5.Controls.Add(labels5);
+            panels5.Location = new Point(547, 14);
+            panels5.Name = "panels5";
+            panels5.Size = new Size(123, 79);
+            panels5.TabIndex = 18;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label21.Location = new Point(21, 49);
+            label21.Name = "label21";
+            label21.Size = new Size(87, 20);
+            label21.TabIndex = 1;
+            label21.Text = "hoàn 8000đ";
+            // 
+            // labels5
+            // 
+            labels5.AutoSize = true;
+            labels5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labels5.Location = new Point(19, 19);
+            labels5.Name = "labels5";
+            labels5.Size = new Size(95, 28);
+            labels5.TabIndex = 0;
+            labels5.Text = "500.000đ";
+            // 
+            // panels4
+            // 
+            panels4.BackColor = Color.Transparent;
+            panels4.BackgroundImage = (Image)resources.GetObject("panels4.BackgroundImage");
+            panels4.BackgroundImageLayout = ImageLayout.Stretch;
+            panels4.Controls.Add(labels4);
+            panels4.Controls.Add(label20);
+            panels4.Location = new Point(412, 14);
+            panels4.Name = "panels4";
+            panels4.Size = new Size(123, 79);
+            panels4.TabIndex = 17;
+            // 
+            // labels4
+            // 
+            labels4.AutoSize = true;
+            labels4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labels4.Location = new Point(21, 49);
+            labels4.Name = "labels4";
+            labels4.Size = new Size(87, 20);
+            labels4.TabIndex = 1;
+            labels4.Text = "hoàn 5000đ";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label20.Location = new Point(19, 19);
+            label20.Name = "label20";
+            label20.Size = new Size(95, 28);
+            label20.TabIndex = 0;
+            label20.Text = "200.000đ";
+            // 
+            // panels3
+            // 
+            panels3.BackColor = Color.Transparent;
+            panels3.BackgroundImage = (Image)resources.GetObject("panels3.BackgroundImage");
+            panels3.BackgroundImageLayout = ImageLayout.Stretch;
+            panels3.Controls.Add(label17);
+            panels3.Controls.Add(labels3);
+            panels3.Location = new Point(278, 14);
+            panels3.Name = "panels3";
+            panels3.Size = new Size(123, 79);
+            panels3.TabIndex = 16;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label17.Location = new Point(21, 49);
+            label17.Name = "label17";
+            label17.Size = new Size(87, 20);
+            label17.TabIndex = 1;
+            label17.Text = "hoàn 1500đ";
+            // 
+            // labels3
+            // 
+            labels3.AutoSize = true;
+            labels3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labels3.Location = new Point(19, 19);
+            labels3.Name = "labels3";
+            labels3.Size = new Size(92, 28);
+            labels3.TabIndex = 0;
+            labels3.Text = "100.000đ";
+            // 
+            // panels2
+            // 
+            panels2.BackColor = Color.Transparent;
+            panels2.BackgroundImage = (Image)resources.GetObject("panels2.BackgroundImage");
+            panels2.BackgroundImageLayout = ImageLayout.Stretch;
+            panels2.Controls.Add(label15);
+            panels2.Controls.Add(labels2);
+            panels2.Location = new Point(142, 14);
+            panels2.Name = "panels2";
+            panels2.Size = new Size(123, 79);
+            panels2.TabIndex = 15;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.Location = new Point(18, 47);
+            label15.Name = "label15";
+            label15.Size = new Size(87, 20);
+            label15.TabIndex = 1;
+            label15.Text = "hoàn 1000đ";
+            // 
+            // labels2
+            // 
+            labels2.AutoSize = true;
+            labels2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labels2.Location = new Point(16, 17);
+            labels2.Name = "labels2";
+            labels2.Size = new Size(84, 28);
+            labels2.TabIndex = 0;
+            labels2.Text = "50.000đ";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.ForeColor = Color.Black;
+            label13.Location = new Point(9, 202);
+            label13.Name = "label13";
+            label13.Size = new Size(123, 28);
+            label13.TabIndex = 17;
+            label13.Text = "Gói giới hạn";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.BackColor = Color.Transparent;
+            label23.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label23.ForeColor = Color.Black;
+            label23.Location = new Point(8, 370);
+            label23.Name = "label23";
+            label23.Size = new Size(146, 28);
+            label23.TabIndex = 18;
+            label23.Text = "Gói phổ thông";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.ForeColor = Color.Black;
+            label12.Location = new Point(9, 768);
+            label12.Name = "label12";
+            label12.Size = new Size(105, 28);
+            label12.TabIndex = 19;
+            label12.Text = "Tổng tiền:";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.BackColor = Color.Transparent;
+            label16.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label16.ForeColor = Color.Red;
+            label16.Location = new Point(283, 768);
+            label16.Name = "label16";
+            label16.RightToLeft = RightToLeft.No;
+            label16.Size = new Size(23, 28);
+            label16.TabIndex = 20;
+            label16.Text = "0";
+            label16.TextAlign = ContentAlignment.MiddleRight;
+            label16.Click += label16_Click;
+            // 
             // PayPhoneMoney
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(417, 894);
+            Controls.Add(label16);
+            Controls.Add(label12);
+            Controls.Add(label23);
+            Controls.Add(label13);
+            Controls.Add(panel14);
             Controls.Add(panel12);
             Controls.Add(panel11);
             Controls.Add(panel10);
@@ -426,7 +696,19 @@
             panel11.PerformLayout();
             panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            panels1.ResumeLayout(false);
+            panels1.PerformLayout();
+            panel14.ResumeLayout(false);
+            panels5.ResumeLayout(false);
+            panels5.PerformLayout();
+            panels4.ResumeLayout(false);
+            panels4.PerformLayout();
+            panels3.ResumeLayout(false);
+            panels3.PerformLayout();
+            panels2.ResumeLayout(false);
+            panels2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -459,5 +741,26 @@
         private Label label11;
         private Panel panel12;
         private PictureBox pictureBox5;
+        private Label label2;
+        private Panel panels1;
+        private Label labels1;
+        private Panel panel14;
+        private Label label14;
+        private Panel panels5;
+        private Label label21;
+        private Label labels5;
+        private Panel panels4;
+        private Label labels4;
+        private Label label20;
+        private Panel panels3;
+        private Label label17;
+        private Label labels3;
+        private Panel panels2;
+        private Label label15;
+        private Label labels2;
+        private Label label13;
+        private Label label23;
+        private Label label12;
+        private Label label16;
     }
 }

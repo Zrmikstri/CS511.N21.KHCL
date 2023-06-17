@@ -71,7 +71,7 @@
             linkLabel1.Size = new Size(88, 22);
             linkLabel1.TabIndex = 5;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "Đăng xuât";
+            linkLabel1.Text = "Đăng xuất";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // label3
