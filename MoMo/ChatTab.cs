@@ -153,6 +153,30 @@ namespace MoMo
             return timeLabel;
         }
 
+        private void AddTimeLabel(DateTime time)
+        {
+            Label timeLabel = CreateTimeLabel(time.ToString("HH:mm dd/MM/yyyy"));
+            flowLayoutPanel1.Controls.Add(timeLabel);
+        }
+
+        private void AddMessageToScreen(ChatMessage message)
+        {
+            if (message.SenderId == senderId)
+            {
+                if (message.Image != null)
+                    AddSentMessageImage(message);
+                else
+                    AddSentMessage(message);
+            }
+            else
+            {
+                if (message.Image != null)
+                    AddReceivedMessageImage(message);
+                else
+                    AddReceivedMessage(message);
+            }
+        }
+
         private void LoadMessageHistory()
         {
             List<ChatMessage> messagesHistory;
@@ -181,8 +205,7 @@ namespace MoMo
             DateTime lastMessageTime = messagesHistory[0].Date;
             int lastMessageSenderId = messagesHistory[0].SenderId;
 
-            Label timeLabel = CreateTimeLabel(lastMessageTime.ToString("HH:mm dd/MM/yyyy"));
-            flowLayoutPanel1.Controls.Add(timeLabel);
+            AddTimeLabel(lastMessageTime);
 
             for (int i = 0; i < messagesHistory.Count; i++)
             {
@@ -192,24 +215,10 @@ namespace MoMo
                     lastMessageSenderId = messagesHistory[i].SenderId;
 
                     // Create time label from label control
-                    timeLabel = CreateTimeLabel(lastMessageTime.ToString("HH:mm dd/MM/yyyy"));
-                    flowLayoutPanel1.Controls.Add(timeLabel);
+                    AddTimeLabel(lastMessageTime);
                 }
 
-                if (messagesHistory[i].SenderId == senderId)
-                {
-                    if (string.IsNullOrEmpty(messagesHistory[i].Message) && messagesHistory[i].Image != null)
-                        AddSentMessageImage(messagesHistory[i]);
-                    else
-                        AddSentMessage(messagesHistory[i]);
-                }
-                else
-                {
-                    if (string.IsNullOrEmpty(messagesHistory[i].Message) && messagesHistory[i].Image != null)
-                        AddReceivedMessageImage(messagesHistory[i]);
-                    else
-                        AddReceivedMessage(messagesHistory[i]);
-                }
+                AddMessageToScreen(messagesHistory[i]);
             }
 
             flowLayoutPanel1.ScrollControlIntoView(flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1]);
@@ -221,7 +230,6 @@ namespace MoMo
             // Check for new message
             // If there is a new message, add it to the flow layout panel
             // If the new message is from the current receiver, mark it as read
-
 
             List<ChatMessage> messages;
             using (UserDbContext dbContext = new())
@@ -243,8 +251,7 @@ namespace MoMo
             DateTime lastMessageTime = messages[0].Date;
             int lastMessageSenderId = messages[0].SenderId;
 
-            Label timeLabel = CreateTimeLabel(lastMessageTime.ToString("HH:mm dd/MM/yyyy"));
-            flowLayoutPanel1.Controls.Add(timeLabel);
+            AddTimeLabel(lastMessageTime);
 
             for (int i = 0; i < messages.Count; i++)
             {
@@ -252,25 +259,12 @@ namespace MoMo
                 {
                     lastMessageTime = messages[i].Date;
                     lastMessageSenderId = messages[i].SenderId;
+                    
                     // Create time label from label control
-                    timeLabel = CreateTimeLabel(lastMessageTime.ToString("HH:mm dd/MM/yyyy"));
-                    flowLayoutPanel1.Controls.Add(timeLabel);
+                    AddTimeLabel(lastMessageTime);
                 }
 
-                if (messages[i].SenderId == senderId)
-                {
-                    if (string.IsNullOrEmpty(messages[i].Message) && messages[i].Image != null)
-                        AddSentMessageImage(messages[i]);
-                    else
-                        AddSentMessage(messages[i]);
-                }
-                else
-                {
-                    if (string.IsNullOrEmpty(messages[i].Message) && messages[i].Image != null)
-                        AddReceivedMessageImage(messages[i]);
-                    else
-                        AddReceivedMessage(messages[i]);
-                }
+                AddMessageToScreen(messages[i]);
             }
 
             flowLayoutPanel1.ScrollControlIntoView(flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1]);
