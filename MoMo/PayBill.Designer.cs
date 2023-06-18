@@ -118,11 +118,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
             label1.Location = new Point(67, 14);
             label1.Name = "label1";
-            label1.Size = new Size(287, 41);
+            label1.Size = new Size(295, 41);
             label1.TabIndex = 1;
             label1.Text = "Thanh toán hoá đơn";
             // 

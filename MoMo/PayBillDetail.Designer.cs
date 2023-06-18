@@ -54,6 +54,9 @@
             label8 = new Label();
             label6 = new Label();
             label7 = new Label();
+            label15 = new Label();
+            panel6 = new Panel();
+            textBox2 = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -62,6 +65,7 @@
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel5.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -94,11 +98,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
             label1.Location = new Point(128, 11);
             label1.Name = "label1";
-            label1.Size = new Size(149, 46);
+            label1.Size = new Size(154, 46);
             label1.TabIndex = 1;
             label1.Text = "Hoá đơn";
             // 
@@ -122,13 +126,15 @@
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(label15);
+            panel1.Controls.Add(panel6);
             panel1.Controls.Add(label13);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(label2);
             panel1.Location = new Point(6, 180);
             panel1.Name = "panel1";
-            panel1.Size = new Size(385, 155);
+            panel1.Size = new Size(385, 241);
             panel1.TabIndex = 4;
             // 
             // label13
@@ -259,7 +265,7 @@
             panel5.Controls.Add(label8);
             panel5.Controls.Add(label6);
             panel5.Controls.Add(label7);
-            panel5.Location = new Point(7, 351);
+            panel5.Location = new Point(7, 432);
             panel5.Name = "panel5";
             panel5.Size = new Size(385, 193);
             panel5.TabIndex = 8;
@@ -341,6 +347,37 @@
             label7.TabIndex = 0;
             label7.Text = "Thông tin hoá đơn";
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(33, 152);
+            label15.Name = "label15";
+            label15.Size = new Size(76, 20);
+            label15.TabIndex = 7;
+            label15.Text = "Mã ưu đãi";
+            // 
+            // panel6
+            // 
+            panel6.BackgroundImage = (Image)resources.GetObject("panel6.BackgroundImage");
+            panel6.BackgroundImageLayout = ImageLayout.Stretch;
+            panel6.Controls.Add(textBox2);
+            panel6.Location = new Point(9, 163);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(367, 61);
+            panel6.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.Location = new Point(13, 14);
+            textBox2.MaxLength = 12;
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "Nhập mã ưu đãi";
+            textBox2.Size = new Size(337, 34);
+            textBox2.TabIndex = 0;
+            // 
             // PayBillDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -368,6 +405,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -398,5 +437,8 @@
         private Label label13;
         private Label label12;
         private Label label14;
+        private Label label15;
+        private Panel panel6;
+        private TextBox textBox2;
     }
 }
