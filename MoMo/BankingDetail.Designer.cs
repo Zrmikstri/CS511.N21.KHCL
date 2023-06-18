@@ -1,6 +1,6 @@
 ﻿namespace MoMo
 {
-    partial class TransferMoneyDetail
+    partial class BankingDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransferMoneyDetail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BankingDetail));
             panel2 = new Panel();
             label2 = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
+            label4 = new Label();
+            panel5 = new Panel();
+            label6 = new Label();
+            textBox3 = new TextBox();
             label3 = new Label();
             panel3 = new Panel();
-            label4 = new Label();
             textBox2 = new TextBox();
             label5 = new Label();
             panel4 = new Panel();
@@ -47,6 +50,7 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            panel5.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel10.SuspendLayout();
@@ -64,23 +68,23 @@
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(417, 75);
-            panel2.TabIndex = 2;
+            panel2.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(111, 36);
+            label2.Location = new Point(111, 37);
             label2.Name = "label2";
-            label2.Size = new Size(123, 28);
+            label2.Size = new Size(112, 25);
             label2.TabIndex = 4;
             label2.Text = "0373488359";
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(55, 12);
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Location = new Point(55, 13);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(48, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -90,13 +94,13 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
             label1.Location = new Point(111, 5);
             label1.Name = "label1";
-            label1.Size = new Size(140, 28);
+            label1.Size = new Size(151, 31);
             label1.TabIndex = 1;
-            label1.Text = "Trần Phú Vinh";
+            label1.Text = "Vietcombank";
             // 
             // iconButton1
             // 
@@ -118,61 +122,92 @@
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(panel5);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(panel4);
-            panel1.Location = new Point(7, 129);
+            panel1.Location = new Point(3, 169);
             panel1.Name = "panel1";
-            panel1.Size = new Size(402, 192);
-            panel1.TabIndex = 3;
+            panel1.Size = new Size(402, 271);
+            panel1.TabIndex = 4;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(42, 89);
+            label4.Name = "label4";
+            label4.Size = new Size(105, 20);
+            label4.TabIndex = 5;
+            label4.Text = "Số tiền chuyển";
+            // 
+            // panel5
+            // 
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Controls.Add(label6);
+            panel5.Controls.Add(textBox3);
+            panel5.Location = new Point(18, 101);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(367, 61);
+            panel5.TabIndex = 6;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(311, 15);
+            label6.Name = "label6";
+            label6.Size = new Size(56, 28);
+            label6.TabIndex = 1;
+            label6.Text = "VND";
+            // 
+            // textBox3
+            // 
+            textBox3.BorderStyle = BorderStyle.None;
+            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox3.Location = new Point(13, 13);
+            textBox3.Name = "textBox3";
+            textBox3.PlaceholderText = "0đ";
+            textBox3.Size = new Size(301, 27);
+            textBox3.TabIndex = 0;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(43, 7);
             label3.Name = "label3";
-            label3.Size = new Size(105, 20);
+            label3.Size = new Size(118, 20);
             label3.TabIndex = 3;
-            label3.Text = "Số tiền chuyển";
+            label3.Text = "Số thẻ/tài khoản";
             // 
             // panel3
             // 
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.BackgroundImageLayout = ImageLayout.Stretch;
-            panel3.Controls.Add(label4);
             panel3.Controls.Add(textBox2);
             panel3.Location = new Point(19, 19);
             panel3.Name = "panel3";
             panel3.Size = new Size(367, 61);
             panel3.TabIndex = 4;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(311, 15);
-            label4.Name = "label4";
-            label4.Size = new Size(56, 28);
-            label4.TabIndex = 1;
-            label4.Text = "VND";
-            // 
             // textBox2
             // 
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(13, 13);
+            textBox2.Location = new Point(13, 16);
             textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "0đ";
+            textBox2.PlaceholderText = "Nhập số thẻ/ tài khoản";
             textBox2.Size = new Size(301, 27);
             textBox2.TabIndex = 0;
             textBox2.TextChanged += textBox2_TextChanged;
-            textBox2.KeyPress += textBox2_KeyPress;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(43, 103);
+            label5.Location = new Point(43, 174);
             label5.Name = "label5";
             label5.Size = new Size(117, 20);
             label5.TabIndex = 1;
@@ -183,7 +218,7 @@
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
             panel4.Controls.Add(textBox1);
-            panel4.Location = new Point(19, 115);
+            panel4.Location = new Point(19, 186);
             panel4.Name = "panel4";
             panel4.Size = new Size(367, 61);
             panel4.TabIndex = 2;
@@ -206,7 +241,7 @@
             panel10.Location = new Point(0, 810);
             panel10.Name = "panel10";
             panel10.Size = new Size(417, 83);
-            panel10.TabIndex = 13;
+            panel10.TabIndex = 14;
             // 
             // pictureBox5
             // 
@@ -220,7 +255,7 @@
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
             // 
-            // TransferMoneyDetail
+            // BankingDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -229,14 +264,16 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "TransferMoneyDetail";
+            Name = "BankingDetail";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TransferMoneyDetail";
+            Text = "BankingDetail";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
@@ -249,10 +286,10 @@
         #endregion
 
         private Panel panel2;
-        private Label label1;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private Label label2;
         private PictureBox pictureBox1;
+        private Label label1;
+        private FontAwesome.Sharp.IconButton iconButton1;
         private Panel panel1;
         private Label label3;
         private Panel panel3;
@@ -260,8 +297,11 @@
         private Label label5;
         private Panel panel4;
         private TextBox textBox1;
+        private Label label4;
+        private Panel panel5;
+        private Label label6;
+        private TextBox textBox3;
         private Panel panel10;
         private PictureBox pictureBox5;
-        private Label label4;
     }
 }

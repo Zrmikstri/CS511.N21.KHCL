@@ -82,5 +82,13 @@ namespace MoMo
             MessageBox.Show("Thanh toán thành công số tiền: " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(textBox1.Text)),
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent the character from being entered
+            }
+        }
     }
 }
