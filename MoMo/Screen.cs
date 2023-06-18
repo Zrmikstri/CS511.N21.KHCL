@@ -19,21 +19,14 @@ namespace MoMo
         {
             InitializeComponent();
             this.mainForm = (Main)e;
-            OpenTab(new Home());
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.FullName}";
-            label2.Text = Session.LoggedInUserInfo!.Address;
-
-            Random random = new Random();
-            label3.Text = Utils.FormatVNCurrency(Session.LoggedInUserInfo!.Balance * 1000);
-
             HighlightButton(iconButton1);
-            //OpenTab(new HomeTab());
+            OpenTab(new Home());
         }
 
         private void HighlightButton(object senderButton)
@@ -43,9 +36,9 @@ namespace MoMo
                 DisableHighlightButton();
                 currentButton = (IconButton)senderButton;
                 currentButton.BackColor = Color.FromArgb(255, 111, 97);
+                currentButton.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
                 currentButton.ForeColor = Color.White;
                 currentButton.IconColor = Color.White;
-                currentButton.Font = new Font("Times New Roman", 9.5f, FontStyle.Bold);
             }
         }
 
@@ -54,9 +47,9 @@ namespace MoMo
             if (currentButton != null)
             {
                 currentButton.BackColor = Color.FromArgb(243, 233, 237);
+                currentButton.Font = new Font("Segoe UI", 9f, FontStyle.Regular);
                 currentButton.ForeColor = Color.Black;
                 currentButton.IconColor = Color.Black;
-                currentButton.Font = new Font("Times New Roman", 9, FontStyle.Regular);
             }
         }
 
@@ -84,30 +77,35 @@ namespace MoMo
         private void iconButton1_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
+            linkLabel1.Visible = true;
             OpenTab(new Home());
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
+            linkLabel1.Visible= false;
             //OpenTab(new ServiceTab());
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            //OpenTab(new CartTab());
+            linkLabel1.Visible= false;
+            OpenTab(new History());
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
+            linkLabel1.Visible= false;
             OpenTab(new Contact());
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
+            linkLabel1.Visible= false;
             //OpenTab(new AccountTab());
         }
 
@@ -121,12 +119,6 @@ namespace MoMo
             mainForm!.Onload(e);
             isLogOutPressed = true;
             StackNavigation.Pop();
-        }
-
-        private void panel1_Click(object sender, EventArgs e)
-        {
-            label1.Text = $"Xin Chào {Session.LoggedInUserInfo!.FullName}";
-            label2.Text = Session.LoggedInUserInfo!.Address;
         }
 
         private void Screen_FormClosed(object sender, FormClosedEventArgs e)

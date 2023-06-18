@@ -47,21 +47,21 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(59, 3);
             label1.Name = "label1";
-            label1.Size = new Size(49, 19);
+            label1.Size = new Size(57, 21);
             label1.TabIndex = 1;
             label1.Text = "label1";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(324, 31);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(63, 15);
+            label3.Size = new Size(65, 15);
             label3.TabIndex = 3;
             label3.Text = "99/99/9999";
             // 
@@ -69,11 +69,11 @@
             // 
             label2.AutoEllipsis = true;
             label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(59, 28);
-            label2.MaximumSize = new Size(280, 23);
+            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(59, 29);
+            label2.MaximumSize = new Size(280, 17);
             label2.Name = "label2";
-            label2.Size = new Size(45, 19);
+            label2.Size = new Size(43, 17);
             label2.TabIndex = 2;
             label2.Text = "label2";
             // 

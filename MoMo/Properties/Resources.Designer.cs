@@ -63,9 +63,29 @@ namespace MoMo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap receive_money {
+            get {
+                object obj = ResourceManager.GetObject("receive_money", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap received_message_box {
             get {
                 object obj = ResourceManager.GetObject("received_message_box", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_money {
+            get {
+                object obj = ResourceManager.GetObject("send_money", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -73,14 +73,14 @@
             // 
             flowLayoutPanel1.Location = new Point(3, 60);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(390, 503);
+            flowLayoutPanel1.Size = new Size(390, 615);
             flowLayoutPanel1.TabIndex = 2;
             // 
             // Contact
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 566);
+            ClientSize = new Size(396, 676);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

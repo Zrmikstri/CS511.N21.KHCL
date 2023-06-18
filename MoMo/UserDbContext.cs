@@ -203,7 +203,7 @@ namespace MoMo
                     Message = "Nạp tiền điện thoại",
                     ReceiverId = 1,
                     SenderId = 3,
-                    IsRead= true,
+                    IsRead = true,
                 },
                 new ChatMessage
                 {
@@ -213,6 +213,102 @@ namespace MoMo
                     SenderId = 1,
                     IsRead = true,
                 });
+
+            modelBuilder.Entity<Service>().HasData(
+                new Service
+                {
+                    Id = 1,
+                    Name = "Nạp tiền điện thoại",
+                    Description = "Nạp tiền điện thoại",
+                },
+                new Service
+                {
+                    Id = 2,
+                    Name = "Đóng tiền nước",
+                    Description = "Thanh toán hóa đơn tiền nước",
+                },
+                new Service
+                {
+                    Id = 3,
+                    Name = "Đóng tiền điện",
+                    Description = "Thanh toán hóa đơn tiền điện",
+                },
+                new Service
+                {
+                    Id = 4,
+                    Name = "Đóng tiền internet",
+                    Description = "Thanh toán hóa đơn tiền internet",
+                });
+
+            modelBuilder.Entity<Transaction>().HasData(
+                new Transaction
+                {
+                    Id = 1,
+                    Amount = 100000,
+                    Type = Transaction.TransactionType.Transfer,
+                    Date = DateTime.Now,
+                    SenderId = 1,
+                    ReceiverId = 2,
+                    Message = "Chuyển tiền sinh hoạt",
+                },
+                new Transaction
+                {
+                    Id = 2,
+                    Amount = 200000,
+                    Type = Transaction.TransactionType.Transfer,
+                    Date = DateTime.Now,
+                    SenderId = 1,
+                    ReceiverId = 2,
+                    Message = "Chuyển tiền sinh hoạt",
+                },
+                new Transaction
+                {
+                    Id = 3,
+                    Amount = 150000,
+                    Type = Transaction.TransactionType.Transfer,
+                    Date = DateTime.Now,
+                    SenderId = 1,
+                    ReceiverId = 2,
+                    Message = "Chuyển tiền sinh hoạt",
+                },
+                new Transaction
+                {
+                    Id = 4,
+                    Amount = 100000,
+                    Type = Transaction.TransactionType.Transfer,
+                    Date = DateTime.Now,
+                    SenderId = 2,
+                    ReceiverId = 1,
+                    Message = "Trả tiền thừa",
+                },
+                new Transaction
+                {
+                    Id = 5,
+                    Amount = 200000,
+                    Type = Transaction.TransactionType.Transfer,
+                    Date = DateTime.Now,
+                    SenderId = 1,
+                    ServiceId = 1,
+                },
+                new Transaction
+                {
+                    Id = 6,
+                    Amount = 2000000,
+                    Type = Transaction.TransactionType.Transfer,
+                    Date = DateTime.Now.AddMonths(1),
+                    SenderId = 1,
+                    ServiceId = 1,
+                },
+                new Transaction
+                {
+                    Id = 7,
+                    Amount = 50000000,
+                    Type = Transaction.TransactionType.Transfer,
+                    Date = DateTime.Now.AddMonths(-1),
+                    SenderId = 1,
+                    ServiceId = 1,
+                }
+                );
         }
     }
 }
