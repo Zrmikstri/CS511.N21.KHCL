@@ -95,5 +95,13 @@ namespace MoMo
             pictureBox2.Image = Image.FromFile(@"../../../Images/reset.png");
             pictureBox2.Enabled = true;
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent the character from being entered
+            }
+        }
     }
 }

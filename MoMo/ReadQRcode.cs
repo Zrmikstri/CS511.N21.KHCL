@@ -154,7 +154,7 @@ namespace MoMo
 
         private void StopCameraCapture()
         {
-            if (!panel5.Visible)
+            if (isCameraStart)
             {
                 videoSource.SignalToStop();
                 videoSource.WaitForStop();
@@ -187,6 +187,14 @@ namespace MoMo
             {
                 startCamera();
                 isCameraStart = true;
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent the character from being entered
             }
         }
     }

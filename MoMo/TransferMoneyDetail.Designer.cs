@@ -167,6 +167,7 @@
             textBox2.Size = new Size(301, 27);
             textBox2.TabIndex = 0;
             textBox2.TextChanged += textBox2_TextChanged;
+            textBox2.KeyPress += textBox2_KeyPress;
             // 
             // label5
             // 
