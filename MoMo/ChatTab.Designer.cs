@@ -140,7 +140,7 @@
             // 
             // iconButton6
             // 
-            iconButton6.BackColor = Color.Violet;
+            iconButton6.BackColor = Color.FromArgb(219, 45, 139);
             iconButton6.FlatAppearance.BorderSize = 0;
             iconButton6.FlatStyle = FlatStyle.Flat;
             iconButton6.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
@@ -157,7 +157,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.Violet;
+            panel3.BackColor = Color.FromArgb(219, 45, 139);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(iconButton6);

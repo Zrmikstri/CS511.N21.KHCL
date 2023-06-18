@@ -62,12 +62,15 @@ namespace MoMo
                 flowLayoutPanel1.Controls.Add(timeLabel);
             }
 
-            SentMessage sentMessage = new SentMessage();
-            sentMessage.Message = richTextBox1.Text;
-            sentMessage.TimeAndSender = $"{DateTime.Now.ToString("HH:mm")}";
+            SentMessage sentMessage = new()
+            {
+                Message = richTextBox1.Text,
+                TimeAndSender = $"{DateTime.Now.ToString("HH:mm")}"
+            };
+
             flowLayoutPanel1.Controls.Add(sentMessage);
 
-            using (UserDbContext dbContext = new UserDbContext())
+            using (UserDbContext dbContext = new())
             {
                 dbContext.ChatMessages.Add(new ChatMessage()
                 {
@@ -165,6 +168,11 @@ namespace MoMo
                     .Where(m => (m.SenderId == senderId && m.ReceiverId == receiverId) || (m.SenderId == receiverId && m.ReceiverId == senderId))
                     .OrderBy(m => m.Date)
                     .ToList();
+
+                // Set all unread messages to read using LINQ
+                messagesHistory.ForEach(m => m.IsRead = true);
+
+                dbContext.SaveChanges();
             }
 
             if (messagesHistory.Count == 0)
@@ -187,6 +195,7 @@ namespace MoMo
                     timeLabel = CreateTimeLabel(lastMessageTime.ToString("HH:mm dd/MM/yyyy"));
                     flowLayoutPanel1.Controls.Add(timeLabel);
                 }
+
                 if (messagesHistory[i].SenderId == senderId)
                 {
                     if (string.IsNullOrEmpty(messagesHistory[i].Message) && messagesHistory[i].Image != null)
@@ -214,30 +223,55 @@ namespace MoMo
             // If the new message is from the current receiver, mark it as read
 
 
+            List<ChatMessage> messages;
             using (UserDbContext dbContext = new())
             {
-                List<ChatMessage> messages;
 
                 messages = dbContext.ChatMessages
                 .Where(m => m.SenderId == receiverId && m.ReceiverId == senderId && !m.IsRead)
                 .ToList();
 
-                if (messages.Count == 0)
-                    return;
-
-                foreach (ChatMessage message in messages)
-                {
-                    if (string.IsNullOrEmpty(message.Message) && message.Image != null)
-                        AddReceivedMessageImage(message);
-                    else
-                        AddReceivedMessage(message);
-
-                    message.IsRead = true;
-                }
+                // Set all unread messages to read using LINQ
+                messages.ForEach(m => m.IsRead = true);
 
                 dbContext.SaveChanges();
             }
 
+            if (messages.Count == 0)
+                return;
+
+            DateTime lastMessageTime = messages[0].Date;
+            int lastMessageSenderId = messages[0].SenderId;
+
+            Label timeLabel = CreateTimeLabel(lastMessageTime.ToString("HH:mm dd/MM/yyyy"));
+            flowLayoutPanel1.Controls.Add(timeLabel);
+
+            for (int i = 0; i < messages.Count; i++)
+            {
+                if (messages[i].SenderId != lastMessageSenderId || messages[i].Date.Subtract(lastMessageTime).TotalMinutes > 10)
+                {
+                    lastMessageTime = messages[i].Date;
+                    lastMessageSenderId = messages[i].SenderId;
+                    // Create time label from label control
+                    timeLabel = CreateTimeLabel(lastMessageTime.ToString("HH:mm dd/MM/yyyy"));
+                    flowLayoutPanel1.Controls.Add(timeLabel);
+                }
+
+                if (messages[i].SenderId == senderId)
+                {
+                    if (string.IsNullOrEmpty(messages[i].Message) && messages[i].Image != null)
+                        AddSentMessageImage(messages[i]);
+                    else
+                        AddSentMessage(messages[i]);
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(messages[i].Message) && messages[i].Image != null)
+                        AddReceivedMessageImage(messages[i]);
+                    else
+                        AddReceivedMessage(messages[i]);
+                }
+            }
 
             flowLayoutPanel1.ScrollControlIntoView(flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1]);
         }
