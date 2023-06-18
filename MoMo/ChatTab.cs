@@ -41,26 +41,16 @@ namespace MoMo
             // Add time label if the last message is sent more than 10 minutes ago
             if (flowLayoutPanel1.Controls.Count > 0)
             {
-                // Get the last time label
-                Label lastTimeLabel = flowLayoutPanel1.Controls
-                    .OfType<Label>()
-                    .LastOrDefault(label => label.Name.Contains("timeLabel"))!;
-
+                Label? lastTimeLabel = flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1] as Label;
                 if (lastTimeLabel != null)
                 {
                     DateTime lastMessageTime = DateTime.Parse(lastTimeLabel.Text);
                     if (DateTime.Now.Subtract(lastMessageTime).TotalMinutes > 10)
-                    {
-                        Label timeLabel = CreateTimeLabel(DateTime.Now.ToString("HH:mm dd/MM/yyyy"));
-                        flowLayoutPanel1.Controls.Add(timeLabel);
-                    }
+                        AddTimeLabel(DateTime.Now);
                 }
             }
             else
-            {
-                Label timeLabel = CreateTimeLabel(DateTime.Now.ToString("HH:mm dd/MM/yyyy"));
-                flowLayoutPanel1.Controls.Add(timeLabel);
-            }
+                AddTimeLabel(DateTime.Now);
 
             SentMessage sentMessage = new()
             {
