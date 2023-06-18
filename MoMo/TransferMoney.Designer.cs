@@ -41,7 +41,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Fuchsia;
+            panel2.BackColor = Color.FromArgb(219, 45, 139);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(iconButton1);
             panel2.Dock = DockStyle.Top;
@@ -90,7 +90,7 @@
             // 
             // iconButton1
             // 
-            iconButton1.BackColor = Color.Fuchsia;
+            iconButton1.BackColor = Color.FromArgb(219, 45, 139);
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;

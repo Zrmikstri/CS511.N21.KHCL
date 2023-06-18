@@ -56,12 +56,12 @@
             textBox1 = new TextBox();
             label5 = new Label();
             panel4 = new Panel();
+            label15 = new Label();
             panel1 = new Panel();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             label1 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
-            label15 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel9.SuspendLayout();
@@ -358,6 +358,16 @@
             panel4.Size = new Size(367, 61);
             panel4.TabIndex = 2;
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(311, 13);
+            label15.Name = "label15";
+            label15.Size = new Size(56, 28);
+            label15.TabIndex = 4;
+            label15.Text = "VND";
+            // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
@@ -373,7 +383,7 @@
             // 
             // iconButton2
             // 
-            iconButton2.BackColor = Color.Fuchsia;
+            iconButton2.BackColor = Color.FromArgb(219, 45, 139);
             iconButton2.FlatAppearance.BorderSize = 0;
             iconButton2.FlatStyle = FlatStyle.Flat;
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
@@ -398,7 +408,7 @@
             // 
             // iconButton1
             // 
-            iconButton1.BackColor = Color.Fuchsia;
+            iconButton1.BackColor = Color.FromArgb(219, 45, 139);
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
@@ -413,7 +423,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Fuchsia;
+            panel2.BackColor = Color.FromArgb(219, 45, 139);
             panel2.Controls.Add(iconButton2);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(iconButton1);
@@ -422,16 +432,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(417, 75);
             panel2.TabIndex = 7;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(311, 13);
-            label15.Name = "label15";
-            label15.Size = new Size(56, 28);
-            label15.TabIndex = 4;
-            label15.Text = "VND";
             // 
             // Withdraw
             // 

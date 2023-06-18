@@ -71,7 +71,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Fuchsia;
+            panel2.BackColor = Color.FromArgb(219, 45, 139);
             panel2.Controls.Add(iconButton2);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(iconButton1);
@@ -83,7 +83,7 @@
             // 
             // iconButton2
             // 
-            iconButton2.BackColor = Color.Fuchsia;
+            iconButton2.BackColor = Color.FromArgb(219, 45, 139);
             iconButton2.FlatAppearance.BorderSize = 0;
             iconButton2.FlatStyle = FlatStyle.Flat;
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
@@ -108,7 +108,7 @@
             // 
             // iconButton1
             // 
-            iconButton1.BackColor = Color.Fuchsia;
+            iconButton1.BackColor = Color.FromArgb(219, 45, 139);
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;

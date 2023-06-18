@@ -36,6 +36,7 @@
             panel1 = new Panel();
             label5 = new Label();
             panel4 = new Panel();
+            label15 = new Label();
             textBox1 = new TextBox();
             panel3 = new Panel();
             label4 = new Label();
@@ -62,7 +63,6 @@
             label14 = new Label();
             panel10 = new Panel();
             pictureBox5 = new PictureBox();
-            label15 = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -83,7 +83,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Fuchsia;
+            panel2.BackColor = Color.FromArgb(219, 45, 139);
             panel2.Controls.Add(iconButton2);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(iconButton1);
@@ -95,7 +95,7 @@
             // 
             // iconButton2
             // 
-            iconButton2.BackColor = Color.Fuchsia;
+            iconButton2.BackColor = Color.FromArgb(219, 45, 139);
             iconButton2.FlatAppearance.BorderSize = 0;
             iconButton2.FlatStyle = FlatStyle.Flat;
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
@@ -120,7 +120,7 @@
             // 
             // iconButton1
             // 
-            iconButton1.BackColor = Color.Fuchsia;
+            iconButton1.BackColor = Color.FromArgb(219, 45, 139);
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
@@ -166,6 +166,16 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(367, 61);
             panel4.TabIndex = 2;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(313, 13);
+            label15.Name = "label15";
+            label15.Size = new Size(56, 28);
+            label15.TabIndex = 2;
+            label15.Text = "VND";
             // 
             // textBox1
             // 
@@ -434,16 +444,6 @@
             pictureBox5.TabIndex = 5;
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(313, 13);
-            label15.Name = "label15";
-            label15.Size = new Size(56, 28);
-            label15.TabIndex = 2;
-            label15.Text = "VND";
             // 
             // Pay
             // 

@@ -55,7 +55,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Fuchsia;
+            panel2.BackColor = Color.FromArgb(219, 45, 139);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label1);
@@ -100,7 +100,7 @@
             // 
             // iconButton1
             // 
-            iconButton1.BackColor = Color.Fuchsia;
+            iconButton1.BackColor = Color.FromArgb(219, 45, 139);
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;

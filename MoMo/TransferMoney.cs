@@ -60,7 +60,7 @@ namespace MoMo
 
         private List<User> GetRecommendProfiles()
         {
-            using (UserDbContext dbContext = new ())
+            using (UserDbContext dbContext = new())
             {
                 List<User> result = dbContext.Users
                     .Where(user => user.FullName.Contains(textBox3.Text) || user.PhoneNumber.Contains(textBox3.Text))
