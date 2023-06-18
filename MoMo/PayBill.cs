@@ -37,5 +37,20 @@ namespace MoMo
             pictureBox16.Image = Image.FromFile(imageList[imageIndex]);
             imageIndex++;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            StackNavigation.Push(new PayBillDetail("Electricity"));
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            StackNavigation.Push(new PayBillDetail("Water"));
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            StackNavigation.Push(new PayBillDetail("Internet"));
+        }
     }
 }
