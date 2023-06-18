@@ -58,5 +58,10 @@ namespace MoMo
         {
             StackNavigation.Push(new TransferMoney());
         }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            StackNavigation.Push(new PayBill());
+        }
     }
 }

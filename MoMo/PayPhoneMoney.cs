@@ -15,7 +15,7 @@ namespace MoMo
         Panel[] panels = null!;
         Label[] labels = null!;
         int flag = 0;
-        string value;
+        string value = "10.000";
         private string[] Viettel = { "086", "096", "097", "098", "032", "033", "034", "035", "036", "037", "038", "039" };
         private string[] Vinaphone = { "088", "091", "094", "081", "082", "086", "084", "085" };
         private string[] Mobifone = { "089", "090", "093", "070", "079", "077", "076", "078" };
@@ -36,6 +36,8 @@ namespace MoMo
             panel14.AutoScroll = false;
             panel14.HorizontalScroll.Visible = false;
             panel14.AutoScroll = true;
+            checkValue();
+            label16.Text = Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(value));
         }
 
         private void panel_Click_change_color(object sender, EventArgs e)
@@ -91,8 +93,6 @@ namespace MoMo
                     pictureBox1.Image = Image.FromFile(@"../../../Images/momo-logo.png");
                     label2.Visible = true;
                 }
-                checkValue();
-                label16.Text = Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(value));
             }
             else
             {
