@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MoMo.Model;
 
 namespace MoMo
 {
@@ -62,6 +63,32 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            // Transfer money from current user to userToBeTransferMoneyTo
+            using (UserDbContext db = new())
+            {
+                // Update the balance of the logged in user
+                Session.LoggedInUserInfo!.Balance -= Utils.VNCurrencyToDouble(textBox2.Text);
+                db.Users.Update(Session.LoggedInUserInfo!);
+
+                // Update the balance of the user to be transfer money to
+                userToBeTransferMoneyTo.Balance += Utils.VNCurrencyToDouble(textBox2.Text);
+                db.Users.Update(userToBeTransferMoneyTo);
+
+                // Add a new transaction
+                Transaction transaction = new()
+                {
+                    Amount = Utils.VNCurrencyToDouble(textBox2.Text),
+                    Type = Transaction.TransactionType.Transfer,
+                    Date = DateTime.Now,
+                    Message = textBox1.Text,
+                    SenderId = Session.LoggedInUserInfo!.Id,
+                    ReceiverId = userToBeTransferMoneyTo.Id
+                };
+                db.Transactions.Add(transaction);
+
+                db.SaveChanges();
+            }
+
             MessageBox.Show(
                 "Chuyển khoản thành công số tiền: " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(textBox2.Text)),
                 "Thông báo",
@@ -70,6 +97,8 @@ namespace MoMo
 
             textBox1.Clear();
             textBox2.Clear();
+
+            StackNavigation.Pop();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -83,6 +112,14 @@ namespace MoMo
             {
                 e.Handled = true;  // Prevent the character from being entered
             }
+        }
+
+        private void TransferMoneyDetail_Load(object sender, EventArgs e)
+        {
+            // Set the avatar image, full name and phone number of the user to be transfer money to
+            pictureBox1.Image = Utils.BytesArrayToImage(userToBeTransferMoneyTo!.AvatarImage);
+            label1.Text = userToBeTransferMoneyTo.FullName;
+            label2.Text = userToBeTransferMoneyTo.PhoneNumber;
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MoMo;
+using MoMo.Model;
 using System.ComponentModel;
 
 namespace MoMo
@@ -15,7 +15,7 @@ namespace MoMo
 
             using (UserDbContext db = new())
             {
-                db.Database.EnsureDeleted();
+                //db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
 
                 db.SaveChanges();

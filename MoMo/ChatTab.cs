@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MoMo.Model;
 using MoMo.MyUserControl;
 
 namespace MoMo

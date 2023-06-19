@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using System.Security.RightsManagement;
 using System.ComponentModel;
+using MoMo.Model;
 
 namespace MoMo
 {
@@ -40,6 +41,9 @@ namespace MoMo
                 }
 
                 Session.LoggedInUserInfo = user;
+
+                // Save the user id to the file to check if the user is logged in
+                File.AppendAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt", $"{user.Id}\n");
 
                 Screen screen = new Screen((Main)this.Owner!);
                 StackNavigation.Push(screen);

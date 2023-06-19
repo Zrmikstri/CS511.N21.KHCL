@@ -1,4 +1,5 @@
-﻿using MoMo.Properties;
+﻿using MoMo.Model;
+using MoMo.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,8 +80,30 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            using(UserDbContext db = new())
+            {
+                // Update the balance of the logged in user
+                Session.LoggedInUserInfo!.Balance += Utils.VNCurrencyToDouble(textBox1.Text);
+                db.Users.Update(Session.LoggedInUserInfo!);
+                db.SaveChanges();
+
+                // Create a transaction
+                Transaction transaction = new()
+                {
+                    Amount = Utils.VNCurrencyToDouble(textBox1.Text),
+                    Date = DateTime.Now,
+                    ReceiverId = Session.LoggedInUserInfo!.Id,
+                    BankId = 1, // Vietcombank
+                    Type = Transaction.TransactionType.Bank
+                };
+                db.Transactions.Add(transaction);
+                db.SaveChanges();
+            }
+
             MessageBox.Show("Thanh toán thành công số tiền: " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(textBox1.Text)),
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            StackNavigation.Pop();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -89,6 +112,12 @@ namespace MoMo
             {
                 e.Handled = true;  // Prevent the character from being entered
             }
+        }
+
+        private void Pay_Load(object sender, EventArgs e)
+        {
+            // Show the current balance
+            label4.Text = Utils.FormatVNCurrency(Session.LoggedInUserInfo!.Balance);
         }
     }
 }

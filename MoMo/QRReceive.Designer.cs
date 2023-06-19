@@ -67,8 +67,9 @@
             panel2.Controls.Add(iconButton1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(417, 75);
+            panel2.Size = new Size(365, 56);
             panel2.TabIndex = 8;
             // 
             // iconButton2
@@ -79,9 +80,10 @@
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
             iconButton2.IconColor = Color.White;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.Location = new Point(358, 8);
+            iconButton2.Location = new Point(313, 6);
+            iconButton2.Margin = new Padding(3, 2, 3, 2);
             iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(65, 62);
+            iconButton2.Size = new Size(57, 46);
             iconButton2.TabIndex = 2;
             iconButton2.UseVisualStyleBackColor = false;
             // 
@@ -90,9 +92,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(103, 12);
+            label1.Location = new Point(90, 9);
             label1.Name = "label1";
-            label1.Size = new Size(221, 46);
+            label1.Size = new Size(176, 37);
             label1.TabIndex = 1;
             label1.Text = "QR Nhận tiền";
             // 
@@ -104,9 +106,10 @@
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
             iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(6, 6);
+            iconButton1.Location = new Point(5, 4);
+            iconButton1.Margin = new Padding(3, 2, 3, 2);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(65, 62);
+            iconButton1.Size = new Size(57, 46);
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
             iconButton1.Click += iconButton1_Click;
@@ -123,26 +126,27 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(11, 145);
+            panel1.Location = new Point(10, 109);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(395, 530);
+            panel1.Size = new Size(346, 398);
             panel1.TabIndex = 9;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(37, 433);
+            label5.Location = new Point(32, 325);
             label5.Name = "label5";
-            label5.Size = new Size(103, 20);
+            label5.Size = new Size(83, 15);
             label5.TabIndex = 6;
             label5.Text = "Thêm lời nhắn";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(37, 342);
+            label4.Location = new Point(32, 256);
             label4.Name = "label4";
-            label4.Size = new Size(130, 20);
+            label4.Size = new Size(105, 15);
             label4.TabIndex = 5;
             label4.Text = "Thêm số tiền nhận";
             // 
@@ -151,19 +155,21 @@
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.BackgroundImageLayout = ImageLayout.Stretch;
             panel3.Controls.Add(textBox2);
-            panel3.Location = new Point(13, 445);
+            panel3.Location = new Point(11, 334);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(367, 61);
+            panel3.Size = new Size(321, 46);
             panel3.TabIndex = 4;
             // 
             // textBox2
             // 
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(6, 13);
+            textBox2.Location = new Point(5, 10);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Chuyển tiền cho mình nhé";
-            textBox2.Size = new Size(339, 27);
+            textBox2.Size = new Size(297, 22);
             textBox2.TabIndex = 0;
             // 
             // panel4
@@ -172,18 +178,19 @@
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
             panel4.Controls.Add(label15);
             panel4.Controls.Add(textBox1);
-            panel4.Location = new Point(13, 354);
+            panel4.Location = new Point(11, 266);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(367, 61);
+            panel4.Size = new Size(321, 46);
             panel4.TabIndex = 3;
             // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(313, 13);
+            label15.Location = new Point(274, 10);
             label15.Name = "label15";
-            label15.Size = new Size(56, 28);
+            label15.Size = new Size(46, 21);
             label15.TabIndex = 3;
             label15.Text = "VND";
             // 
@@ -191,19 +198,21 @@
             // 
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(6, 13);
+            textBox1.Location = new Point(5, 10);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "0đ";
-            textBox1.Size = new Size(313, 27);
+            textBox1.Size = new Size(274, 22);
             textBox1.TabIndex = 0;
             textBox1.TextChanged += textBox1_TextChanged;
             textBox1.KeyPress += textBox1_KeyPress;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(81, 98);
+            pictureBox1.Location = new Point(71, 74);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(232, 232);
+            pictureBox1.Size = new Size(203, 174);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -212,9 +221,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(141, 56);
+            label3.Location = new Point(123, 42);
             label3.Name = "label3";
-            label3.Size = new Size(112, 25);
+            label3.Size = new Size(89, 20);
             label3.TabIndex = 1;
             label3.Text = "0373488359";
             // 
@@ -222,9 +231,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(92, 16);
+            label2.Location = new Point(80, 12);
             label2.Name = "label2";
-            label2.Size = new Size(210, 31);
+            label2.Size = new Size(174, 25);
             label2.TabIndex = 0;
             label2.Text = "Đào Trần Anh Tuấn";
             // 
@@ -237,27 +246,29 @@
             panel5.Controls.Add(pictureBox3);
             panel5.Controls.Add(label6);
             panel5.Controls.Add(pictureBox2);
-            panel5.Location = new Point(11, 763);
+            panel5.Location = new Point(10, 572);
+            panel5.Margin = new Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(394, 61);
+            panel5.Size = new Size(345, 46);
             panel5.TabIndex = 10;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(291, 18);
+            label7.Location = new Point(255, 14);
             label7.Name = "label7";
-            label7.Size = new Size(89, 25);
+            label7.Size = new Size(74, 20);
             label7.TabIndex = 4;
             label7.Text = "Tải xuống";
             // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(232, 3);
+            pictureBox3.Location = new Point(203, 2);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(53, 57);
+            pictureBox3.Size = new Size(46, 43);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 3;
             pictureBox3.TabStop = false;
@@ -267,18 +278,19 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(71, 18);
+            label6.Location = new Point(62, 14);
             label6.Name = "label6";
-            label6.Size = new Size(86, 25);
+            label6.Size = new Size(73, 20);
             label6.TabIndex = 2;
             label6.Text = "Tải lại QR";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(12, 3);
+            pictureBox2.Location = new Point(10, 2);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(53, 57);
+            pictureBox2.Size = new Size(46, 43);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -286,16 +298,18 @@
             // 
             // QRReceive
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(417, 894);
+            ClientSize = new Size(365, 670);
             Controls.Add(panel5);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "QRReceive";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "QRReceive";
+            Load += QRReceive_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);

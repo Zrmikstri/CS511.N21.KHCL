@@ -5,7 +5,7 @@ using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoMo
+namespace MoMo.Model
 {
     public class ChatMessage
     {
@@ -17,7 +17,7 @@ namespace MoMo
 
         public int SenderId { get; set; }
         public virtual User Sender { get; set; } = null!;
-        
+
         public int ReceiverId { get; set; }
         public virtual User Receiver { get; set; } = null!;
     }

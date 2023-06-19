@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
+using MoMo.Model;
 using MoMo.MyUserControl;
 
 namespace MoMo
@@ -36,6 +37,9 @@ namespace MoMo
 
                 transactions = db.Transactions
                     .Include(t => t.Service)
+                    .Include(t => t.Sender)
+                    .Include(t => t.Receiver)
+                    .Include(t => t.Bank)
                     .Where(t => t.SenderId == Session.LoggedInUserInfo!.Id || t.ReceiverId == Session.LoggedInUserInfo!.Id)
                     .OrderByDescending(t => t.Date)
                     .ToList()
@@ -53,16 +57,19 @@ namespace MoMo
                 foreach (Transaction transaction in group)
                 {
                     HistoryItem historyItem = new();
-                    historyItem.Description = !string.IsNullOrEmpty(transaction.Message)
-                            ? transaction.Message
-                            : transaction.Service!.Description;
+
+                    historyItem.Description = transaction.GenerateDescription();
+
                     historyItem.TransactionDate = transaction.Date.ToString("HH:mm dd/MM/yyyy");
+
                     historyItem.Amount = transaction.SenderId == Session.LoggedInUserInfo!.Id
                         ? "-" + Utils.FormatVNCurrency(transaction.Amount)
                         : "+" + Utils.FormatVNCurrency(transaction.Amount);
+
                     historyItem.Avatar = transaction.SenderId == Session.LoggedInUserInfo!.Id
                         ? Properties.Resources.send_money
                         : Properties.Resources.receive_money;
+
                     flowLayoutPanel1.Controls.Add(historyItem);
                 }
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoMo.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -124,8 +125,33 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            using (UserDbContext db = new UserDbContext())
+            {
+                if (Session.LoggedInUserInfo!.Balance < Utils.VNCurrencyToDouble(value))
+                {
+                    MessageBox.Show("Số dư không đủ để thực hiện giao dịch", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Session.LoggedInUserInfo.Balance -= Utils.VNCurrencyToDouble(value);
+                db.Users.Update(Session.LoggedInUserInfo);
+
+                // Create transaction 
+                Transaction transaction = new()
+                {
+                    Amount = Utils.VNCurrencyToDouble(value),
+                    Type = Transaction.TransactionType.Service,
+                    SenderId = Session.LoggedInUserInfo!.Id,
+                    ServiceId = 1,
+                };
+                db.Transactions.Add(transaction);
+
+                db.SaveChanges();
+            }
             MessageBox.Show("Nạp thành công " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(labels[flag].Text.Substring(0, labels[flag].Text.Length - 1)))
                 + " cho SĐT " + textBox1.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            StackNavigation.Pop();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -139,11 +165,6 @@ namespace MoMo
             {
                 e.Handled = true;  // Prevent the character from being entered
             }
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace MoMo
+﻿namespace MoMo.Model
 {
     public class User
     {
@@ -8,7 +8,7 @@
         }
 
         public int Id { get; set; }
-        public int Balance { get; set; } = 0;
+        public double Balance { get; set; } = 0;
         public string Address { get; set; } = "Test Address";
         public string Email { get; set; } = "test@test.com";
         public string PhoneNumber { get; set; } = "0123456789";

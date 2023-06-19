@@ -643,7 +643,6 @@
             label16.TabIndex = 20;
             label16.Text = "0";
             label16.TextAlign = ContentAlignment.MiddleRight;
-            label16.Click += label16_Click;
             // 
             // PayPhoneMoney
             // 

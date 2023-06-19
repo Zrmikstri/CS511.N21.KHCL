@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.FileIO;
+using MoMo.Model;
 using System.ComponentModel;
 
 
@@ -24,7 +25,7 @@ namespace MoMo
             }
         }
 
-        private User checkCredentials(string username, string password)
+        private User? checkCredentials(string username, string password)
         {
             return _userDbContext!.Users
                         .SingleOrDefault(user => ( username == user.PhoneNumber) && (password == user.Password));
@@ -41,7 +42,7 @@ namespace MoMo
             string password = txtPassword.Text;
             bool rememberMe = checkBox1.Checked;
 
-            User user = checkCredentials(username, password);
+            User? user = checkCredentials(username, password);
 
 
             if (user == null)
@@ -65,11 +66,20 @@ namespace MoMo
                 Properties.Settings.Default.isRememberUsername = false;
             }
 
+            // Open text file to check and save curent logged in user
+            string currentLoggedInUsers = File.ReadAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt");
+            if (!currentLoggedInUsers.Contains(user.Id.ToString()))
+                File.AppendAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt", $"{user.Id}\n");
+            else
+            {
+                MessageBox.Show("Tài khoản này đã đăng nhập trên một thiết bị khác!\nVui lòng đăng nhập lại.",
+                                      "Chú ý!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             // If username and password are correct, close the login form and open home form
             Screen screen = new Screen((Main)this.Owner!);
             StackNavigation.Push(screen);
-            //((Main)this.Owner!).OpenChildForm(new Screen());
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

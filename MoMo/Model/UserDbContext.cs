@@ -2,13 +2,15 @@
 using System.Diagnostics;
 using System.Net;
 
-namespace MoMo
+namespace MoMo.Model
 {
     public class UserDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<ChatMessage> ChatMessages { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Bank> Banks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseSqlite("Data Source=users.db");
@@ -96,6 +98,15 @@ namespace MoMo
                         .OnDelete(DeleteBehavior.Cascade);
             });
 
+            // Configure the Bank entity
+            modelBuilder.Entity<Bank>(entity =>
+            {
+                entity.ToTable("banks");
+                entity.HasKey(e => e.Id);
+               
+                entity.Property(e => e.Name).IsRequired();
+            });
+
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
@@ -113,7 +124,8 @@ namespace MoMo
                     Email = "tuan456@gmail.com",
                     PhoneNumber = "0987654321",
                     Address = "456 Đào Tuấn P5 Q10 TP.Hồ Chí Minh",
-                    Password = "456"
+                    Password = "456",
+                    Balance = 50000000
                 },
                 new User
                 {
@@ -238,6 +250,73 @@ namespace MoMo
                     Id = 4,
                     Name = "Đóng tiền internet",
                     Description = "Thanh toán hóa đơn tiền internet",
+                },
+                new Service
+                {
+                    Id = 5,
+
+                });
+
+            modelBuilder.Entity<Bank>().HasData(
+                new Bank
+                {
+                    Id = 1,
+                    Name = "Ngân hàng Vietcombank",
+                },
+                new Bank
+                {
+                    Id = 2,
+                    Name = "Ngân hàng Vietinbank",
+                },
+                new Bank
+                {
+                    Id = 3,
+                    Name = "Ngân hàng BIDV",
+                },
+                new Bank
+                {
+                    Id = 4,
+                    Name = "Ngân hàng Agribank",
+                },
+                new Bank
+                {
+                    Id = 5,
+                    Name = "Ngân hàng Techcombank",
+                },
+                new Bank
+                {
+                    Id = 6,
+                    Name = "Ngân hàng VIB",
+                },
+                new Bank
+                {
+                    Id = 7,
+                    Name = "Ngân hàng ACB",
+                },
+                new Bank
+                {
+                    Id = 8,
+                    Name = "Ngân hàng Sacombank",
+                },
+                new Bank
+                {
+                    Id = 9,
+                    Name = "Ngân hàng TPBank",
+                },
+                new Bank
+                {
+                    Id = 10,
+                    Name = "Ngân hàng DongABank",
+                },
+                new Bank
+                {
+                    Id = 11,
+                    Name = "Ngân hàng MBBank",
+                },
+                new Bank
+                {
+                    Id = 12,
+                    Name = "Ngân hàng OCB",
                 });
 
             modelBuilder.Entity<Transaction>().HasData(
@@ -285,7 +364,7 @@ namespace MoMo
                 {
                     Id = 5,
                     Amount = 200000,
-                    Type = Transaction.TransactionType.Transfer,
+                    Type = Transaction.TransactionType.Service,
                     Date = DateTime.Now,
                     SenderId = 1,
                     ServiceId = 1,
@@ -294,7 +373,7 @@ namespace MoMo
                 {
                     Id = 6,
                     Amount = 2000000,
-                    Type = Transaction.TransactionType.Transfer,
+                    Type = Transaction.TransactionType.Service,
                     Date = DateTime.Now.AddMonths(1),
                     SenderId = 1,
                     ServiceId = 1,
@@ -303,12 +382,11 @@ namespace MoMo
                 {
                     Id = 7,
                     Amount = 50000000,
-                    Type = Transaction.TransactionType.Transfer,
+                    Type = Transaction.TransactionType.Service,
                     Date = DateTime.Now.AddMonths(-1),
                     SenderId = 1,
                     ServiceId = 1,
-                }
-                );
+                });
         }
     }
 }

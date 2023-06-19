@@ -3,13 +3,14 @@ using AForge.Video.DirectShow;
 using AForge.Video;
 using ZXing.Common;
 using ZXing.Windows.Compatibility;
+using MoMo.Model;
 
 namespace MoMo
 {
     public partial class ReadQRcode : Form
     {
-        private FilterInfoCollection videoDevices;
-        private VideoCaptureDevice videoSource;
+        private FilterInfoCollection? videoDevices;
+        private VideoCaptureDevice? videoSource;
         private bool isCameraCapturing = false;
         private bool isCameraStart = false;
 
@@ -27,7 +28,7 @@ namespace MoMo
                 {
                     Bitmap image = new Bitmap(openFileDialog.FileName);
 
-                    var barcodeReader = new ZXing.Windows.Compatibility.BarcodeReader();
+                    var barcodeReader = new BarcodeReader();
 
                     Result result = barcodeReader.Decode(image);
 
@@ -87,8 +88,54 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            // Get the user to be transferred
+            using (UserDbContext db = new())
+            {
+                if (label3.Text == Session.LoggedInUserInfo!.PhoneNumber)
+                {
+                    MessageBox.Show("Bạn không thể chuyển tiền cho chính mình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                User? userToBeTransferMoneyTo = db.Users.FirstOrDefault(u => u.PhoneNumber == label3.Text);
+                if (userToBeTransferMoneyTo == null)
+                {
+                    MessageBox.Show("Số điện thoại không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Check if the current user has enough money
+                if (Session.LoggedInUserInfo!.Balance < Utils.VNCurrencyToDouble(textBox1.Text))
+                {
+                    MessageBox.Show("Số dư không đủ để thực hiện giao dịch", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Update the balance of the current user
+                Session.LoggedInUserInfo!.Balance -= Utils.VNCurrencyToDouble(textBox1.Text);
+                db.Update(Session.LoggedInUserInfo!);
+
+                // Update the balance of the user to be transferred
+                userToBeTransferMoneyTo.Balance += Utils.VNCurrencyToDouble(textBox1.Text);
+                db.Update(userToBeTransferMoneyTo);
+
+                // Add the transaction to the database
+                db.Transactions.Add(new Transaction
+                {
+                    SenderId = Session.LoggedInUserInfo!.Id,
+                    ReceiverId = userToBeTransferMoneyTo.Id,
+                    Amount = Utils.VNCurrencyToDouble(textBox1.Text),
+                    Message = textBox2.Text,
+                    Date = DateTime.Now
+                });
+
+                // Save the changes to the database
+                db.SaveChanges();
+            }
             MessageBox.Show("Chuyển khoản thành công số tiền: " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(textBox1.Text)),
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            StackNavigation.Pop();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -156,9 +203,9 @@ namespace MoMo
         {
             if (isCameraStart)
             {
-                videoSource.SignalToStop();
-                videoSource.WaitForStop();
-                videoSource = null;
+                videoSource?.SignalToStop();
+                videoSource?.WaitForStop();
+                videoSource = null!;
             }
         }
 

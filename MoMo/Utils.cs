@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MoMo.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MoMo.Model.Transaction;
 
 namespace MoMo
 {
@@ -44,6 +46,14 @@ namespace MoMo
             return double.Parse(value);
         }
 
+        public static double VNCurrencyToInt(string currency)
+        {
+            //Remove all non number characters using regex
+            string value = System.Text.RegularExpressions.Regex.Replace(currency, "[^0-9]", "");
+            value = value.Trim();
+            return int.Parse(value);
+        }
+
         public static byte[] ImageToBytesArray(Image image)
         {
             using (MemoryStream ms = new MemoryStream())
@@ -78,6 +88,11 @@ namespace MoMo
                         dbContext.SaveChanges();
                     }
                 }
+
+                // Remove the current user from current logged in users txt file
+                string currentLoggedInUsers = File.ReadAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt");
+                currentLoggedInUsers = currentLoggedInUsers.Replace($"{Session.LoggedInUserInfo!.Id}\n", "");
+                File.WriteAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt", currentLoggedInUsers);
             }
         }
     }

@@ -103,5 +103,12 @@ namespace MoMo
                 e.Handled = true;  // Prevent the character from being entered
             }
         }
+
+        private void QRReceive_Load(object sender, EventArgs e)
+        {
+            // Set the logged in user's name, phone number
+            label2.Text = Session.LoggedInUserInfo!.FullName;
+            label3.Text = Session.LoggedInUserInfo!.PhoneNumber;
+        }
     }
 }
