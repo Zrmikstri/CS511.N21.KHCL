@@ -228,10 +228,12 @@
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.Location = new Point(13, 13);
+            textBox1.MaxLength = 160;
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập lời nhắn";
             textBox1.Size = new Size(339, 27);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // panel10
             // 

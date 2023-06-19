@@ -120,5 +120,10 @@ namespace MoMo
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            label5.Text = "Lời nhắn (" + textBox1.Text.Length + "/160)";
+        }
     }
 }

@@ -106,7 +106,7 @@ namespace MoMo
         {
             HighlightButton(sender);
             linkLabel1.Visible= false;
-            //OpenTab(new AccountTab());
+            OpenTab(new Account());
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

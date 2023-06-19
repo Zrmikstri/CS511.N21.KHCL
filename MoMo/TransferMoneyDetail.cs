@@ -84,5 +84,10 @@ namespace MoMo
                 e.Handled = true;  // Prevent the character from being entered
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            label5.Text = "Lời nhắn (" + textBox1.Text.Length + "/160)";
+        }
     }
 }

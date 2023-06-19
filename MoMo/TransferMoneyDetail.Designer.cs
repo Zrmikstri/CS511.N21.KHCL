@@ -197,6 +197,7 @@
             textBox1.PlaceholderText = "Nhập lời nhắn";
             textBox1.Size = new Size(339, 27);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // panel10
             // 
