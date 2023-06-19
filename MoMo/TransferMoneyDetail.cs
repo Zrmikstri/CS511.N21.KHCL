@@ -121,5 +121,10 @@ namespace MoMo
             label1.Text = userToBeTransferMoneyTo.FullName;
             label2.Text = userToBeTransferMoneyTo.PhoneNumber;
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            label5.Text = "Lời nhắn (" + textBox1.Text.Length + "/160)";
+        }
     }
 }
