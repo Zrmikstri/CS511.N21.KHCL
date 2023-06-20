@@ -20,10 +20,12 @@
         public string PhoneNumber { get; set; } = "0123456789";
         public DateTime Birthday { get; set; }
         public string Address { get; set; } = "Test Address";
-        public double Balance { get; set; } = 0;
         public string Email { get; set; } = "test@test.com";
         public string Password { get; set; } = "Test123";
         public byte[] AvatarImage { get; set; }
+        public double Balance { get; set; } = 0;
+
+        public int LinkedBankId { get; set; } = 1;
 
         public virtual ICollection<Transaction> Transactions { get; } = new List<Transaction>();
         public virtual ICollection<ChatMessage> ChatMessages { get; } = new List<ChatMessage>();

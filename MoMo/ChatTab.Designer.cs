@@ -202,7 +202,7 @@
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel3);
             Controls.Add(panel2);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Margin = new Padding(3, 4, 3, 4);
             Name = "ChatTab";
             StartPosition = FormStartPosition.CenterParent;

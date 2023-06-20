@@ -14,7 +14,6 @@ namespace MoMo
     public partial class TransferMoneyDetail : Form
     {
         private User userToBeTransferMoneyTo = null!;
-        private int money = 0;
 
         public TransferMoneyDetail()
         {

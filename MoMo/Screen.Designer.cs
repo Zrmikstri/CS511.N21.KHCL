@@ -53,12 +53,12 @@
             tableLayoutPanel1.Controls.Add(iconButton5, 3, 0);
             tableLayoutPanel1.Controls.Add(iconButton3, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 905);
+            tableLayoutPanel1.Location = new Point(0, 919);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(453, 83);
+            tableLayoutPanel1.Size = new Size(453, 69);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // iconButton1
@@ -71,12 +71,12 @@
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconButton1.IconColor = Color.Black;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 32;
+            iconButton1.IconSize = 35;
             iconButton1.ImageAlign = ContentAlignment.TopCenter;
             iconButton1.Location = new Point(3, 4);
             iconButton1.Margin = new Padding(3, 4, 3, 4);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(107, 75);
+            iconButton1.Size = new Size(107, 61);
             iconButton1.TabIndex = 0;
             iconButton1.Text = "Trang chủ";
             iconButton1.TextAlign = ContentAlignment.BottomCenter;
@@ -94,12 +94,12 @@
             iconButton4.IconChar = FontAwesome.Sharp.IconChar.Comments;
             iconButton4.IconColor = Color.Black;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            iconButton4.IconSize = 32;
+            iconButton4.IconSize = 35;
             iconButton4.ImageAlign = ContentAlignment.TopCenter;
             iconButton4.Location = new Point(229, 4);
             iconButton4.Margin = new Padding(3, 4, 3, 4);
             iconButton4.Name = "iconButton4";
-            iconButton4.Size = new Size(107, 75);
+            iconButton4.Size = new Size(107, 61);
             iconButton4.TabIndex = 3;
             iconButton4.Text = "Trao đổi";
             iconButton4.TextAlign = ContentAlignment.BottomCenter;
@@ -117,12 +117,12 @@
             iconButton5.IconChar = FontAwesome.Sharp.IconChar.User;
             iconButton5.IconColor = Color.Black;
             iconButton5.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            iconButton5.IconSize = 32;
+            iconButton5.IconSize = 35;
             iconButton5.ImageAlign = ContentAlignment.TopCenter;
             iconButton5.Location = new Point(342, 4);
             iconButton5.Margin = new Padding(3, 4, 3, 4);
             iconButton5.Name = "iconButton5";
-            iconButton5.Size = new Size(108, 75);
+            iconButton5.Size = new Size(108, 61);
             iconButton5.TabIndex = 4;
             iconButton5.Text = "Tài khoản";
             iconButton5.TextAlign = ContentAlignment.BottomCenter;
@@ -140,12 +140,12 @@
             iconButton3.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
             iconButton3.IconColor = Color.Black;
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 32;
+            iconButton3.IconSize = 35;
             iconButton3.ImageAlign = ContentAlignment.TopCenter;
             iconButton3.Location = new Point(116, 4);
             iconButton3.Margin = new Padding(3, 4, 3, 4);
             iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(107, 75);
+            iconButton3.Size = new Size(107, 61);
             iconButton3.TabIndex = 2;
             iconButton3.Text = "Lịch sử GD";
             iconButton3.TextAlign = ContentAlignment.BottomCenter;

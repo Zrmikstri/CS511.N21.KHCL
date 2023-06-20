@@ -104,9 +104,10 @@
             iconButton2.IconColor = Color.White;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 35;
-            iconButton2.Location = new Point(392, 18);
+            iconButton2.Location = new Point(448, 24);
+            iconButton2.Margin = new Padding(3, 4, 3, 4);
             iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(34, 40);
+            iconButton2.Size = new Size(39, 53);
             iconButton2.TabIndex = 2;
             iconButton2.UseVisualStyleBackColor = false;
             // 
@@ -116,7 +117,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(94, 14);
+            label1.Location = new Point(94, 15);
             label1.Name = "label1";
             label1.Size = new Size(266, 38);
             label1.TabIndex = 1;
@@ -131,9 +132,10 @@
             iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 35;
-            iconButton1.Location = new Point(12, 16);
+            iconButton1.Location = new Point(5, 17);
+            iconButton1.Margin = new Padding(3, 4, 3, 4);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(34, 40);
+            iconButton1.Size = new Size(36, 40);
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
             iconButton1.Click += iconButton1_Click;
@@ -150,7 +152,7 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(12, 90);
+            panel1.Location = new Point(11, 91);
             panel1.Name = "panel1";
             panel1.Size = new Size(429, 293);
             panel1.TabIndex = 5;
@@ -176,7 +178,7 @@
             panel4.Location = new Point(6, 224);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(414, 54);
+            panel4.Size = new Size(414, 53);
             panel4.TabIndex = 111;
             // 
             // iconPictureBox3
@@ -187,7 +189,7 @@
             iconPictureBox3.IconColor = SystemColors.ControlText;
             iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconPictureBox3.IconSize = 34;
-            iconPictureBox3.Location = new Point(375, 6);
+            iconPictureBox3.Location = new Point(375, 5);
             iconPictureBox3.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox3.Name = "iconPictureBox3";
             iconPictureBox3.Size = new Size(34, 40);
@@ -203,7 +205,7 @@
             textBox3.Location = new Point(7, 12);
             textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Nhập lại mật khẩu mới hoặc bỏ trống";
+            textBox3.PlaceholderText = "Nhập lại mật khẩu mới";
             textBox3.Size = new Size(375, 27);
             textBox3.TabIndex = 0;
             textBox3.UseSystemPasswordChar = true;
@@ -226,10 +228,10 @@
             panel3.BackgroundImageLayout = ImageLayout.Stretch;
             panel3.Controls.Add(iconPictureBox2);
             panel3.Controls.Add(textBox2);
-            panel3.Location = new Point(4, 138);
+            panel3.Location = new Point(5, 139);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(415, 54);
+            panel3.Size = new Size(415, 53);
             panel3.TabIndex = 109;
             // 
             // iconPictureBox2
@@ -240,7 +242,7 @@
             iconPictureBox2.IconColor = SystemColors.ControlText;
             iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconPictureBox2.IconSize = 34;
-            iconPictureBox2.Location = new Point(376, 6);
+            iconPictureBox2.Location = new Point(376, 5);
             iconPictureBox2.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox2.Name = "iconPictureBox2";
             iconPictureBox2.Size = new Size(34, 40);
@@ -256,7 +258,7 @@
             textBox2.Location = new Point(7, 12);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Nhập mật khẩu mới hoặc bỏ trống";
+            textBox2.PlaceholderText = "Nhập mật khẩu mới";
             textBox2.Size = new Size(375, 27);
             textBox2.TabIndex = 0;
             textBox2.UseSystemPasswordChar = true;
@@ -265,7 +267,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(9, 46);
+            label3.Location = new Point(9, 45);
             label3.Name = "label3";
             label3.Size = new Size(148, 25);
             label3.TabIndex = 108;
@@ -279,10 +281,10 @@
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
             panel5.Controls.Add(iconPictureBox1);
             panel5.Controls.Add(textBox1);
-            panel5.Location = new Point(4, 62);
+            panel5.Location = new Point(5, 61);
             panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(417, 54);
+            panel5.Size = new Size(417, 53);
             panel5.TabIndex = 107;
             // 
             // iconPictureBox1
@@ -293,7 +295,7 @@
             iconPictureBox1.IconColor = SystemColors.ControlText;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconPictureBox1.IconSize = 34;
-            iconPictureBox1.Location = new Point(376, 6);
+            iconPictureBox1.Location = new Point(376, 5);
             iconPictureBox1.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox1.Name = "iconPictureBox1";
             iconPictureBox1.Size = new Size(34, 40);
@@ -310,7 +312,6 @@
             textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Nhập mật khẩu hiện tại để xác thực tài khoản";
-            textBox1.ReadOnly = true;
             textBox1.Size = new Size(375, 24);
             textBox1.TabIndex = 0;
             textBox1.UseSystemPasswordChar = true;
@@ -335,7 +336,7 @@
             panel6.Controls.Add(label7);
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(label6);
-            panel6.Location = new Point(12, 408);
+            panel6.Location = new Point(11, 408);
             panel6.Name = "panel6";
             panel6.Size = new Size(426, 200);
             panel6.TabIndex = 6;
@@ -360,7 +361,7 @@
             panel8.Location = new Point(6, 135);
             panel8.Margin = new Padding(3, 4, 3, 4);
             panel8.Name = "panel8";
-            panel8.Size = new Size(414, 54);
+            panel8.Size = new Size(414, 53);
             panel8.TabIndex = 114;
             // 
             // textBox5
@@ -372,11 +373,9 @@
             textBox5.Location = new Point(7, 12);
             textBox5.Margin = new Padding(3, 4, 3, 4);
             textBox5.Name = "textBox5";
-            textBox5.PlaceholderText = "Nhập email mới hoặc bỏ trống";
-            textBox5.ReadOnly = true;
+            textBox5.PlaceholderText = "Nhập email mới";
             textBox5.Size = new Size(401, 27);
             textBox5.TabIndex = 0;
-            textBox5.UseSystemPasswordChar = true;
             // 
             // label7
             // 
@@ -398,7 +397,7 @@
             panel7.Location = new Point(6, 59);
             panel7.Margin = new Padding(3, 4, 3, 4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(414, 54);
+            panel7.Size = new Size(414, 53);
             panel7.TabIndex = 112;
             // 
             // textBox4
@@ -410,17 +409,15 @@
             textBox4.Location = new Point(7, 12);
             textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Nhập lại mật khẩu mới";
             textBox4.ReadOnly = true;
             textBox4.Size = new Size(401, 27);
             textBox4.TabIndex = 0;
-            textBox4.UseSystemPasswordChar = true;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(13, 6);
+            label6.Location = new Point(13, 5);
             label6.Name = "label6";
             label6.Size = new Size(187, 31);
             label6.TabIndex = 2;
@@ -438,7 +435,7 @@
             panel9.Controls.Add(label24);
             panel9.Controls.Add(pictureBox8);
             panel9.Controls.Add(label9);
-            panel9.Location = new Point(14, 630);
+            panel9.Location = new Point(14, 629);
             panel9.Name = "panel9";
             panel9.Size = new Size(425, 169);
             panel9.TabIndex = 7;
@@ -457,15 +454,16 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "ACB", "Agribank", "BIDV", "DongAbank", "MBBank", "OCB", "Sacombank", "Techcombank", "TPBank", "VIB", "Vietcombank", "VietinBank" });
-            comboBox1.Location = new Point(205, 114);
+            comboBox1.Location = new Point(205, 115);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(151, 28);
             comboBox1.TabIndex = 11;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(68, 120);
+            label10.Location = new Point(69, 120);
             label10.Name = "label10";
             label10.Size = new Size(112, 20);
             label10.TabIndex = 10;
@@ -475,7 +473,7 @@
             // 
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label23.Location = new Point(205, 62);
+            label23.Location = new Point(205, 61);
             label23.Name = "label23";
             label23.Size = new Size(99, 20);
             label23.TabIndex = 9;
@@ -493,7 +491,7 @@
             // pictureBox8
             // 
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(4, 45);
+            pictureBox8.Location = new Point(5, 45);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(57, 51);
             pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -504,7 +502,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(12, 8);
+            label9.Location = new Point(11, 8);
             label9.Name = "label9";
             label9.Size = new Size(234, 31);
             label9.TabIndex = 3;
@@ -515,14 +513,13 @@
             panel10.BackColor = Color.White;
             panel10.Controls.Add(pictureBox5);
             panel10.Dock = DockStyle.Bottom;
-            panel10.Location = new Point(0, 818);
+            panel10.Location = new Point(0, 957);
             panel10.Name = "panel10";
             panel10.Size = new Size(453, 83);
             panel10.TabIndex = 8;
             // 
             // pictureBox5
             // 
-            pictureBox5.Enabled = false;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(11, 8);
             pictureBox5.Name = "pictureBox5";
@@ -530,12 +527,13 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 5;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
             // AccountModify
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(453, 901);
+            ClientSize = new Size(453, 1040);
             Controls.Add(panel10);
             Controls.Add(panel9);
             Controls.Add(panel6);
@@ -545,6 +543,7 @@
             Name = "AccountModify";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AccountModify";
+            Load += AccountModify_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);

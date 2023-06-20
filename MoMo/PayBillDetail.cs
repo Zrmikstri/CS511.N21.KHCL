@@ -32,7 +32,7 @@ namespace MoMo
                                                 "IT1200521946|Trần Thị C|Hà Nội|120.000",
                                                 "IT1200147256|Đào Trần Anh Tuấn|Bình Dương|150.000" };
 
-        string typeService = null;
+        string typeService = null!;
 
         public PayBillDetail()
         {

@@ -31,6 +31,8 @@ namespace MoMo
                 return;
 
             Form previousScreen = ScreenStack.Peek();
+            if (previousScreen.Name == "Screen")
+                ((Screen)previousScreen).RefreshScreen();
             previousScreen.Show();
         }
 
