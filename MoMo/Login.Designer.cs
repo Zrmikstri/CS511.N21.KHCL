@@ -107,12 +107,12 @@
             // 
             txtUsername.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtUsername.BorderStyle = BorderStyle.None;
-            txtUsername.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtUsername.Location = new Point(41, 11);
             txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderText = "Email / Tên tài khoản / Số điện thoại";
-            txtUsername.Size = new Size(355, 23);
+            txtUsername.Size = new Size(355, 27);
             txtUsername.TabIndex = 1;
             txtUsername.Validating += txtUsername_Validating;
             txtUsername.Validated += txtUsername_Validated;
@@ -121,11 +121,11 @@
             // 
             label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(101, 93, 145);
-            label1.Location = new Point(127, 112);
+            label1.Location = new Point(113, 112);
             label1.Name = "label1";
-            label1.Size = new Size(222, 38);
+            label1.Size = new Size(227, 46);
             label1.TabIndex = 62;
             label1.Text = "ĐĂNG NHẬP";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -177,12 +177,12 @@
             // 
             txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtPassword.BorderStyle = BorderStyle.None;
-            txtPassword.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtPassword.Location = new Point(41, 11);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = "Mật khẩu";
-            txtPassword.Size = new Size(320, 23);
+            txtPassword.Size = new Size(320, 27);
             txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
             txtPassword.Validating += txtPassword_Validating;
@@ -192,11 +192,11 @@
             // 
             label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(101, 93, 145);
             label2.Location = new Point(72, 552);
             label2.Name = "label2";
-            label2.Size = new Size(171, 22);
+            label2.Size = new Size(174, 25);
             label2.TabIndex = 63;
             label2.Text = "Chưa có tài khoản?";
             label2.TextAlign = ContentAlignment.MiddleRight;
@@ -205,10 +205,10 @@
             // 
             linkLabel1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            linkLabel1.Location = new Point(251, 553);
+            linkLabel1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            linkLabel1.Location = new Point(251, 552);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(125, 22);
+            linkLabel1.Size = new Size(129, 25);
             linkLabel1.TabIndex = 70;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Tạo tài khoản";
@@ -219,7 +219,7 @@
             button2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             button2.BackColor = Color.FromArgb(255, 111, 97);
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.White;
             button2.Location = new Point(14, 449);
             button2.Margin = new Padding(3, 4, 3, 4);
@@ -246,7 +246,7 @@
             // iconButton3
             // 
             iconButton3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            iconButton3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton3.IconChar = FontAwesome.Sharp.IconChar.Amazon;
             iconButton3.IconColor = Color.Goldenrod;
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Brands;
@@ -265,7 +265,7 @@
             // iconButton2
             // 
             iconButton2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            iconButton2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.Google;
             iconButton2.IconColor = Color.OrangeRed;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Brands;
@@ -284,7 +284,7 @@
             // iconButton1
             // 
             iconButton1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            iconButton1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.Facebook;
             iconButton1.IconColor = Color.DodgerBlue;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -330,10 +330,10 @@
             // 
             label3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(130, 12);
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(130, 10);
             label3.Name = "label3";
-            label3.Size = new Size(164, 19);
+            label3.Size = new Size(164, 23);
             label3.TabIndex = 56;
             label3.Text = "Hoặc đăng ký bằng";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -351,7 +351,7 @@
             // iconButton4
             // 
             iconButton4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            iconButton4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton4.IconChar = FontAwesome.Sharp.IconChar.Message;
             iconButton4.IconColor = Color.MediumSeaGreen;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Solid;
@@ -369,8 +369,9 @@
             // 
             // resetPassword1
             // 
+            resetPassword1.BackColor = Color.White;
             resetPassword1.ForeColor = Color.FromArgb(0, 0, 0, 0);
-            resetPassword1.Location = new Point(8, 237);
+            resetPassword1.Location = new Point(9, 231);
             resetPassword1.Name = "resetPassword1";
             resetPassword1.Size = new Size(435, 169);
             resetPassword1.TabIndex = 115;

@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace MoMo
 {
-    public partial class Account : Form
+    public partial class AccountModify : Form
     {
-        public Account()
+        public AccountModify()
         {
             InitializeComponent();
         }
 
-        private void label19_Click(object sender, EventArgs e)
+        private void iconButton1_Click(object sender, EventArgs e)
         {
-            StackNavigation.Push(new AccountModify());
+            StackNavigation.Pop();
         }
     }
 }
