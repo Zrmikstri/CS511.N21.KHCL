@@ -18,7 +18,6 @@ namespace MoMo
         public Banking()
         {
             InitializeComponent();
-            timer1.Start();
             // Add click event handlers to buttons using a for loop
             for (int i = 1; i <= 12; i++)
             {
@@ -44,14 +43,6 @@ namespace MoMo
         private void iconButton1_Click(object sender, EventArgs e)
         {
             StackNavigation.Pop();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (imageIndex == 3)
-                imageIndex = 0;
-            pictureBox16.Image = Image.FromFile(imageList[imageIndex]);
-            imageIndex++;
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayBill));
             panel2 = new Panel();
             iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -66,7 +65,6 @@
             pictureBox9 = new PictureBox();
             label11 = new Label();
             pictureBox16 = new PictureBox();
-            timer1 = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -96,8 +94,9 @@
             panel2.Controls.Add(iconButton1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(417, 75);
+            panel2.Size = new Size(365, 56);
             panel2.TabIndex = 2;
             // 
             // iconButton2
@@ -108,9 +107,11 @@
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
             iconButton2.IconColor = Color.White;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.Location = new Point(358, 8);
+            iconButton2.IconSize = 30;
+            iconButton2.Location = new Point(334, 13);
+            iconButton2.Margin = new Padding(3, 2, 3, 2);
             iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(65, 62);
+            iconButton2.Size = new Size(30, 30);
             iconButton2.TabIndex = 2;
             iconButton2.UseVisualStyleBackColor = false;
             // 
@@ -118,11 +119,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Semibold", 18.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(67, 14);
+            label1.Location = new Point(58, 9);
             label1.Name = "label1";
-            label1.Size = new Size(295, 41);
+            label1.Size = new Size(248, 35);
             label1.TabIndex = 1;
             label1.Text = "Thanh toán hoá đơn";
             // 
@@ -131,12 +132,14 @@
             iconButton1.BackColor = Color.FromArgb(219, 45, 139);
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
             iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(6, 6);
+            iconButton1.IconSize = 30;
+            iconButton1.Location = new Point(3, 13);
+            iconButton1.Margin = new Padding(3, 2, 3, 2);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(55, 62);
+            iconButton1.Size = new Size(30, 30);
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
             iconButton1.Click += iconButton1_Click;
@@ -144,9 +147,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(15, 7);
+            pictureBox1.Location = new Point(13, 5);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(56, 62);
+            pictureBox1.Size = new Size(49, 46);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -155,9 +159,9 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(23, 72);
+            label2.Location = new Point(20, 54);
             label2.Name = "label2";
-            label2.Size = new Size(40, 20);
+            label2.Size = new Size(31, 15);
             label2.TabIndex = 4;
             label2.Text = "Điện";
             // 
@@ -190,26 +194,28 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(6, 339);
+            panel1.Location = new Point(5, 254);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(402, 354);
+            panel1.Size = new Size(352, 266);
             panel1.TabIndex = 5;
             // 
             // pictureBox12
             // 
             pictureBox12.Image = (Image)resources.GetObject("pictureBox12.Image");
-            pictureBox12.Location = new Point(335, 232);
+            pictureBox12.Location = new Point(293, 174);
+            pictureBox12.Margin = new Padding(3, 2, 3, 2);
             pictureBox12.Name = "pictureBox12";
-            pictureBox12.Size = new Size(56, 62);
+            pictureBox12.Size = new Size(49, 46);
             pictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox12.TabIndex = 26;
             pictureBox12.TabStop = false;
             // 
             // label12
             // 
-            label12.Location = new Point(328, 291);
+            label12.Location = new Point(287, 218);
             label12.Name = "label12";
-            label12.Size = new Size(71, 66);
+            label12.Size = new Size(62, 50);
             label12.TabIndex = 27;
             label12.Text = "Thanh toán học phí";
             label12.TextAlign = ContentAlignment.MiddleCenter;
@@ -217,18 +223,19 @@
             // pictureBox13
             // 
             pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
-            pictureBox13.Location = new Point(230, 232);
+            pictureBox13.Location = new Point(201, 174);
+            pictureBox13.Margin = new Padding(3, 2, 3, 2);
             pictureBox13.Name = "pictureBox13";
-            pictureBox13.Size = new Size(56, 62);
+            pictureBox13.Size = new Size(49, 46);
             pictureBox13.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox13.TabIndex = 24;
             pictureBox13.TabStop = false;
             // 
             // label13
             // 
-            label13.Location = new Point(214, 296);
+            label13.Location = new Point(187, 222);
             label13.Name = "label13";
-            label13.Size = new Size(85, 43);
+            label13.Size = new Size(74, 32);
             label13.TabIndex = 25;
             label13.Text = "Thanh toán khoản vay";
             label13.TextAlign = ContentAlignment.MiddleCenter;
@@ -236,18 +243,19 @@
             // pictureBox14
             // 
             pictureBox14.Image = (Image)resources.GetObject("pictureBox14.Image");
-            pictureBox14.Location = new Point(119, 230);
+            pictureBox14.Location = new Point(104, 172);
+            pictureBox14.Margin = new Padding(3, 2, 3, 2);
             pictureBox14.Name = "pictureBox14";
-            pictureBox14.Size = new Size(56, 62);
+            pictureBox14.Size = new Size(49, 46);
             pictureBox14.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox14.TabIndex = 22;
             pictureBox14.TabStop = false;
             // 
             // label14
             // 
-            label14.Location = new Point(114, 288);
+            label14.Location = new Point(100, 216);
             label14.Name = "label14";
-            label14.Size = new Size(67, 64);
+            label14.Size = new Size(59, 48);
             label14.TabIndex = 23;
             label14.Text = "Chăm sóc sức khoẻ";
             label14.TextAlign = ContentAlignment.MiddleCenter;
@@ -255,18 +263,19 @@
             // pictureBox15
             // 
             pictureBox15.Image = (Image)resources.GetObject("pictureBox15.Image");
-            pictureBox15.Location = new Point(15, 229);
+            pictureBox15.Location = new Point(13, 172);
+            pictureBox15.Margin = new Padding(3, 2, 3, 2);
             pictureBox15.Name = "pictureBox15";
-            pictureBox15.Size = new Size(56, 62);
+            pictureBox15.Size = new Size(49, 46);
             pictureBox15.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox15.TabIndex = 20;
             pictureBox15.TabStop = false;
             // 
             // label15
             // 
-            label15.Location = new Point(8, 290);
+            label15.Location = new Point(7, 218);
             label15.Name = "label15";
-            label15.Size = new Size(72, 60);
+            label15.Size = new Size(63, 45);
             label15.TabIndex = 21;
             label15.Text = "Điện thoại cố định";
             label15.TextAlign = ContentAlignment.MiddleCenter;
@@ -274,9 +283,10 @@
             // pictureBox8
             // 
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(335, 120);
+            pictureBox8.Location = new Point(293, 90);
+            pictureBox8.Margin = new Padding(3, 2, 3, 2);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(56, 62);
+            pictureBox8.Size = new Size(49, 46);
             pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox8.TabIndex = 17;
             pictureBox8.TabStop = false;
@@ -284,27 +294,28 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(328, 186);
+            label9.Location = new Point(287, 140);
             label9.Name = "label9";
-            label9.Size = new Size(71, 20);
+            label9.Size = new Size(59, 15);
             label9.TabIndex = 18;
             label9.Text = "Chung cư";
             // 
             // pictureBox7
             // 
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(230, 120);
+            pictureBox7.Location = new Point(201, 90);
+            pictureBox7.Margin = new Padding(3, 2, 3, 2);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(56, 62);
+            pictureBox7.Size = new Size(49, 46);
             pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox7.TabIndex = 15;
             pictureBox7.TabStop = false;
             // 
             // label8
             // 
-            label8.Location = new Point(214, 184);
+            label8.Location = new Point(187, 138);
             label8.Name = "label8";
-            label8.Size = new Size(85, 43);
+            label8.Size = new Size(74, 32);
             label8.TabIndex = 16;
             label8.Text = "Vệ sinh môi trường";
             label8.TextAlign = ContentAlignment.MiddleCenter;
@@ -312,18 +323,19 @@
             // pictureBox6
             // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(119, 118);
+            pictureBox6.Location = new Point(104, 88);
+            pictureBox6.Margin = new Padding(3, 2, 3, 2);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(56, 62);
+            pictureBox6.Size = new Size(49, 46);
             pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox6.TabIndex = 13;
             pictureBox6.TabStop = false;
             // 
             // label7
             // 
-            label7.Location = new Point(114, 183);
+            label7.Location = new Point(100, 137);
             label7.Name = "label7";
-            label7.Size = new Size(67, 44);
+            label7.Size = new Size(59, 33);
             label7.TabIndex = 14;
             label7.Text = "Dịch vụ công";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -331,18 +343,19 @@
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(15, 117);
+            pictureBox5.Location = new Point(13, 88);
+            pictureBox5.Margin = new Padding(3, 2, 3, 2);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(56, 62);
+            pictureBox5.Size = new Size(49, 46);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 11;
             pictureBox5.TabStop = false;
             // 
             // label6
             // 
-            label6.Location = new Point(18, 182);
+            label6.Location = new Point(16, 136);
             label6.Name = "label6";
-            label6.Size = new Size(53, 45);
+            label6.Size = new Size(46, 34);
             label6.TabIndex = 12;
             label6.Text = "Truyền hình";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -350,18 +363,19 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(333, 10);
+            pictureBox4.Location = new Point(291, 8);
+            pictureBox4.Margin = new Padding(3, 2, 3, 2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(56, 62);
+            pictureBox4.Size = new Size(49, 46);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 9;
             pictureBox4.TabStop = false;
             // 
             // label5
             // 
-            label5.Location = new Point(326, 75);
+            label5.Location = new Point(285, 56);
             label5.Name = "label5";
-            label5.Size = new Size(70, 42);
+            label5.Size = new Size(61, 32);
             label5.TabIndex = 10;
             label5.Text = "Di động trả sau";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -369,9 +383,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(232, 9);
+            pictureBox3.Location = new Point(203, 7);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(56, 62);
+            pictureBox3.Size = new Size(49, 46);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
@@ -380,18 +395,19 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(230, 74);
+            label4.Location = new Point(201, 56);
             label4.Name = "label4";
-            label4.Size = new Size(60, 20);
+            label4.Size = new Size(48, 15);
             label4.TabIndex = 8;
             label4.Text = "Internet";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(122, 8);
+            pictureBox2.Location = new Point(107, 6);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(48, 62);
+            pictureBox2.Size = new Size(42, 46);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
@@ -400,9 +416,9 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(125, 73);
+            label3.Location = new Point(109, 55);
             label3.Name = "label3";
-            label3.Size = new Size(45, 20);
+            label3.Size = new Size(36, 15);
             label3.TabIndex = 6;
             label3.Text = "Nước";
             // 
@@ -410,9 +426,9 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(12, 294);
+            label10.Location = new Point(10, 220);
             label10.Name = "label10";
-            label10.Size = new Size(200, 31);
+            label10.Size = new Size(167, 25);
             label10.TabIndex = 6;
             label10.Text = "Danh mục dịch vụ";
             // 
@@ -421,17 +437,19 @@
             panel3.Controls.Add(pictureBox11);
             panel3.Controls.Add(pictureBox10);
             panel3.Controls.Add(pictureBox9);
-            panel3.Location = new Point(3, 739);
+            panel3.Location = new Point(3, 554);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(412, 150);
+            panel3.Size = new Size(360, 112);
             panel3.TabIndex = 7;
             // 
             // pictureBox11
             // 
             pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
-            pictureBox11.Location = new Point(825, 3);
+            pictureBox11.Location = new Point(722, 2);
+            pictureBox11.Margin = new Padding(3, 2, 3, 2);
             pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(406, 140);
+            pictureBox11.Size = new Size(355, 105);
             pictureBox11.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox11.TabIndex = 14;
             pictureBox11.TabStop = false;
@@ -439,9 +457,10 @@
             // pictureBox10
             // 
             pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(413, 3);
+            pictureBox10.Location = new Point(361, 2);
+            pictureBox10.Margin = new Padding(3, 2, 3, 2);
             pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(406, 140);
+            pictureBox10.Size = new Size(355, 105);
             pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox10.TabIndex = 13;
             pictureBox10.TabStop = false;
@@ -450,8 +469,9 @@
             // 
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
             pictureBox9.Location = new Point(3, 2);
+            pictureBox9.Margin = new Padding(3, 2, 3, 2);
             pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(406, 140);
+            pictureBox9.Size = new Size(355, 105);
             pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox9.TabIndex = 12;
             pictureBox9.TabStop = false;
@@ -460,32 +480,28 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(12, 705);
+            label11.Location = new Point(10, 529);
             label11.Name = "label11";
-            label11.Size = new Size(162, 31);
+            label11.Size = new Size(136, 25);
             label11.TabIndex = 8;
             label11.Text = "Tìm hiểu thêm";
             // 
             // pictureBox16
             // 
             pictureBox16.Image = (Image)resources.GetObject("pictureBox16.Image");
-            pictureBox16.Location = new Point(6, 81);
+            pictureBox16.Location = new Point(5, 61);
+            pictureBox16.Margin = new Padding(3, 2, 3, 2);
             pictureBox16.Name = "pictureBox16";
-            pictureBox16.Size = new Size(406, 204);
+            pictureBox16.Size = new Size(355, 153);
             pictureBox16.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox16.TabIndex = 9;
             pictureBox16.TabStop = false;
             // 
-            // timer1
-            // 
-            timer1.Interval = 2000;
-            timer1.Tick += timer1_Tick;
-            // 
             // PayBill
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(417, 894);
+            ClientSize = new Size(365, 670);
             Controls.Add(pictureBox16);
             Controls.Add(label11);
             Controls.Add(panel3);
@@ -493,6 +509,7 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PayBill";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PayBill";
@@ -559,6 +576,5 @@
         private PictureBox pictureBox15;
         private Label label15;
         private PictureBox pictureBox16;
-        private System.Windows.Forms.Timer timer1;
     }
 }

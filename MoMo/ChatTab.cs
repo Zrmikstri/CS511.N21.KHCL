@@ -250,7 +250,7 @@ namespace MoMo
                 {
                     lastMessageTime = messages[i].Date;
                     lastMessageSenderId = messages[i].SenderId;
-                    
+
                     // Create time label from label control
                     AddTimeLabel(lastMessageTime);
                 }

@@ -22,20 +22,11 @@ namespace MoMo
             panel3.AutoScroll = false;
             panel3.HorizontalScroll.Visible = false;
             panel3.AutoScroll = true;
-            timer1.Start();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
             StackNavigation.Pop();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (imageIndex == 3)
-                imageIndex = 0;
-            pictureBox16.Image = Image.FromFile(imageList[imageIndex]);
-            imageIndex++;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

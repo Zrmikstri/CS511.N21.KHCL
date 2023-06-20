@@ -40,10 +40,10 @@ namespace MoMo
                     dbContext.SaveChanges();
                 }
 
-                Session.LoggedInUserInfo = user;
-
                 // Save the user id to the file to check if the user is logged in
                 File.AppendAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt", $"{user.Id}\n");
+
+                Session.LoggedInUserInfo = user;
 
                 Screen screen = new Screen((Main)this.Owner!);
                 StackNavigation.Push(screen);

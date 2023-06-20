@@ -146,11 +146,11 @@
             iconButton6.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
             iconButton6.IconColor = Color.White;
             iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton6.IconSize = 25;
-            iconButton6.Location = new Point(12, 16);
+            iconButton6.IconSize = 30;
+            iconButton6.Location = new Point(3, 13);
             iconButton6.Margin = new Padding(3, 2, 3, 2);
             iconButton6.Name = "iconButton6";
-            iconButton6.Size = new Size(25, 25);
+            iconButton6.Size = new Size(30, 30);
             iconButton6.TabIndex = 0;
             iconButton6.UseVisualStyleBackColor = false;
             iconButton6.Click += iconButton6_Click;
@@ -172,6 +172,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(105, 16);
             label1.Name = "label1";
             label1.Size = new Size(61, 25);
@@ -180,9 +181,9 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(53, 11);
+            pictureBox1.Location = new Point(46, 6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(35, 35);
+            pictureBox1.Size = new Size(45, 45);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;

@@ -36,7 +36,7 @@ namespace MoMo
                 DisableHighlightButton();
                 currentButton = (IconButton)senderButton;
                 currentButton.BackColor = Color.FromArgb(255, 111, 97);
-                currentButton.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
+                currentButton.Font = new Font("Segoe UI", 9.5f, FontStyle.Bold);
                 currentButton.ForeColor = Color.White;
                 currentButton.IconColor = Color.White;
             }
@@ -84,28 +84,28 @@ namespace MoMo
         private void iconButton2_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible= false;
+            linkLabel1.Visible = false;
             //OpenTab(new ServiceTab());
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible= false;
+            linkLabel1.Visible = false;
             OpenTab(new History());
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible= false;
+            linkLabel1.Visible = false;
             OpenTab(new Contact());
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible= false;
+            linkLabel1.Visible = false;
             OpenTab(new Account());
         }
 
@@ -124,7 +124,13 @@ namespace MoMo
         private void Screen_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (!isLogOutPressed)
+            {
+                Utils.SaveUserInfo();
+
+                Session.LoggedInUserInfo = null;
+
                 Application.Exit();
+            }
         }
     }
 }

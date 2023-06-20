@@ -52,6 +52,17 @@ namespace MoMo
                 return;
             }
 
+            // Open text file to check and save curent logged in user
+            string currentLoggedInUsers = File.ReadAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt");
+            if (!currentLoggedInUsers.Contains(user.Id.ToString()))
+                File.AppendAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt", $"{user.Id}\n");
+            else
+            {
+                MessageBox.Show("Tài khoản này đã đăng nhập trên một thiết bị khác!\nVui lòng đăng nhập lại.",
+                                      "Chú ý!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Session.LoggedInUserInfo = user;
 
             // If remember me is checked, save username the username
@@ -64,17 +75,6 @@ namespace MoMo
             {
                 Properties.Settings.Default.SavedUsername = "";
                 Properties.Settings.Default.isRememberUsername = false;
-            }
-
-            // Open text file to check and save curent logged in user
-            string currentLoggedInUsers = File.ReadAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt");
-            if (!currentLoggedInUsers.Contains(user.Id.ToString()))
-                File.AppendAllText(@"..\..\..\Checking\CurrentLoggedInUsers.txt", $"{user.Id}\n");
-            else
-            {
-                MessageBox.Show("Tài khoản này đã đăng nhập trên một thiết bị khác!\nVui lòng đăng nhập lại.",
-                                      "Chú ý!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
 
             // If username and password are correct, close the login form and open home form
