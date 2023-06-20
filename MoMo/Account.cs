@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MoMo.Model;
 
 namespace MoMo
 {
@@ -20,6 +21,68 @@ namespace MoMo
         private void label19_Click(object sender, EventArgs e)
         {
             StackNavigation.Push(new AccountModify());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Select the image to change the avatar
+            OpenFileDialog open = new();
+            open.Filter = "Image files(*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png"; ;
+            open.Multiselect = false;
+            open.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            open.Title = "Chọn ảnh đại diện";
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox5.Image = Image.FromFile(open.FileName);
+                Session.LoggedInUserInfo!.AvatarImage = Utils.ImageToBytesArray(pictureBox5.Image);
+
+                using (UserDbContext db = new())
+                {
+                    db.Users.Update(Session.LoggedInUserInfo!);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        private void Account_Load(object sender, EventArgs e)
+        {
+            // Avatar Image
+            pictureBox5.Image = Utils.BytesArrayToImage(Session.LoggedInUserInfo!.AvatarImage);
+
+            // Full name
+            label11.Text = Session.LoggedInUserInfo!.FullName;
+
+            // Phone number
+            label13.Text = Session.LoggedInUserInfo!.PhoneNumber;
+
+            // Birthday
+            label4.Text = Session.LoggedInUserInfo!.Birthday.ToString("dd/MM/yyyy");
+
+            // Gender
+            if (Session.LoggedInUserInfo!.Gender == 0)
+                label6.Text = "Nam";
+            else
+                label6.Text = "Nữ";
+
+            // Citizen ID
+            label7.Text = Session.LoggedInUserInfo!.CitizenId;
+
+            // Email
+            label9.Text = Session.LoggedInUserInfo!.Email;
+
+            // Balance
+            label25.Text = Utils.FormatVNCurrency(Session.LoggedInUserInfo!.Balance);
+
+            // Linked bank name
+            using (UserDbContext db = new())
+            {
+                Bank linkedBank = db.Banks.Find(Session.LoggedInUserInfo!.LinkedBankId)!;
+                string bankName = linkedBank.Name.Replace("Ngân hàng ", "");
+
+                label23.Text = bankName;
+                pictureBox8.Image = Image.FromFile(@"../../../Images/BankLogo/" + bankName + ".png");
+            }
         }
     }
 }

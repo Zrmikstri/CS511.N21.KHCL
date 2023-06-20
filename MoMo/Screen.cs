@@ -1,5 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using MoMo;
+using System.Diagnostics;
 
 namespace MoMo
 {
@@ -81,13 +82,6 @@ namespace MoMo
             OpenTab(new Home());
         }
 
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-            HighlightButton(sender);
-            linkLabel1.Visible = false;
-            //OpenTab(new ServiceTab());
-        }
-
         private void iconButton3_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
@@ -130,6 +124,28 @@ namespace MoMo
                 Session.LoggedInUserInfo = null;
 
                 Application.Exit();
+            }
+        }
+
+        public void RefreshScreen()
+        {
+            // If there's an active form, refresh it
+            if (activeForm != null)
+            {
+                // Check the type of the active form and instantiate a new one
+                string type = activeForm.GetType().Name;
+
+                activeForm.Close();
+                activeForm = null;
+
+                if (type == "Home")
+                    OpenTab(new Home());
+                else if (type == "History")
+                    OpenTab( new History());
+                else if (type == "Contact")
+                    OpenTab(new Contact());
+                else if (type == "Account")
+                    OpenTab(new Account());
             }
         }
     }
