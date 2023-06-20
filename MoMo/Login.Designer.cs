@@ -51,6 +51,7 @@
             label3 = new Label();
             label4 = new Label();
             iconButton4 = new FontAwesome.Sharp.IconButton();
+            resetPassword1 = new MyUserControl.ResetPassword();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
@@ -193,7 +194,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(101, 93, 145);
-            label2.Location = new Point(95, 552);
+            label2.Location = new Point(72, 552);
             label2.Name = "label2";
             label2.Size = new Size(171, 22);
             label2.TabIndex = 63;
@@ -205,7 +206,7 @@
             linkLabel1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            linkLabel1.Location = new Point(248, 552);
+            linkLabel1.Location = new Point(251, 553);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(125, 22);
             linkLabel1.TabIndex = 70;
@@ -366,6 +367,15 @@
             iconButton4.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton4.UseVisualStyleBackColor = true;
             // 
+            // resetPassword1
+            // 
+            resetPassword1.ForeColor = Color.FromArgb(0, 0, 0, 0);
+            resetPassword1.Location = new Point(8, 237);
+            resetPassword1.Name = "resetPassword1";
+            resetPassword1.Size = new Size(435, 169);
+            resetPassword1.TabIndex = 115;
+            resetPassword1.Visible = false;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -373,6 +383,7 @@
             AutoValidate = AutoValidate.Disable;
             BackColor = Color.FromArgb(243, 233, 237);
             ClientSize = new Size(453, 988);
+            Controls.Add(resetPassword1);
             Controls.Add(iconButton4);
             Controls.Add(iconButton3);
             Controls.Add(iconButton2);
@@ -427,5 +438,6 @@
         private Label label3;
         private Label label4;
         private FontAwesome.Sharp.IconButton iconButton4;
+        private MyUserControl.ResetPassword resetPassword1;
     }
 }

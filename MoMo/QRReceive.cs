@@ -109,6 +109,17 @@ namespace MoMo
             // Set the logged in user's name, phone number
             label2.Text = Session.LoggedInUserInfo!.FullName;
             label3.Text = Session.LoggedInUserInfo!.PhoneNumber;
+            // Calculate the X coordinate for the label
+            int labelX = (this.Width - label2.Width) / 2;
+
+            // Set the location of the label
+            label2.Location = new System.Drawing.Point(labelX, label2.Location.Y);
+
+            // Calculate the X coordinate for the label
+            int labelX1 = (this.Width - label3.Width) / 2;
+
+            // Set the location of the label
+            label3.Location = new System.Drawing.Point(labelX1, label3.Location.Y);
         }
     }
 }

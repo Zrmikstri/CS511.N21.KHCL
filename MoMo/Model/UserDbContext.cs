@@ -121,7 +121,7 @@ namespace MoMo.Model
                 {
                     Id = 2,
                     FullName = "Đào Trần Anh Tuấn",
-                    Email = "tuan456@gmail.com",
+                    Email = "tdao67216@gmail.com",
                     PhoneNumber = "0987654321",
                     Address = "456 Đào Tuấn P5 Q10 TP.Hồ Chí Minh",
                     Password = "456",

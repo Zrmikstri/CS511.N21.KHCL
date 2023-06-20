@@ -80,7 +80,7 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            using(UserDbContext db = new())
+            using (UserDbContext db = new())
             {
                 // Update the balance of the logged in user
                 Session.LoggedInUserInfo!.Balance += Utils.VNCurrencyToDouble(textBox1.Text);

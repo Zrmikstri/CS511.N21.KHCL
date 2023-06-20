@@ -149,7 +149,7 @@ namespace MoMo
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            resetPassword1.Visible = true;
         }
     }
 }

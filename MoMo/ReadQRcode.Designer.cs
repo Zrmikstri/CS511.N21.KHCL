@@ -137,7 +137,7 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(12, 97);
+            panel1.Location = new Point(11, 97);
             panel1.Name = "panel1";
             panel1.Size = new Size(395, 655);
             panel1.TabIndex = 10;
@@ -258,9 +258,10 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(81, 98);
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox1.Location = new Point(77, 84);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(232, 232);
+            pictureBox1.Size = new Size(241, 246);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -269,7 +270,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(141, 56);
+            label3.Location = new Point(141, 49);
             label3.Name = "label3";
             label3.Size = new Size(112, 25);
             label3.TabIndex = 1;
@@ -315,7 +316,7 @@
             panel5.Controls.Add(pictureBox4);
             panel5.Controls.Add(pictureBox2);
             panel5.Controls.Add(label6);
-            panel5.Location = new Point(12, 340);
+            panel5.Location = new Point(12, 347);
             panel5.Name = "panel5";
             panel5.Size = new Size(393, 201);
             panel5.TabIndex = 11;

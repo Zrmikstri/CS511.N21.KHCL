@@ -33,6 +33,7 @@
             textBox1 = new TextBox();
             label5 = new Label();
             button1 = new Button();
+            button2 = new Button();
             panel4.SuspendLayout();
             SuspendLayout();
             // 
@@ -69,23 +70,49 @@
             // 
             // button1
             // 
-            button1.Location = new Point(142, 108);
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(247, 113);
             button1.Name = "button1";
-            button1.Size = new Size(128, 29);
+            button1.Size = new Size(170, 42);
             button1.TabIndex = 5;
             button1.Text = "Reset mật khẩu";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Transparent;
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(15, 113);
+            button2.Name = "button2";
+            button2.Size = new Size(167, 42);
+            button2.TabIndex = 6;
+            button2.Text = "Quay lại";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // ResetPassword
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label5);
             Controls.Add(panel4);
             Name = "ResetPassword";
-            Size = new Size(434, 150);
+            Size = new Size(434, 173);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ResumeLayout(false);
@@ -98,5 +125,6 @@
         private TextBox textBox1;
         private Label label5;
         private Button button1;
+        private Button button2;
     }
 }

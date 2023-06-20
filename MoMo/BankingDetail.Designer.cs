@@ -157,7 +157,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(311, 15);
+            label6.Location = new Point(306, 15);
             label6.Name = "label6";
             label6.Size = new Size(56, 28);
             label6.TabIndex = 1;
@@ -167,10 +167,10 @@
             // 
             textBox3.BorderStyle = BorderStyle.None;
             textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(13, 13);
+            textBox3.Location = new Point(13, 17);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = "0đ";
-            textBox3.Size = new Size(301, 27);
+            textBox3.Size = new Size(287, 27);
             textBox3.TabIndex = 0;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
