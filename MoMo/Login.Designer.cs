@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             errorProvider1 = new ErrorProvider(components);
             checkBox1 = new CheckBox();
             panel1 = new Panel();
@@ -80,7 +81,9 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
+            panel1.BackColor = Color.Transparent;
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(iconPictureBox1);
             panel1.Controls.Add(txtUsername);
             panel1.Location = new Point(14, 237);
@@ -96,7 +99,7 @@
             iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
             iconPictureBox1.IconColor = SystemColors.ControlText;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            iconPictureBox1.Location = new Point(3, 5);
+            iconPictureBox1.Location = new Point(3, 11);
             iconPictureBox1.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox1.Name = "iconPictureBox1";
             iconPictureBox1.Size = new Size(32, 37);
@@ -133,7 +136,9 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = Color.White;
+            panel2.BackColor = Color.Transparent;
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
             panel2.Controls.Add(iconPictureBox3);
             panel2.Controls.Add(iconPictureBox2);
             panel2.Controls.Add(txtPassword);
@@ -151,7 +156,7 @@
             iconPictureBox3.IconColor = SystemColors.ControlText;
             iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconPictureBox3.IconSize = 34;
-            iconPictureBox3.Location = new Point(387, 3);
+            iconPictureBox3.Location = new Point(387, 6);
             iconPictureBox3.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox3.Name = "iconPictureBox3";
             iconPictureBox3.Size = new Size(34, 40);
@@ -166,7 +171,7 @@
             iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Lock;
             iconPictureBox2.IconColor = SystemColors.ControlText;
             iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            iconPictureBox2.Location = new Point(3, 5);
+            iconPictureBox2.Location = new Point(3, 9);
             iconPictureBox2.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox2.Name = "iconPictureBox2";
             iconPictureBox2.Size = new Size(32, 37);
@@ -217,7 +222,7 @@
             // button2
             // 
             button2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button2.BackColor = Color.FromArgb(255, 111, 97);
+            button2.BackColor = Color.FromArgb(219, 45, 139);
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.White;

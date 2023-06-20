@@ -47,13 +47,13 @@ namespace MoMo.MyUserControl
         {
             if (option == "dd/MM")
             {
-                label2.MaximumSize = new Size(280, 17);
-                label3.Location = new Point(352, 31);
+                label2.MaximumSize = new Size(280, 23);
+                label3.Location = new Point(401, 41);
             }
             else if (option == "dd/MM/yyyy")
             {
-                label2.MaximumSize = new Size(260, 17);
-                label3.Location = new Point(324, 31);
+                label2.MaximumSize = new Size(260, 23);
+                label3.Location = new Point(361, 41);
             }
         }
 

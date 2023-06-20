@@ -77,48 +77,34 @@ namespace MoMo
         private void iconButton1_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible = true;
+            pictureBox1.Visible = true;
             OpenTab(new Home());
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-            HighlightButton(sender);
-            linkLabel1.Visible = false;
-            //OpenTab(new ServiceTab());
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible = false;
+            pictureBox1.Visible = false;
             OpenTab(new History());
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible = false;
+            pictureBox1.Visible = false;
             OpenTab(new Contact());
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible = false;
+            pictureBox1.Visible = false;
             OpenTab(new Account());
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Sigout link
-            Utils.SaveUserInfo();
 
-            Session.LoggedInUserInfo = null;
-
-            mainForm!.Onload(e);
-            isLogOutPressed = true;
-            StackNavigation.Pop();
         }
 
         private void Screen_FormClosed(object sender, FormClosedEventArgs e)
@@ -131,6 +117,18 @@ namespace MoMo
 
                 Application.Exit();
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // Sigout link
+            Utils.SaveUserInfo();
+
+            Session.LoggedInUserInfo = null;
+
+            mainForm!.Onload(e);
+            isLogOutPressed = true;
+            StackNavigation.Pop();
         }
     }
 }

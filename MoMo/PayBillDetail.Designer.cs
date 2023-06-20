@@ -88,9 +88,10 @@
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
             iconButton2.IconColor = Color.White;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.Location = new Point(344, 6);
+            iconButton2.IconSize = 35;
+            iconButton2.Location = new Point(348, 17);
             iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(65, 62);
+            iconButton2.Size = new Size(34, 40);
             iconButton2.TabIndex = 2;
             iconButton2.UseVisualStyleBackColor = false;
             // 
@@ -100,7 +101,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(128, 11);
+            label1.Location = new Point(122, 11);
             label1.Name = "label1";
             label1.Size = new Size(154, 46);
             label1.TabIndex = 1;
@@ -111,12 +112,13 @@
             iconButton1.BackColor = Color.FromArgb(219, 45, 139);
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
             iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(6, 6);
+            iconButton1.IconSize = 35;
+            iconButton1.Location = new Point(12, 17);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(55, 62);
+            iconButton1.Size = new Size(34, 40);
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
             iconButton1.Click += iconButton1_Click;

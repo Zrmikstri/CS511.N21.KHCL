@@ -28,27 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            linkLabel1 = new LinkLabel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Screen));
             tableLayoutPanel1 = new TableLayoutPanel();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             iconButton4 = new FontAwesome.Sharp.IconButton();
             iconButton5 = new FontAwesome.Sharp.IconButton();
             iconButton3 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            linkLabel1.Location = new Point(323, 9);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(70, 19);
-            linkLabel1.TabIndex = 5;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Đăng xuất";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // tableLayoutPanel1
             // 
@@ -57,17 +47,18 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 23F));
             tableLayoutPanel1.Controls.Add(iconButton1, 0, 0);
             tableLayoutPanel1.Controls.Add(iconButton4, 2, 0);
             tableLayoutPanel1.Controls.Add(iconButton5, 3, 0);
             tableLayoutPanel1.Controls.Add(iconButton3, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 679);
+            tableLayoutPanel1.Location = new Point(0, 905);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(396, 62);
+            tableLayoutPanel1.Size = new Size(453, 83);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // iconButton1
@@ -82,9 +73,10 @@
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 32;
             iconButton1.ImageAlign = ContentAlignment.TopCenter;
-            iconButton1.Location = new Point(3, 3);
+            iconButton1.Location = new Point(3, 4);
+            iconButton1.Margin = new Padding(3, 4, 3, 4);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(93, 56);
+            iconButton1.Size = new Size(107, 75);
             iconButton1.TabIndex = 0;
             iconButton1.Text = "Trang chủ";
             iconButton1.TextAlign = ContentAlignment.BottomCenter;
@@ -104,9 +96,10 @@
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconButton4.IconSize = 32;
             iconButton4.ImageAlign = ContentAlignment.TopCenter;
-            iconButton4.Location = new Point(201, 3);
+            iconButton4.Location = new Point(229, 4);
+            iconButton4.Margin = new Padding(3, 4, 3, 4);
             iconButton4.Name = "iconButton4";
-            iconButton4.Size = new Size(93, 56);
+            iconButton4.Size = new Size(107, 75);
             iconButton4.TabIndex = 3;
             iconButton4.Text = "Trao đổi";
             iconButton4.TextAlign = ContentAlignment.BottomCenter;
@@ -126,9 +119,10 @@
             iconButton5.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconButton5.IconSize = 32;
             iconButton5.ImageAlign = ContentAlignment.TopCenter;
-            iconButton5.Location = new Point(300, 3);
+            iconButton5.Location = new Point(342, 4);
+            iconButton5.Margin = new Padding(3, 4, 3, 4);
             iconButton5.Name = "iconButton5";
-            iconButton5.Size = new Size(93, 56);
+            iconButton5.Size = new Size(108, 75);
             iconButton5.TabIndex = 4;
             iconButton5.Text = "Tài khoản";
             iconButton5.TextAlign = ContentAlignment.BottomCenter;
@@ -148,9 +142,10 @@
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton3.IconSize = 32;
             iconButton3.ImageAlign = ContentAlignment.TopCenter;
-            iconButton3.Location = new Point(102, 3);
+            iconButton3.Location = new Point(116, 4);
+            iconButton3.Margin = new Padding(3, 4, 3, 4);
             iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(93, 56);
+            iconButton3.Size = new Size(107, 75);
             iconButton3.TabIndex = 2;
             iconButton3.Text = "Lịch sử GD";
             iconButton3.TextAlign = ContentAlignment.BottomCenter;
@@ -160,29 +155,44 @@
             // 
             // panel2
             // 
+            panel2.BackColor = SystemColors.Control;
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(396, 676);
+            panel2.Size = new Size(453, 901);
             panel2.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(224, 224, 224);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(402, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(48, 45);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // Screen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(243, 233, 237);
-            ClientSize = new Size(396, 741);
-            Controls.Add(linkLabel1);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(453, 988);
+            Controls.Add(pictureBox1);
             Controls.Add(panel2);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Screen";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Screen";
             FormClosed += Screen_FormClosed;
             tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -192,6 +202,6 @@
         private FontAwesome.Sharp.IconButton iconButton4;
         private FontAwesome.Sharp.IconButton iconButton3;
         private Panel panel2;
-        private LinkLabel linkLabel1;
+        private PictureBox pictureBox1;
     }
 }

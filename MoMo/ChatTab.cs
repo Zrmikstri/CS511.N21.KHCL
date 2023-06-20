@@ -136,7 +136,7 @@ namespace MoMo
                 Text = time,
                 TextAlign = ContentAlignment.MiddleCenter,
                 AutoSize = false,
-                Size = new Size(396, 20),
+                Size = new Size(453, 20),
                 Font = new Font("Segoe UI", 9, FontStyle.Regular),
                 Margin = new Padding(0, 10, 0, 10),
                 Name = "timeLabel" + flowLayoutPanel1.Controls.Count

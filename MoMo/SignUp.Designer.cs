@@ -278,7 +278,7 @@
             // button2
             // 
             button2.Anchor = AnchorStyles.None;
-            button2.BackColor = Color.FromArgb(255, 111, 97);
+            button2.BackColor = Color.FromArgb(219, 45, 139);
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.White;
