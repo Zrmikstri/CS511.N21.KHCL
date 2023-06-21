@@ -390,20 +390,21 @@
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
             iconButton2.IconColor = Color.White;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.Location = new Point(358, 8);
+            iconButton2.IconSize = 35;
+            iconButton2.Location = new Point(371, 19);
             iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(65, 61);
+            iconButton2.Size = new Size(34, 40);
             iconButton2.TabIndex = 2;
             iconButton2.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(149, 9);
+            label1.Location = new Point(138, 13);
             label1.Name = "label1";
-            label1.Size = new Size(137, 46);
+            label1.Size = new Size(141, 46);
             label1.TabIndex = 1;
             label1.Text = "Rút tiền";
             // 
@@ -412,12 +413,13 @@
             iconButton1.BackColor = Color.FromArgb(219, 45, 139);
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
             iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(6, 5);
+            iconButton1.IconSize = 35;
+            iconButton1.Location = new Point(6, 19);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(65, 61);
+            iconButton1.Size = new Size(34, 40);
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
             iconButton1.Click += iconButton1_Click;

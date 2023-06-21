@@ -78,41 +78,34 @@ namespace MoMo
         private void iconButton1_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible = true;
+            pictureBox1.Visible = true;
             OpenTab(new Home());
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible = false;
+            pictureBox1.Visible = false;
             OpenTab(new History());
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible = false;
+            pictureBox1.Visible = false;
             OpenTab(new Contact());
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
-            linkLabel1.Visible = false;
+            pictureBox1.Visible = false;
             OpenTab(new Account());
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Sigout link
-            Utils.SaveUserInfo();
 
-            Session.LoggedInUserInfo = null;
-
-            mainForm!.Onload(e);
-            isLogOutPressed = true;
-            StackNavigation.Pop();
         }
 
         private void Screen_FormClosed(object sender, FormClosedEventArgs e)
@@ -141,12 +134,24 @@ namespace MoMo
                 if (type == "Home")
                     OpenTab(new Home());
                 else if (type == "History")
-                    OpenTab( new History());
+                    OpenTab(new History());
                 else if (type == "Contact")
                     OpenTab(new Contact());
                 else if (type == "Account")
                     OpenTab(new Account());
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // Sigout link
+            Utils.SaveUserInfo();
+
+            Session.LoggedInUserInfo = null;
+
+            mainForm!.Onload(e);
+            isLogOutPressed = true;
+            StackNavigation.Pop();
         }
     }
 }

@@ -69,7 +69,8 @@ namespace MoMo
             using (UserDbContext dbContext = new())
             {
                 List<User> result = dbContext.Users
-                    .Where(user => user.FullName.Contains(textBox3.Text) || user.PhoneNumber.Contains(textBox3.Text))
+                    .Where(user => user.Id != Session.LoggedInUserInfo!.Id 
+                    && (user.FullName.ToLower().Contains(textBox3.Text.ToLower()) || user.PhoneNumber.Contains(textBox3.Text)))
                     .ToList();
 
                 return result;

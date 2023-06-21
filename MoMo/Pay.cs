@@ -118,6 +118,15 @@ namespace MoMo
         {
             // Show the current balance
             label4.Text = Utils.FormatVNCurrency(Session.LoggedInUserInfo!.Balance);
+
+            using (UserDbContext db = new())
+            {
+                Bank bank = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId).FirstOrDefault()!;
+                string bankName = bank.Name.Replace("Ngân hàng ", "");
+
+                label8.Text = bankName;
+                pictureBox2.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName}.png");
+            }
         }
     }
 }
