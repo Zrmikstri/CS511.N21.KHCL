@@ -266,7 +266,7 @@ namespace MoMo.Model
                 new Bank
                 {
                     Id = 2,
-                    Name = "Ngân hàng Vietinbank",
+                    Name = "Ngân hàng VietinBank",
                 },
                 new Bank
                 {
@@ -306,7 +306,7 @@ namespace MoMo.Model
                 new Bank
                 {
                     Id = 10,
-                    Name = "Ngân hàng DongABank",
+                    Name = "Ngân hàng DongAbank",
                 },
                 new Bank
                 {

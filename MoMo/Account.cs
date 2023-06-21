@@ -61,9 +61,9 @@ namespace MoMo
 
             // Gender
             if (Session.LoggedInUserInfo!.Gender == 0)
-                label6.Text = "Nam";
+                label5.Text = "Nam";
             else
-                label6.Text = "Nữ";
+                label5.Text = "Nữ";
 
             // Citizen ID
             label7.Text = Session.LoggedInUserInfo!.CitizenId;

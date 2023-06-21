@@ -56,7 +56,7 @@ namespace MoMo
                 else
                     flag = i;
             }
-            labels[flag].ForeColor = Color.MediumVioletRed;
+            labels[flag].ForeColor = Color.FromArgb(219, 45, 139);
             checkValue();
             label16.Text = Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(value));
         }

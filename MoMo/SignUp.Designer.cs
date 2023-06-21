@@ -101,7 +101,7 @@
             iconPictureBox8.IconColor = SystemColors.ControlText;
             iconPictureBox8.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconPictureBox8.IconSize = 34;
-            iconPictureBox8.Location = new Point(387, 4);
+            iconPictureBox8.Location = new Point(387, 6);
             iconPictureBox8.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox8.Name = "iconPictureBox8";
             iconPictureBox8.Size = new Size(34, 40);
@@ -212,7 +212,7 @@
             iconPictureBox6.IconColor = SystemColors.ControlText;
             iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconPictureBox6.IconSize = 34;
-            iconPictureBox6.Location = new Point(387, 3);
+            iconPictureBox6.Location = new Point(387, 5);
             iconPictureBox6.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox6.Name = "iconPictureBox6";
             iconPictureBox6.Size = new Size(34, 40);
@@ -322,10 +322,10 @@
             // 
             label3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(135, 12);
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(135, 10);
             label3.Name = "label3";
-            label3.Size = new Size(170, 19);
+            label3.Size = new Size(170, 23);
             label3.TabIndex = 56;
             label3.Text = "Hoặc đăng ký bằng";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -427,7 +427,7 @@
             // iconButton4
             // 
             iconButton4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            iconButton4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton4.IconChar = FontAwesome.Sharp.IconChar.Message;
             iconButton4.IconColor = Color.MediumSeaGreen;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Solid;
@@ -446,7 +446,7 @@
             // iconButton3
             // 
             iconButton3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            iconButton3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton3.IconChar = FontAwesome.Sharp.IconChar.Amazon;
             iconButton3.IconColor = Color.Goldenrod;
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Brands;
@@ -465,7 +465,7 @@
             // iconButton2
             // 
             iconButton2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            iconButton2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.Google;
             iconButton2.IconColor = Color.OrangeRed;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Brands;
@@ -484,7 +484,7 @@
             // iconButton1
             // 
             iconButton1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            iconButton1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.Facebook;
             iconButton1.IconColor = Color.DodgerBlue;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
