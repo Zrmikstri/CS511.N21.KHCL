@@ -18,11 +18,19 @@ namespace MoMo.Model
             Bank = 2
         }
 
+        public enum TransactionStatus
+        {
+            Success = 0,
+            Failed = 1
+        }
+
         public int Id { get; set; }
         public double Amount { get; set; }
         public TransactionType Type { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;
         public string Message { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public TransactionStatus Status { get; set; }
 
         public int? SenderId { get; set; }
         public virtual User? Sender { get; set; } = null!;
@@ -39,26 +47,31 @@ namespace MoMo.Model
         // Generate description for transaction base on receiver, sender, service, bank
         public string GenerateDescription()
         {
-            string description = string.Empty;
-            switch (Type)
+            if (string.IsNullOrEmpty(Description))
             {
-                case TransactionType.Transfer:
-                    if (SenderId == Session.LoggedInUserInfo!.Id)
-                        description = $"Chuyển tiền đến {Receiver!.FullName}";
-                    else
-                        description = $"Nhận tiền từ {Sender!.FullName}";
-                    break;
-                case TransactionType.Service:
-                    description = $"{Service!.Name}";
-                    break;
-                case TransactionType.Bank:
-                    if (ReceiverId == Session.LoggedInUserInfo!.Id)
-                        description = $"Nạp tiền từ {Bank!.Name.Replace("Ngân hàng ", "")} vào ví";
-                    else
-                        description = $"Rút tiền từ ví về {Bank!.Name.Replace("Ngân hàng ", "")}";
-                    break;
+                string description = string.Empty;
+                switch (Type)
+                {
+                    case TransactionType.Transfer:
+                        if (SenderId == Session.LoggedInUserInfo!.Id)
+                            description = $"Chuyển tiền đến {Receiver!.FullName}";
+                        else
+                            description = $"Nhận tiền từ {Sender!.FullName}";
+                        break;
+                    case TransactionType.Service:
+                        description = $"{Service!.Name}";
+                        break;
+                    case TransactionType.Bank:
+                        if (ReceiverId == Session.LoggedInUserInfo!.Id)
+                            description = $"Nạp tiền từ {Bank!.Name.Replace("Ngân hàng ", "")} vào ví";
+                        else
+                            description = $"Rút tiền từ ví về {Bank!.Name.Replace("Ngân hàng ", "")}";
+                        break;
+                }
+                return description;
             }
-            return description;
+
+            return Description;
         }
     }
 }

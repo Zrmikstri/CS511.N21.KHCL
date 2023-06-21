@@ -12,9 +12,6 @@ namespace MoMo
 {
     public partial class Banking : Form
     {
-        private string[] imageList = { @"../../../Images/qc11.jpg",
-            @"../../../Images/qc12.jpeg", @"../../../Images/qc13.jpg" };
-        private int imageIndex = 0;
         public Banking()
         {
             InitializeComponent();

@@ -57,7 +57,9 @@ namespace MoMo
                         User = contact,
                         ContactName = contact.FullName,
                         ContactAvatar = Utils.BytesArrayToImage(contact.AvatarImage),
-                        LatestMessage = latestMessage.Message
+                        LatestMessage = latestMessage.Image is not null?
+                             "[Ảnh]"
+                            : latestMessage.Message,
                     };
 
                     if (latestMessage.Date.Year != DateTime.Now.Year)
@@ -69,6 +71,11 @@ namespace MoMo
                     {
                         contactItem.SetDateLabelPosition("dd/MM");
                         contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM");
+                    }
+
+                    if (latestMessage.Image != null)
+                    {
+                        contactItem.LatestMessage = "[Ảnh]";
                     }
 
                     contactItem.Click += (sender, e) => ContactItem_Click(contactItem, e);
