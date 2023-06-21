@@ -61,6 +61,8 @@
             panel5 = new Panel();
             textBox3 = new TextBox();
             iconButton3 = new FontAwesome.Sharp.IconButton();
+            textBox1 = new TextBox();
+            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -77,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label5
@@ -104,6 +107,8 @@
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(iconPictureBox1);
+            panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(label3);
@@ -114,7 +119,7 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(11, 83);
             panel1.Name = "panel1";
-            panel1.Size = new Size(429, 157);
+            panel1.Size = new Size(429, 163);
             panel1.TabIndex = 3;
             // 
             // label4
@@ -274,7 +279,7 @@
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(pictureBox7);
-            panel2.Location = new Point(14, 288);
+            panel2.Location = new Point(14, 300);
             panel2.Name = "panel2";
             panel2.Size = new Size(427, 117);
             panel2.TabIndex = 12;
@@ -283,7 +288,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(16, 250);
+            label9.Location = new Point(16, 262);
             label9.Name = "label9";
             label9.Size = new Size(154, 31);
             label9.TabIndex = 13;
@@ -292,7 +297,7 @@
             // pictureBox9
             // 
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(20, 452);
+            pictureBox9.Location = new Point(20, 468);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(170, 165);
             pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -303,7 +308,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(15, 413);
+            label10.Location = new Point(15, 425);
             label10.Name = "label10";
             label10.Size = new Size(171, 31);
             label10.TabIndex = 15;
@@ -311,7 +316,7 @@
             // 
             // label11
             // 
-            label11.Location = new Point(20, 620);
+            label11.Location = new Point(20, 636);
             label11.Name = "label11";
             label11.Size = new Size(170, 43);
             label11.TabIndex = 16;
@@ -320,7 +325,7 @@
             // 
             // label12
             // 
-            label12.Location = new Point(254, 620);
+            label12.Location = new Point(254, 636);
             label12.Name = "label12";
             label12.Size = new Size(170, 43);
             label12.TabIndex = 18;
@@ -330,7 +335,7 @@
             // pictureBox10
             // 
             pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(254, 448);
+            pictureBox10.Location = new Point(254, 464);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(170, 171);
             pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -339,7 +344,7 @@
             // 
             // label13
             // 
-            label13.Location = new Point(19, 836);
+            label13.Location = new Point(19, 852);
             label13.Name = "label13";
             label13.Size = new Size(170, 43);
             label13.TabIndex = 20;
@@ -349,7 +354,7 @@
             // pictureBox11
             // 
             pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
-            pictureBox11.Location = new Point(19, 666);
+            pictureBox11.Location = new Point(19, 682);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new Size(170, 165);
             pictureBox11.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -358,7 +363,7 @@
             // 
             // label14
             // 
-            label14.Location = new Point(251, 836);
+            label14.Location = new Point(251, 852);
             label14.Name = "label14";
             label14.Size = new Size(170, 43);
             label14.TabIndex = 22;
@@ -368,7 +373,7 @@
             // pictureBox12
             // 
             pictureBox12.Image = (Image)resources.GetObject("pictureBox12.Image");
-            pictureBox12.Location = new Point(251, 666);
+            pictureBox12.Location = new Point(251, 682);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new Size(170, 165);
             pictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -422,6 +427,33 @@
             iconButton3.TabIndex = 1;
             iconButton3.UseVisualStyleBackColor = false;
             // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.White;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox1.Location = new Point(45, 131);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(125, 24);
+            textBox1.TabIndex = 8;
+            textBox1.Text = "500.000 VND";
+            // 
+            // iconPictureBox1
+            // 
+            iconPictureBox1.BackColor = Color.White;
+            iconPictureBox1.ForeColor = SystemColors.ControlText;
+            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            iconPictureBox1.IconColor = SystemColors.ControlText;
+            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            iconPictureBox1.IconSize = 36;
+            iconPictureBox1.Location = new Point(4, 127);
+            iconPictureBox1.Margin = new Padding(3, 4, 3, 4);
+            iconPictureBox1.Name = "iconPictureBox1";
+            iconPictureBox1.Size = new Size(36, 36);
+            iconPictureBox1.TabIndex = 9;
+            iconPictureBox1.TabStop = false;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -462,6 +494,7 @@
             panel3.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -500,5 +533,7 @@
         private Panel panel5;
         private TextBox textBox3;
         private FontAwesome.Sharp.IconButton iconButton3;
+        private TextBox textBox1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

@@ -36,8 +36,7 @@ namespace MoMo.MyUserControl
             {
                 label4.Text = value;
                 // Align label4 horizontally center in panel1
-                label4.Location = new Point((panel1.Width - label4.Width) / 2 + 20, label4.Location.Y);
-
+                label4.Location = new Point((panel1.Width - label4.Width), label4.Location.Y);
             }
         }
 

@@ -36,9 +36,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(3, 8);
+            label1.Location = new Point(3, 11);
             label1.Name = "label1";
-            label1.Size = new Size(72, 30);
+            label1.Size = new Size(96, 37);
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
@@ -52,24 +52,27 @@
             iconButton1.IconColor = Color.FromArgb(234, 47, 151);
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconButton1.IconSize = 25;
-            iconButton1.Location = new Point(260, 8);
+            iconButton1.Location = new Point(297, 11);
+            iconButton1.Margin = new Padding(3, 4, 3, 4);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(116, 30);
+            iconButton1.Size = new Size(133, 40);
             iconButton1.TabIndex = 1;
             iconButton1.Text = "Thống kê";
+            iconButton1.TextAlign = ContentAlignment.TopCenter;
             iconButton1.TextImageRelation = TextImageRelation.TextBeforeImage;
             iconButton1.UseVisualStyleBackColor = true;
             iconButton1.Click += iconButton1_Click;
             // 
             // HistorySeperator
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(186, 231, 255);
             Controls.Add(iconButton1);
             Controls.Add(label1);
-            Title = "HistorySeperator";
-            Size = new Size(390, 46);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "HistorySeperator";
+            Size = new Size(446, 61);
             ResumeLayout(false);
             PerformLayout();
         }

@@ -66,8 +66,8 @@
             label21 = new Label();
             labels5 = new Label();
             panels4 = new Panel();
+            labelxxx = new Label();
             labels4 = new Label();
-            label20 = new Label();
             panels3 = new Panel();
             label17 = new Label();
             labels3 = new Label();
@@ -439,7 +439,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(21, 49);
+            label14.Location = new Point(20, 46);
             label14.Name = "label14";
             label14.Size = new Size(79, 20);
             label14.TabIndex = 1;
@@ -449,7 +449,7 @@
             // 
             labels1.AutoSize = true;
             labels1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labels1.Location = new Point(19, 19);
+            labels1.Location = new Point(18, 16);
             labels1.Name = "labels1";
             labels1.Size = new Size(84, 28);
             labels1.TabIndex = 0;
@@ -484,17 +484,17 @@
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label21.Location = new Point(21, 49);
+            label21.Location = new Point(20, 47);
             label21.Name = "label21";
-            label21.Size = new Size(87, 20);
+            label21.Size = new Size(90, 20);
             label21.TabIndex = 1;
-            label21.Text = "hoàn 8000đ";
+            label21.Text = "hoàn 8.000đ";
             // 
             // labels5
             // 
             labels5.AutoSize = true;
             labels5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labels5.Location = new Point(19, 19);
+            labels5.Location = new Point(18, 17);
             labels5.Name = "labels5";
             labels5.Size = new Size(95, 28);
             labels5.TabIndex = 0;
@@ -505,32 +505,32 @@
             panels4.BackColor = Color.Transparent;
             panels4.BackgroundImage = (Image)resources.GetObject("panels4.BackgroundImage");
             panels4.BackgroundImageLayout = ImageLayout.Stretch;
+            panels4.Controls.Add(labelxxx);
             panels4.Controls.Add(labels4);
-            panels4.Controls.Add(label20);
             panels4.Location = new Point(412, 14);
             panels4.Name = "panels4";
             panels4.Size = new Size(123, 79);
             panels4.TabIndex = 17;
             // 
+            // labelxxx
+            // 
+            labelxxx.AutoSize = true;
+            labelxxx.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelxxx.Location = new Point(18, 48);
+            labelxxx.Name = "labelxxx";
+            labelxxx.Size = new Size(90, 20);
+            labelxxx.TabIndex = 1;
+            labelxxx.Text = "hoàn 5.000đ";
+            // 
             // labels4
             // 
             labels4.AutoSize = true;
-            labels4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labels4.Location = new Point(21, 49);
+            labels4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labels4.Location = new Point(16, 18);
             labels4.Name = "labels4";
-            labels4.Size = new Size(87, 20);
-            labels4.TabIndex = 1;
-            labels4.Text = "hoàn 5000đ";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label20.Location = new Point(19, 19);
-            label20.Name = "label20";
-            label20.Size = new Size(95, 28);
-            label20.TabIndex = 0;
-            label20.Text = "200.000đ";
+            labels4.Size = new Size(95, 28);
+            labels4.TabIndex = 0;
+            labels4.Text = "200.000đ";
             // 
             // panels3
             // 
@@ -548,17 +548,17 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label17.Location = new Point(21, 49);
+            label17.Location = new Point(18, 46);
             label17.Name = "label17";
-            label17.Size = new Size(87, 20);
+            label17.Size = new Size(90, 20);
             label17.TabIndex = 1;
-            label17.Text = "hoàn 1500đ";
+            label17.Text = "hoàn 1.500đ";
             // 
             // labels3
             // 
             labels3.AutoSize = true;
             labels3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labels3.Location = new Point(19, 19);
+            labels3.Location = new Point(16, 16);
             labels3.Name = "labels3";
             labels3.Size = new Size(92, 28);
             labels3.TabIndex = 0;
@@ -580,17 +580,17 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(18, 47);
+            label15.Location = new Point(17, 44);
             label15.Name = "label15";
-            label15.Size = new Size(87, 20);
+            label15.Size = new Size(90, 20);
             label15.TabIndex = 1;
-            label15.Text = "hoàn 1000đ";
+            label15.Text = "hoàn 1.000đ";
             // 
             // labels2
             // 
             labels2.AutoSize = true;
             labels2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labels2.Location = new Point(16, 17);
+            labels2.Location = new Point(17, 14);
             labels2.Name = "labels2";
             labels2.Size = new Size(84, 28);
             labels2.TabIndex = 0;
@@ -751,8 +751,8 @@
         private Label label21;
         private Label labels5;
         private Panel panels4;
+        private Label labelxxx;
         private Label labels4;
-        private Label label20;
         private Panel panels3;
         private Label label17;
         private Label labels3;
