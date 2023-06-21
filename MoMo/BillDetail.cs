@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoMo.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,26 @@ namespace MoMo
 {
     public partial class BillDetail : Form
     {
+        private Transaction transaction = null!;
         public BillDetail()
         {
             InitializeComponent();
+        }
+
+        public BillDetail(Transaction transaction)
+        {
+            InitializeComponent();
+            this.transaction = transaction;
+        }
+
+        private void BillDetail_Load(object sender, EventArgs e)
+        {
+            LoadBillDetail();
+        }
+
+        private void LoadBillDetail()
+        {
+
         }
     }
 }

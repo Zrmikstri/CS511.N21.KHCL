@@ -12,9 +12,6 @@ namespace MoMo
 {
     public partial class PayBill : Form
     {
-        private string[] imageList = { @"../../../Images/qc1.jpg",
-            @"../../../Images/qc2.jpg", @"../../../Images/qc3.jpg" };
-        private int imageIndex = 0;
         public PayBill()
         {
             InitializeComponent();
