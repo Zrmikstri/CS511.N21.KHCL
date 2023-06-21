@@ -10,11 +10,24 @@ using System.Windows.Forms;
 
 namespace MoMo.MyUserControl
 {
-    public partial class SentAudioMessage : UserControl
+    public partial class SentAudioMessage : UserControl, IMessage
     {
+        private DateTime date;
         public SentAudioMessage()
         {
             InitializeComponent();
+        }
+
+        public DateTime Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                date = value;
+            }
         }
     }
 }

@@ -20,12 +20,15 @@ namespace MoMo
             InitializeComponent();
         }
 
-        protected override void OnLoad(EventArgs e)
+        private void Contact_Load(object sender, EventArgs e)
         {
-            base.OnLoad(e);
+            LoadChattedProfiles();
+        }
 
+        private void LoadChattedProfiles()
+        {
             // Load list of user
-            using (UserDbContext dbContext = new UserDbContext())
+            using (UserDbContext dbContext = new())
             {
                 // Load list of user that has message with current user
                 List<int> contactsId = dbContext.ChatMessages
@@ -38,19 +41,24 @@ namespace MoMo
                     .Where(user => contactsId.Contains(user.Id))
                     .ToList();
 
+
                 // Load list of latest message with each contact
                 foreach (User contact in contacts)
                 {
                     ChatMessage latestMessage = dbContext.ChatMessages
-                        .Where(msg => (msg.SenderId == Session.LoggedInUserInfo!.Id && msg.ReceiverId == contact.Id) || (msg.SenderId == contact.Id && msg.ReceiverId == Session.LoggedInUserInfo!.Id))
+                        .Where(msg =>
+                            (msg.SenderId == Session.LoggedInUserInfo!.Id && msg.ReceiverId == contact.Id)
+                            || (msg.SenderId == contact.Id && msg.ReceiverId == Session.LoggedInUserInfo!.Id))
                         .OrderByDescending(msg => msg.Date)
                         .FirstOrDefault()!;
 
-                    ContactItem contactItem = new ContactItem();
-                    contactItem.User = contact;
-                    contactItem.ContactName = contact.FullName;
-                    contactItem.ContactAvatar = Utils.BytesArrayToImage(contact.AvatarImage);
-                    contactItem.LatestMessage = latestMessage.Message;
+                    ContactItem contactItem = new()
+                    {
+                        User = contact,
+                        ContactName = contact.FullName,
+                        ContactAvatar = Utils.BytesArrayToImage(contact.AvatarImage),
+                        LatestMessage = latestMessage.Message
+                    };
 
                     if (latestMessage.Date.Year != DateTime.Now.Year)
                     {
@@ -74,10 +82,53 @@ namespace MoMo
         {
             User receiver = (sender as ContactItem)!.User;
 
-            ChatTab message_sender = new ChatTab(Session.LoggedInUserInfo!.Id, receiver.Id);
-            message_sender.Text = Session.LoggedInUserInfo.FullName;
+            ChatTab message_sender = new(Session.LoggedInUserInfo!.Id, receiver.Id)
+            {
+                Text = Session.LoggedInUserInfo.FullName
+            };
 
             StackNavigation.Push(message_sender);
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            RichTextBox richTextBox = (RichTextBox)sender;
+
+            if (richTextBox.Text == "")
+            {
+                flowLayoutPanel1.Controls.Clear();
+                LoadChattedProfiles();
+                return;
+            }
+            else
+            {
+                // Search database for user that has name or has phone number like the text in textbox
+                using(UserDbContext db = new())
+                {
+                    List<User> users = db.Users
+                        .Where(user => 
+                            user.Id != Session.LoggedInUserInfo!.Id
+                            && (user.FullName.ToLower().Contains(richTextBox.Text.ToLower()) || user.PhoneNumber.Contains(richTextBox.Text)))
+                        .ToList();
+
+                    flowLayoutPanel1.Controls.Clear();
+
+                    foreach (User user in users)
+                    {
+                        ContactItem contactItem = new()
+                        {
+                            User = user,
+                            ContactName = user.FullName,
+                            ContactAvatar = Utils.BytesArrayToImage(user.AvatarImage),
+                            LatestMessage = user.PhoneNumber
+                        };
+
+                        contactItem.SetDateLabelVisible(false);
+                        contactItem.Click += (sender, e) => ContactItem_Click(contactItem, e);
+                        flowLayoutPanel1.Controls.Add(contactItem);
+                    }
+                }
+            }
         }
     }
 }

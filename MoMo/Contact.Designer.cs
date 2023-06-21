@@ -54,6 +54,7 @@
             richTextBox1.Size = new Size(340, 46);
             richTextBox1.TabIndex = 3;
             richTextBox1.Text = "";
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // iconButton1
             // 
@@ -86,6 +87,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Contact";
             Text = "Contact";
+            Load += Contact_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

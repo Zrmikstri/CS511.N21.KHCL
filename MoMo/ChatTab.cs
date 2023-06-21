@@ -40,15 +40,15 @@ namespace MoMo
                 return;
 
             // Add time label if the last message is sent more than 10 minutes ago
-            if (flowLayoutPanel1.Controls.Count > 0)
+            // Get the last message, not the time label
+
+            var lastMessage = flowLayoutPanel1.Controls.OfType<IMessage>().LastOrDefault();
+
+            if (lastMessage != null) // There is at least one message in the conversation
             {
-                Label? lastTimeLabel = flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1] as Label;
-                if (lastTimeLabel != null)
-                {
-                    DateTime lastMessageTime = DateTime.Parse(lastTimeLabel.Text);
-                    if (DateTime.Now.Subtract(lastMessageTime).TotalMinutes > 10)
-                        AddTimeLabel(DateTime.Now);
-                }
+                DateTime lastMessageTime = lastMessage.Date;
+                if (DateTime.Now.Subtract(lastMessageTime).TotalMinutes > 10)
+                    AddTimeLabel(DateTime.Now);
             }
             else
                 AddTimeLabel(DateTime.Now);
@@ -56,7 +56,7 @@ namespace MoMo
             SentMessage sentMessage = new()
             {
                 Message = richTextBox1.Text,
-                TimeAndSender = $"{DateTime.Now.ToString("HH:mm")}"
+                Date = DateTime.Now
             };
 
             flowLayoutPanel1.Controls.Add(sentMessage);
@@ -84,7 +84,7 @@ namespace MoMo
             SentMessage sentMessage = new()
             {
                 Message = message.Message,
-                TimeAndSender = $"{message.Date.ToString("HH:mm")}"
+                Date = message.Date
             };
 
             flowLayoutPanel1.Controls.Add(sentMessage);
@@ -96,8 +96,8 @@ namespace MoMo
 
             SentMessageImage sentMessageImage = new SentMessageImage
             {
-                TimeAndSender = $"{message.Date.ToString("HH:mm")}",
-                SentImage = Utils.BytesArrayToImage(message.Image!)
+                SentImage = Utils.BytesArrayToImage(message.Image!),
+                Date = message.Date 
             };
 
             flowLayoutPanel1.Controls.Add(sentMessageImage);
@@ -110,7 +110,7 @@ namespace MoMo
             ReceivedMessage receivedMessage = new ReceivedMessage
             {
                 Message = message.Message,
-                TimeAndSender = $"{message.Date.ToString("HH:mm")}"
+                Date = message.Date
             };
 
             flowLayoutPanel1.Controls.Add(receivedMessage);
@@ -122,8 +122,8 @@ namespace MoMo
 
             ReceivedMessageImage receivedMessageImage = new()
             {
-                TimeAndSender = $"{message.Date.ToString("HH:mm")}",
-                ReceivedImage = Utils.BytesArrayToImage(message.Image!)
+                ReceivedImage = Utils.BytesArrayToImage(message.Image!),
+                Date = message.Date
             };
 
             flowLayoutPanel1.Controls.Add(receivedMessageImage);
@@ -180,9 +180,14 @@ namespace MoMo
                 // The time label is displayed in the middle of the flow layout panel
 
                 messagesHistory = dbContext.ChatMessages
-                    .Where(m => (m.SenderId == senderId && m.ReceiverId == receiverId) || (m.SenderId == receiverId && m.ReceiverId == senderId))
+                    .Where(m =>
+                        (m.SenderId == senderId && m.ReceiverId == receiverId)
+                        || (m.SenderId == receiverId && m.ReceiverId == senderId))
                     .OrderBy(m => m.Date)
                     .ToList();
+
+                if (messagesHistory.Count == 0)
+                    return;
 
                 // Set all unread messages to read using LINQ
                 messagesHistory.ForEach(m => m.IsRead = true);
@@ -190,26 +195,19 @@ namespace MoMo
                 dbContext.SaveChanges();
             }
 
-            if (messagesHistory.Count == 0)
-                return;
-
             DateTime lastMessageTime = messagesHistory[0].Date;
-            int lastMessageSenderId = messagesHistory[0].SenderId;
 
             AddTimeLabel(lastMessageTime);
 
-            for (int i = 0; i < messagesHistory.Count; i++)
+            foreach (var message in messagesHistory)
             {
-                if (messagesHistory[i].SenderId != lastMessageSenderId || messagesHistory[i].Date.Subtract(lastMessageTime).TotalMinutes > 10)
+                if (message.Date.Subtract(lastMessageTime).TotalMinutes > 10)
                 {
-                    lastMessageTime = messagesHistory[i].Date;
-                    lastMessageSenderId = messagesHistory[i].SenderId;
-
-                    // Create time label from label control
+                    lastMessageTime = message.Date;
                     AddTimeLabel(lastMessageTime);
                 }
 
-                AddMessageToScreen(messagesHistory[i]);
+                AddMessageToScreen(message);
             }
 
             flowLayoutPanel1.ScrollControlIntoView(flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1]);
@@ -227,8 +225,14 @@ namespace MoMo
             {
 
                 messages = dbContext.ChatMessages
-                .Where(m => m.SenderId == receiverId && m.ReceiverId == senderId && !m.IsRead)
+                .Where(m =>
+                    m.SenderId == receiverId
+                    && m.ReceiverId == senderId
+                    && !m.IsRead)
                 .ToList();
+
+                if (messages.Count == 0)
+                    return;
 
                 // Set all unread messages to read using LINQ
                 messages.ForEach(m => m.IsRead = true);
@@ -236,27 +240,27 @@ namespace MoMo
                 dbContext.SaveChanges();
             }
 
-            if (messages.Count == 0)
-                return;
+            // Add time label if the last message is sent more than 10 minutes ago
+            var lastMessage = flowLayoutPanel1.Controls.OfType<IMessage>().LastOrDefault();;
 
-            DateTime lastMessageTime = messages[0].Date;
-            int lastMessageSenderId = messages[0].SenderId;
+            DateTime lastMessageTime;
 
-            AddTimeLabel(lastMessageTime);
+            if (lastMessage == null) // There is at least one message in the conversation
+                AddTimeLabel(DateTime.Now);
 
-            for (int i = 0; i < messages.Count; i++)
+            foreach (var message in messages)
             {
-                if (messages[i].SenderId != lastMessageSenderId || messages[i].Date.Subtract(lastMessageTime).TotalMinutes > 10)
-                {
-                    lastMessageTime = messages[i].Date;
-                    lastMessageSenderId = messages[i].SenderId;
+                lastMessageTime = lastMessage!.Date;
 
-                    // Create time label from label control
+                if (message.Date.Subtract(lastMessageTime).TotalMinutes > 10)
+                {
+                    lastMessageTime = message.Date;
                     AddTimeLabel(lastMessageTime);
                 }
 
-                AddMessageToScreen(messages[i]);
+                AddMessageToScreen(message);
             }
+
 
             flowLayoutPanel1.ScrollControlIntoView(flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1]);
         }

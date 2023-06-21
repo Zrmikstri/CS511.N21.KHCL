@@ -7,26 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MoMo.MyUserControl
 {
-    public partial class SentMessageImage : UserControl
+    public partial class SentMessageImage : UserControl, IMessage
     {
         private Image originalImage = null!;
+        private DateTime date;
+
         public SentMessageImage()
         {
             InitializeComponent();
         }
 
-        public string TimeAndSender
+        public DateTime Date
         {
             get
             {
-                return label1.Text;
+                return date;
             }
             set
             {
-                label1.Text = value;
+                date = value;
+                label1.Text = value.ToString("HH:mm");
             }
         }
 

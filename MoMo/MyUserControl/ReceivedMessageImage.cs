@@ -10,23 +10,26 @@ using System.Windows.Forms;
 
 namespace MoMo.MyUserControl
 {
-    public partial class ReceivedMessageImage : UserControl
+    public partial class ReceivedMessageImage : UserControl, IMessage
     {
         private Image originalImage = null!;
+        private DateTime date;
+
         public ReceivedMessageImage()
         {
             InitializeComponent();
         }
 
-        public string TimeAndSender
+        public DateTime Date
         {
             get
             {
-                return label1.Text;
+                return date;
             }
             set
             {
-                label1.Text = value;
+                date = value;
+                label1.Text = value.ToString("HH:mm");
             }
         }
 

@@ -17,8 +17,6 @@ namespace MoMo.MyUserControl
         public RecommendProfileList()
         {
             InitializeComponent();
-
-            
         }
 
         // Implement recommend list with user avatar and name using list view
@@ -39,9 +37,11 @@ namespace MoMo.MyUserControl
                     .ToList();
             }
 
-            ImageList imageList = new ImageList();
-            imageList.ImageSize = new Size(50, 50);
-            imageList.ColorDepth = ColorDepth.Depth32Bit;
+            ImageList imageList = new()
+            {
+                ImageSize = new Size(50, 50),
+                ColorDepth = ColorDepth.Depth32Bit
+            };
 
             foreach (User user in recommendList)
             {
@@ -52,10 +52,12 @@ namespace MoMo.MyUserControl
 
             foreach (User user in recommendList)
             {
-                ListViewItem item = new ListViewItem();
-                item.ImageKey = "image" + user.Id;
-                item.Text = user.FullName;
-                item.Tag = user;
+                ListViewItem item = new()
+                {
+                    ImageKey = "image" + user.Id,
+                    Text = user.FullName,
+                    Tag = user
+                };
                 listView1.Items.Add(item);
             }
         }
@@ -67,7 +69,7 @@ namespace MoMo.MyUserControl
 
             // Open Transfer money details
             User selectedUser = (User)listView1.SelectedItems[0].Tag;
-            TransferMoneyDetail transferMoneyDetails = new TransferMoneyDetail(selectedUser);
+            TransferMoneyDetail transferMoneyDetails = new (selectedUser);
 
             StackNavigation.Push(transferMoneyDetails);
         }

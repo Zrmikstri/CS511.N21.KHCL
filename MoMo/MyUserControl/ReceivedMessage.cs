@@ -7,14 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MoMo
 {
-    public partial class ReceivedMessage : UserControl
+    public partial class ReceivedMessage : UserControl, IMessage
     {
+        private DateTime date;
         public ReceivedMessage()
         {
             InitializeComponent();
+        }
+
+        public DateTime Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                date = value;
+                label2.Text = value.ToString("HH:mm");
+            }
         }
 
         public string Message
@@ -26,18 +41,6 @@ namespace MoMo
             set
             {
                 label1.Text = value;
-            }
-        }
-
-        public string TimeAndSender
-        {
-            get
-            {
-                return label2.Text;
-            }
-            set
-            {
-                label2.Text = value;
             }
         }
     }

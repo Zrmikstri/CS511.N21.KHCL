@@ -20,18 +20,23 @@ namespace MoMo
         {
             InitializeComponent();
 
-            RecommendProfileList recommendProfileList = new RecommendProfileList();
-            recommendProfileList.Dock = DockStyle.Fill;
+            RecommendProfileList recommendProfileList = new()
+            {
+                Dock = DockStyle.Fill
+            };
 
             currentList = recommendProfileList;
             panel1.Controls.Add(recommendProfileList);
         }
+
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             if (textBox3.Text == "")
             {
-                RecommendProfileList recommendProfileList = new RecommendProfileList();
-                recommendProfileList.Dock = DockStyle.Fill;
+                RecommendProfileList recommendProfileList = new()
+                {
+                    Dock = DockStyle.Fill
+                };
 
                 currentList = recommendProfileList;
 
@@ -41,25 +46,25 @@ namespace MoMo
                 return;
             }
 
-            if (currentList != null && currentList.GetType().Name != "SearchResultList")
+            if (currentList.GetType().Name != "SearchResultList")
             {
-                SearchResultList searchResultList = new SearchResultList();
+                SearchResultList searchResultList = new()
+                {
+                    Dock = DockStyle.Fill
+                };
 
-                searchResultList.Dock = DockStyle.Fill;
-                searchResultList.UpdateResultList(GetRecommendProfiles());
+                searchResultList.UpdateResultList(GetSearchResults());
 
                 currentList = searchResultList;
 
                 panel1.Controls.Clear();
                 panel1.Controls.Add(searchResultList);
             }
-            else if (currentList != null && currentList.GetType().Name == "SearchResultList")
-            {
-                ((SearchResultList)currentList).UpdateResultList(GetRecommendProfiles());
-            }
+            else
+                ((SearchResultList)currentList).UpdateResultList(GetSearchResults());
         }
 
-        private List<User> GetRecommendProfiles()
+        private List<User> GetSearchResults()
         {
             using (UserDbContext dbContext = new())
             {

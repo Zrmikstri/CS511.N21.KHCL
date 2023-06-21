@@ -10,11 +10,25 @@ using System.Windows.Forms;
 
 namespace MoMo
 {
-    public partial class SentMessage : UserControl
+    public partial class SentMessage : UserControl, IMessage
     {
+        private DateTime date;
         public SentMessage()
         {
             InitializeComponent();
+        }
+
+        public DateTime Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                date = value;
+                label2.Text = value.ToString("HH:mm");
+            }
         }
 
         public string Message
@@ -26,18 +40,6 @@ namespace MoMo
             set
             {
                 label1.Text = value;
-            }
-        }
-
-        public string TimeAndSender
-        {
-            get
-            {
-                return label2.Text;
-            }
-            set
-            {
-                label2.Text = value;
             }
         }
     }
