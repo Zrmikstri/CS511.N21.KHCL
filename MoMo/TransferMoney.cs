@@ -66,11 +66,13 @@ namespace MoMo
 
         private List<User> GetSearchResults()
         {
-            using (UserDbContext dbContext = new())
+            using (UserDbContext db = new())
             {
-                List<User> result = dbContext.Users
-                    .Where(user => user.Id != Session.LoggedInUserInfo!.Id 
-                    && (user.FullName.ToLower().Contains(textBox3.Text.ToLower()) || user.PhoneNumber.Contains(textBox3.Text)))
+                List<User> result = db.Users
+                    .Where(user => user.Id != Session.LoggedInUserInfo!.Id)
+                    .ToList()
+                    .Where(user =>
+                        user.FullName.Contains(textBox3.Text, StringComparison.InvariantCultureIgnoreCase) || user.PhoneNumber.Contains(textBox3.Text))
                     .ToList();
 
                 return result;

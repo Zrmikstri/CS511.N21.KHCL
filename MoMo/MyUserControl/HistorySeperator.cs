@@ -26,7 +26,7 @@ namespace MoMo.MyUserControl
         private void iconButton1_Click(object sender, EventArgs e)
         {
             // Open statistic form about this month
-
+            StackNavigation.Push(new TransactionStatistic(this.Title));
         }
     }
 }

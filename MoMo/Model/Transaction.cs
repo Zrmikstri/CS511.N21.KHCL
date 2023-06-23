@@ -30,7 +30,7 @@ namespace MoMo.Model
         public DateTime Date { get; set; } = DateTime.Now;
         public string Message { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public TransactionStatus Status { get; set; }
+        public TransactionStatus Status { get; set; } = TransactionStatus.Success;
 
         public int? SenderId { get; set; }
         public virtual User? Sender { get; set; } = null!;
@@ -72,6 +72,14 @@ namespace MoMo.Model
             }
 
             return Description;
+        }
+
+        public string GetAmount()
+        {
+            if(SenderId == Session.LoggedInUserInfo!.Id)
+                return $"-{Utils.FormatVNCurrency(Amount)}";
+            else
+                return $"+{Utils.FormatVNCurrency(Amount)}";
         }
     }
 }

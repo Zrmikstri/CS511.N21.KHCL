@@ -250,11 +250,6 @@ namespace MoMo.Model
                     Id = 4,
                     Name = "Đóng tiền internet",
                     Description = "Thanh toán hóa đơn tiền internet",
-                },
-                new Service
-                {
-                    Id = 5,
-
                 });
 
             modelBuilder.Entity<Bank>().HasData(
