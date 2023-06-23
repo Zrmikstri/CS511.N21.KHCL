@@ -68,5 +68,10 @@ namespace MoMo
         {
             StackNavigation.Push(new Banking());
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            label15.Text = Utils.FormatVNCurrency(Session.LoggedInUserInfo!.Balance);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoMo.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -160,8 +161,39 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            if (Session.LoggedInUserInfo!.Balance < Utils.VNCurrencyToDouble(label12.Text))
+            {
+                MessageBox.Show("Số dư không đủ để thanh toán hoá đơn", "Thông báo",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Create transaction
+            using (UserDbContext db = new())
+            {
+                // Update the balance of the logged in user
+                Session.LoggedInUserInfo!.Balance -= Utils.VNCurrencyToDouble(label12.Text);
+                db.Users.Update(Session.LoggedInUserInfo!);
+                db.SaveChanges();
+
+                
+                // Create a transaction
+                Transaction transaction = new()
+                {
+                    Amount = Utils.VNCurrencyToDouble(label12.Text),
+                    Date = DateTime.Now,
+                    SenderId = Session.LoggedInUserInfo!.Id,
+                    Type = Transaction.TransactionType.Service,
+                    ServiceId = this.typeService == "Water" ? 2 : this.typeService == "Electricity" ? 3 : 4
+                };
+                db.Transactions.Add(transaction);
+                db.SaveChanges();
+            }
+
             MessageBox.Show("Thanh toán hoá đơn thành công", "Thông báo",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            StackNavigation.Pop();
         }
     }
 }

@@ -113,9 +113,10 @@ namespace MoMo
                 using(UserDbContext db = new())
                 {
                     List<User> users = db.Users
+                        .Where(user => user.Id != Session.LoggedInUserInfo!.Id)
+                        .ToList()
                         .Where(user => 
-                            user.Id != Session.LoggedInUserInfo!.Id
-                            && (user.FullName.ToLower().Contains(richTextBox.Text.ToLower()) || user.PhoneNumber.Contains(richTextBox.Text)))
+                            user.FullName.Contains(richTextBox.Text, StringComparison.InvariantCultureIgnoreCase) || user.PhoneNumber.Contains(richTextBox.Text))
                         .ToList();
 
                     flowLayoutPanel1.Controls.Clear();

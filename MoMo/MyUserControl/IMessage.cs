@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoMo
+namespace MoMo.MyUserControl
 {
     public interface IMessage
     {
-        DateTime Date { get; set; } 
+        DateTime Date { get; set; }
     }
 }

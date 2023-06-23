@@ -46,14 +46,6 @@ namespace MoMo
             return double.Parse(value);
         }
 
-        public static double VNCurrencyToInt(string currency)
-        {
-            //Remove all non number characters using regex
-            string value = System.Text.RegularExpressions.Regex.Replace(currency, "[^0-9]", "");
-            value = value.Trim();
-            return int.Parse(value);
-        }
-
         public static byte[] ImageToBytesArray(Image image)
         {
             using (MemoryStream ms = new MemoryStream())
