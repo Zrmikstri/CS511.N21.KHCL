@@ -88,7 +88,21 @@ namespace MoMo
                 {
                     Bank bank = db.Banks.Where(b => b.Name.Contains(comboBox1.SelectedItem.ToString()!)).FirstOrDefault()!;
 
-                    Session.LoggedInUserInfo!.LinkedBankId = bank.Id;
+                    Session.LoggedInUserInfo!.LinkedBankId[0] = bank.Id;
+                    db.Users.Update(Session.LoggedInUserInfo!);
+                    db.SaveChanges();
+                }
+                isChanged = true;
+            }
+
+            if (comboBox2.SelectedIndex >= 0)
+            {
+                // Find the bank id based on the selected bank name
+                using (UserDbContext db = new())
+                {
+                    Bank bank = db.Banks.Where(b => b.Name.Contains(comboBox2.SelectedItem.ToString()!)).FirstOrDefault()!;
+
+                    Session.LoggedInUserInfo!.LinkedBankId[1] = bank.Id;
                     db.Users.Update(Session.LoggedInUserInfo!);
                     db.SaveChanges();
                 }
@@ -110,12 +124,19 @@ namespace MoMo
             // Set the current linked bank of the user
             using (UserDbContext db = new())
             {
-                Bank bank = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId).FirstOrDefault()!;
-                string bankName = bank.Name.Replace("Ngân hàng ", "");
+                Bank bank1 = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[0]).FirstOrDefault()!;
+                string bankName1 = bank1.Name.Replace("Ngân hàng ", "");
 
-                label23.Text = bankName;
+                label23.Text = bankName1;
 
-                pictureBox8.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName}.png");
+                pictureBox8.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName1}.png");
+
+                Bank bank2 = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[1]).FirstOrDefault()!;
+                string bankName2 = bank2.Name.Replace("Ngân hàng ", "");
+
+                label12.Text = bankName2;
+
+                pictureBox3.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName2}.png");
             }
         }
 
@@ -130,6 +151,19 @@ namespace MoMo
                 return;
 
             pictureBox1.Image = Image.FromFile(@"../../../Images/BankLogo/" + bankName + ".png");
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+
+            // Get the selected item in the combobox
+            string? bankName = comboBox.SelectedItem.ToString();
+
+            if (string.IsNullOrEmpty(bankName))
+                return;
+
+            pictureBox2.Image = Image.FromFile(@"../../../Images/BankLogo/" + bankName + ".png");
         }
     }
 }

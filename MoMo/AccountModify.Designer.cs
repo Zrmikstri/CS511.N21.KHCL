@@ -56,6 +56,12 @@
             textBox4 = new TextBox();
             label6 = new Label();
             panel9 = new Panel();
+            pictureBox2 = new PictureBox();
+            comboBox2 = new ComboBox();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            pictureBox3 = new PictureBox();
             pictureBox1 = new PictureBox();
             comboBox1 = new ComboBox();
             label10 = new Label();
@@ -77,6 +83,8 @@
             panel8.SuspendLayout();
             panel7.SuspendLayout();
             panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             panel10.SuspendLayout();
@@ -428,6 +436,12 @@
             panel9.BackColor = Color.Transparent;
             panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
             panel9.BackgroundImageLayout = ImageLayout.Stretch;
+            panel9.Controls.Add(pictureBox2);
+            panel9.Controls.Add(comboBox2);
+            panel9.Controls.Add(label11);
+            panel9.Controls.Add(label12);
+            panel9.Controls.Add(label13);
+            panel9.Controls.Add(pictureBox3);
             panel9.Controls.Add(pictureBox1);
             panel9.Controls.Add(comboBox1);
             panel9.Controls.Add(label10);
@@ -437,8 +451,66 @@
             panel9.Controls.Add(label9);
             panel9.Location = new Point(14, 629);
             panel9.Name = "panel9";
-            panel9.Size = new Size(425, 169);
+            panel9.Size = new Size(425, 299);
             panel9.TabIndex = 7;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(6, 232);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(57, 51);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 18;
+            pictureBox2.TabStop = false;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "ACB", "Agribank", "BIDV", "DongAbank", "MBBank", "OCB", "Sacombank", "Techcombank", "TPBank", "VIB", "Vietcombank", "VietinBank" });
+            comboBox2.Location = new Point(206, 240);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(151, 28);
+            comboBox2.TabIndex = 17;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(70, 245);
+            label11.Name = "label11";
+            label11.Size = new Size(122, 20);
+            label11.TabIndex = 16;
+            label11.Text = "Đổi ngân hàng 2:";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Location = new Point(254, 186);
+            label12.Name = "label12";
+            label12.Size = new Size(99, 20);
+            label12.TabIndex = 15;
+            label12.Text = "Vietcombank";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(68, 186);
+            label13.Name = "label13";
+            label13.Size = new Size(147, 20);
+            label13.TabIndex = 14;
+            label13.Text = "Ngân hàng 2 hiện tại";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(6, 170);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(57, 51);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 13;
+            pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -465,15 +537,15 @@
             label10.AutoSize = true;
             label10.Location = new Point(69, 120);
             label10.Name = "label10";
-            label10.Size = new Size(112, 20);
+            label10.Size = new Size(119, 20);
             label10.TabIndex = 10;
-            label10.Text = "Ngân hàng mới";
+            label10.Text = "Đổi ngân hàng 1";
             // 
             // label23
             // 
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label23.Location = new Point(205, 61);
+            label23.Location = new Point(253, 61);
             label23.Name = "label23";
             label23.Size = new Size(99, 20);
             label23.TabIndex = 9;
@@ -484,9 +556,9 @@
             label24.AutoSize = true;
             label24.Location = new Point(67, 61);
             label24.Name = "label24";
-            label24.Size = new Size(135, 20);
+            label24.Size = new Size(147, 20);
             label24.TabIndex = 8;
-            label24.Text = "Ngân hàng hiện tại";
+            label24.Text = "Ngân hàng 1 hiện tại";
             // 
             // pictureBox8
             // 
@@ -565,6 +637,8 @@
             panel7.PerformLayout();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             panel10.ResumeLayout(false);
@@ -610,5 +684,11 @@
         private PictureBox pictureBox8;
         private Panel panel10;
         private PictureBox pictureBox5;
+        private PictureBox pictureBox2;
+        private ComboBox comboBox2;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private PictureBox pictureBox3;
     }
 }

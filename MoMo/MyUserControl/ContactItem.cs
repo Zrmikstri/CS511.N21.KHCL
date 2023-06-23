@@ -62,6 +62,12 @@ namespace MoMo.MyUserControl
             label3.Visible = visible;
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            TransferMoneyDetail transferMoneyDetail = new TransferMoneyDetail(User);
+            StackNavigation.Push(transferMoneyDetail);
+        }
+
         public new event EventHandler Click
         {
             add

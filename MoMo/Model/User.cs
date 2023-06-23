@@ -25,7 +25,7 @@
         public byte[] AvatarImage { get; set; }
         public double Balance { get; set; } = 0;
 
-        public int LinkedBankId { get; set; } = 1;
+        public int[] LinkedBankId { get; set; } = { 1, 2 };
 
         public virtual ICollection<Transaction> Transactions { get; } = new List<Transaction>();
         public virtual ICollection<ChatMessage> ChatMessages { get; } = new List<ChatMessage>();

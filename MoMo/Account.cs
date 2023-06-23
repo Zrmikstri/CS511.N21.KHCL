@@ -77,11 +77,17 @@ namespace MoMo
             // Linked bank name
             using (UserDbContext db = new())
             {
-                Bank linkedBank = db.Banks.Find(Session.LoggedInUserInfo!.LinkedBankId)!;
-                string bankName = linkedBank.Name.Replace("Ngân hàng ", "");
+                Bank linkedBank1 = db.Banks.Find(Session.LoggedInUserInfo!.LinkedBankId[0])!;
+                string bankName1 = linkedBank1.Name.Replace("Ngân hàng ", "");
 
-                label23.Text = bankName;
-                pictureBox8.Image = Image.FromFile(@"../../../Images/BankLogo/" + bankName + ".png");
+                Bank linkedBank2 = db.Banks.Find(Session.LoggedInUserInfo!.LinkedBankId[1])!;
+                string bankName2 = linkedBank2.Name.Replace("Ngân hàng ", "");
+
+                label23.Text = bankName1;
+                pictureBox8.Image = Image.FromFile(@"../../../Images/BankLogo/" + bankName1 + ".png");
+
+                label17.Text = bankName2;
+                pictureBox7.Image = Image.FromFile(@"../../../Images/BankLogo/" + bankName2 + ".png");
             }
         }
     }
