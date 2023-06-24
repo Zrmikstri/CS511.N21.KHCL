@@ -93,9 +93,15 @@ namespace MoMo.Model
                       .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(e => e.Receiver)
-                        .WithMany()
-                        .HasForeignKey(e => e.ReceiverId)
-                        .OnDelete(DeleteBehavior.Cascade);
+                      .WithMany()
+                      .HasForeignKey(e => e.ReceiverId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                entity.Property(e => e.Audio)
+                      .HasColumnType("blob");
+
+                entity.Property(e => e.Image)
+                      .HasColumnType("blob");
             });
 
             // Configure the Bank entity
@@ -103,7 +109,7 @@ namespace MoMo.Model
             {
                 entity.ToTable("banks");
                 entity.HasKey(e => e.Id);
-               
+
                 entity.Property(e => e.Name).IsRequired();
             });
 

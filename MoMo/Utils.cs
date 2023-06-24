@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MoMo.Model;
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -60,6 +61,17 @@ namespace MoMo
             using (MemoryStream ms = new MemoryStream(bytesArray))
             {
                 return Image.FromStream(ms);
+            }
+        }
+
+        public static byte[] WavToBytesArray(string path)
+        {
+            // Convert the wav file to bytes array for WaveFileReader to read
+            using (FileStream fs = File.OpenRead(path))
+            {
+                byte[] bytesArray = new byte[fs.Length];
+                fs.Read(bytesArray, 0, Convert.ToInt32(fs.Length));
+                return bytesArray;
             }
         }
 

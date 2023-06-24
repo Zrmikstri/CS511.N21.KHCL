@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,11 @@ namespace MoMo.MyUserControl
     public partial class SentAudioMessage : UserControl, IMessage
     {
         private DateTime date;
+        private bool isPlaying = false;
+        private byte[] _audio = null!;
+
+        private WaveOutEvent waveOutEvent = null!;
+
         public SentAudioMessage()
         {
             InitializeComponent();
@@ -27,6 +33,53 @@ namespace MoMo.MyUserControl
             set
             {
                 date = value;
+                label1.Text = value.ToString("HH:mm");
+            }
+        }
+
+        public byte[] SentAudio
+        {
+            get
+            {
+                return _audio;
+            }
+            set
+            {
+                _audio = value;
+            }
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            // Start playing the audio using NAudio
+            if (isPlaying)
+            {
+                isPlaying = false;
+                iconButton1.IconChar = FontAwesome.Sharp.IconChar.Play;
+
+                if (waveOutEvent != null)
+                    waveOutEvent.Stop();
+
+            }
+            else
+            {
+                isPlaying = true;
+                iconButton1.IconChar = FontAwesome.Sharp.IconChar.Pause;
+
+                WaveFileReader reader = new WaveFileReader(new MemoryStream(_audio));
+
+                waveOutEvent = new WaveOutEvent();
+                waveOutEvent.Init(reader);
+                waveOutEvent.PlaybackStopped += (s, a) =>
+                {
+                    isPlaying = false;
+                    iconButton1.IconChar = FontAwesome.Sharp.IconChar.Play;
+
+                    waveOutEvent.Dispose();
+                    waveOutEvent = null!;
+                };
+
+                waveOutEvent.Play();
             }
         }
     }

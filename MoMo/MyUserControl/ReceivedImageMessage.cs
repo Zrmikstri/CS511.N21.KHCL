@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace MoMo.MyUserControl
 {
-    public partial class ReceivedMessageImage : UserControl, IMessage
+    public partial class ReceivedImageMessage : UserControl, IMessage
     {
         private Image originalImage = null!;
         private DateTime date;
 
-        public ReceivedMessageImage()
+        public ReceivedImageMessage()
         {
             InitializeComponent();
         }

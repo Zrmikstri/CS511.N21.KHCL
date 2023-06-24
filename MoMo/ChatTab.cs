@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MoMo.Model;
 using MoMo.MyUserControl;
+using NAudio.Utils;
+using NAudio.Wave;
+using ZXing;
 
 namespace MoMo
 {
@@ -17,6 +20,12 @@ namespace MoMo
     {
         private int senderId;
         private int receiverId;
+
+        private bool isRecording = false;
+        private bool isClosing = false;
+        private WaveInEvent? waveIn = null;
+        private WaveFileWriter? waveFileWriter = null;
+        private MemoryStream? memoryStream = null;
 
         public ChatTab(int senderId, int receiverId)
         {
@@ -90,17 +99,29 @@ namespace MoMo
             flowLayoutPanel1.Controls.Add(sentMessage);
         }
 
-        private void AddSentMessageImage(ChatMessage message)
+        private void AddSentImageMessage(ChatMessage message)
         {
             if (message == null) return;
 
-            SentMessageImage sentMessageImage = new SentMessageImage
+            SentImageMessage sentMessageImage = new SentImageMessage
             {
                 SentImage = Utils.BytesArrayToImage(message.Image!),
-                Date = message.Date 
+                Date = message.Date
             };
 
             flowLayoutPanel1.Controls.Add(sentMessageImage);
+        }
+
+        private void AddSentAudioMessage(ChatMessage message)
+        {
+            if (message == null) return;
+
+            SentAudioMessage sentAudioMessage = new()
+            {
+                SentAudio = message.Audio!,
+                Date = message.Date
+            };
+            flowLayoutPanel1.Controls.Add(sentAudioMessage);
         }
 
         private void AddReceivedMessage(ChatMessage message)
@@ -116,17 +137,30 @@ namespace MoMo
             flowLayoutPanel1.Controls.Add(receivedMessage);
         }
 
-        private void AddReceivedMessageImage(ChatMessage message)
+        private void AddReceivedImageMessage(ChatMessage message)
         {
             if (message == null) return;
 
-            ReceivedMessageImage receivedMessageImage = new()
+            ReceivedImageMessage receivedMessageImage = new()
             {
                 ReceivedImage = Utils.BytesArrayToImage(message.Image!),
                 Date = message.Date
             };
 
             flowLayoutPanel1.Controls.Add(receivedMessageImage);
+        }
+
+        private void AddReceivedAudioMessage(ChatMessage message)
+        {
+            if (message == null) return;
+
+            ReceivedAudioMessage receivedAudioMessage = new()
+            {
+                ReceivedAudio = message.Audio!,
+                Date = message.Date
+            };
+
+            flowLayoutPanel1.Controls.Add(receivedAudioMessage);
         }
 
         private Label CreateTimeLabel(string time)
@@ -156,14 +190,18 @@ namespace MoMo
             if (message.SenderId == senderId)
             {
                 if (message.Image != null)
-                    AddSentMessageImage(message);
+                    AddSentImageMessage(message);
+                if (message.Audio != null)
+                    AddSentAudioMessage(message);
                 else
                     AddSentMessage(message);
             }
             else
             {
                 if (message.Image != null)
-                    AddReceivedMessageImage(message);
+                    AddReceivedImageMessage(message);
+                if (message.Audio != null)
+                    AddReceivedAudioMessage(message);
                 else
                     AddReceivedMessage(message);
             }
@@ -214,7 +252,6 @@ namespace MoMo
             flowLayoutPanel1.ScrollControlIntoView(flowLayoutPanel1.Controls[flowLayoutPanel1.Controls.Count - 1]);
         }
 
-
         private void CheckForNewMessage()
         {
             // Check for new message
@@ -242,7 +279,7 @@ namespace MoMo
             }
 
             // Add time label if the last message is sent more than 10 minutes ago
-            var lastMessage = flowLayoutPanel1.Controls.OfType<IMessage>().LastOrDefault();;
+            var lastMessage = flowLayoutPanel1.Controls.OfType<IMessage>().LastOrDefault(); ;
 
             DateTime lastMessageTime;
 
@@ -295,7 +332,7 @@ namespace MoMo
                     ReceiverId = receiverId
                 };
 
-                AddSentMessageImage(sentMessageImage);
+                AddSentImageMessage(sentMessageImage);
 
                 using (UserDbContext dbContext = new())
                 {
@@ -319,6 +356,7 @@ namespace MoMo
 
             LoadMessageHistory();
 
+            // Start timer to check for new message
             timer1.Interval = 2000;
             timer1.Start();
         }
@@ -348,9 +386,62 @@ namespace MoMo
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            // Send record message button using NAudio
-            // Record message and send it to the receiver
+            // Record voice button using NAudio
+            if (isRecording)
+            {
+                isRecording = false;
+                iconButton3.IconColor = Color.DodgerBlue;
 
+                waveIn!.StopRecording();
+            }
+            else
+            {   
+                // Record voice into a byte array
+                isRecording = true;
+                iconButton3.IconColor = Color.Red;
+
+                // Init recording
+                waveIn = new WaveInEvent();
+                memoryStream = new MemoryStream();
+                waveFileWriter = new WaveFileWriter(new IgnoreDisposeStream(memoryStream), waveIn.WaveFormat);
+
+                waveIn.RecordingStopped += (s, a) =>
+                {
+                    waveFileWriter?.Dispose();
+                    waveFileWriter = null;
+
+                    ChatMessage sentMessageVoice = new()
+                    {
+                        Audio = memoryStream!.ToArray(),
+                        SenderId = senderId,
+                        ReceiverId = receiverId
+                    };
+
+                    using (UserDbContext dbContext = new())
+                    {
+                        dbContext.ChatMessages.Add(sentMessageVoice);
+                        dbContext.SaveChanges();
+                    }
+
+                    AddMessageToScreen(sentMessageVoice);
+
+
+                    memoryStream?.Dispose();
+                    memoryStream = null;
+
+                    waveIn.Dispose();
+                    waveIn = null;
+
+                };
+
+                waveIn.DataAvailable += (s, a) =>
+                {
+                    // Write buffer to byte array
+                    waveFileWriter!.Write(a.Buffer, 0, a.BytesRecorded);
+                };
+
+                waveIn.StartRecording();
+            }
         }
     }
 }

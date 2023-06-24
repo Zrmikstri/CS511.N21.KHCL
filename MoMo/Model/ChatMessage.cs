@@ -12,6 +12,7 @@ namespace MoMo.Model
         public int Id { get; set; }
         public string Message { get; set; } = string.Empty;
         public byte[]? Image { get; set; } = null;
+        public byte[]? Audio { get; set; } = null;
         public bool IsRead { get; set; } = false;
         public DateTime Date { get; set; } = DateTime.Now;
 

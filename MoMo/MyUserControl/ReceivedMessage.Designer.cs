@@ -51,7 +51,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(51, 37);
+            tableLayoutPanel1.Size = new Size(58, 37);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // label1
@@ -59,11 +59,11 @@
             label1.Anchor = AnchorStyles.Left;
             label1.AutoSize = true;
             tableLayoutPanel1.SetColumnSpan(label1, 2);
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(3, 0);
             label1.MaximumSize = new Size(320, 0);
             label1.Name = "label1";
-            label1.Size = new Size(45, 19);
+            label1.Size = new Size(52, 21);
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
@@ -71,11 +71,11 @@
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(3, 22);
             label2.MaximumSize = new Size(320, 0);
             label2.Name = "label2";
-            label2.Size = new Size(35, 15);
+            label2.Size = new Size(38, 15);
             label2.TabIndex = 1;
             label2.Text = "label2";
             // 

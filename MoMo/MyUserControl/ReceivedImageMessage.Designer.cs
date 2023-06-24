@@ -1,6 +1,6 @@
 ﻿namespace MoMo.MyUserControl
 {
-    partial class SentMessageImage
+    partial class ReceivedImageMessage
     {
         /// <summary> 
         /// Required designer variable.
@@ -37,34 +37,32 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tableLayoutPanel1.AutoSize = true;
-            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel1.BackColor = Color.Transparent;
             tableLayoutPanel1.BackgroundImageLayout = ImageLayout.Stretch;
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.Controls.Add(label1, 1, 1);
+            tableLayoutPanel1.Controls.Add(label1, 0, 1);
             tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
-            tableLayoutPanel1.Location = new Point(127, 3);
+            tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.MaximumSize = new Size(320, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(266, 21);
-            tableLayoutPanel1.TabIndex = 1;
+            tableLayoutPanel1.Size = new Size(256, 21);
+            tableLayoutPanel1.TabIndex = 2;
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(228, 6);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(3, 6);
             label1.MaximumSize = new Size(320, 0);
             label1.Name = "label1";
-            label1.Size = new Size(35, 15);
+            label1.Size = new Size(38, 15);
             label1.TabIndex = 1;
             label1.Text = "label2";
             // 
@@ -74,12 +72,12 @@
             pictureBox1.Location = new Point(3, 3);
             pictureBox1.MaximumSize = new Size(320, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(260, 0);
+            pictureBox1.Size = new Size(250, 0);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 3;
+            pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
-            // SentMessageImage
+            // ReceivedMessageImage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -88,9 +86,9 @@
             Controls.Add(tableLayoutPanel1);
             MaximumSize = new Size(396, 0);
             MinimumSize = new Size(396, 0);
-            Name = "SentMessageImage";
+            Name = "ReceivedMessageImage";
             Size = new Size(396, 27);
-            Click += SentMessageImage_Click;
+            Click += ReceivedMessageImage_Click;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -101,7 +99,7 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Label label1;
         private PictureBox pictureBox1;
+        private Label label1;
     }
 }

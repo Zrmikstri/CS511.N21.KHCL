@@ -46,13 +46,13 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(label2, 1, 1);
-            tableLayoutPanel1.Location = new Point(345, 0);
+            tableLayoutPanel1.Location = new Point(338, 0);
             tableLayoutPanel1.MaximumSize = new Size(320, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(51, 38);
+            tableLayoutPanel1.Size = new Size(58, 38);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -60,11 +60,11 @@
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
             tableLayoutPanel1.SetColumnSpan(label1, 2);
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(3, 0);
             label1.MaximumSize = new Size(320, 0);
             label1.Name = "label1";
-            label1.Size = new Size(45, 19);
+            label1.Size = new Size(52, 21);
             label1.TabIndex = 0;
             label1.Text = "label1";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -73,11 +73,11 @@
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(13, 23);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(17, 23);
             label2.MaximumSize = new Size(320, 0);
             label2.Name = "label2";
-            label2.Size = new Size(35, 15);
+            label2.Size = new Size(38, 15);
             label2.TabIndex = 1;
             label2.Text = "label2";
             // 

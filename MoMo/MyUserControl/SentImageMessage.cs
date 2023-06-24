@@ -11,12 +11,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MoMo.MyUserControl
 {
-    public partial class SentMessageImage : UserControl, IMessage
+    public partial class SentImageMessage : UserControl, IMessage
     {
         private Image originalImage = null!;
         private DateTime date;
 
-        public SentMessageImage()
+        public SentImageMessage()
         {
             InitializeComponent();
         }
