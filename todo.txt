@@ -1,6 +1,6 @@
 TODO LIST
 - Add support for multiple bank linking
-- Add support for send and receive audio file
+- Add support for send and receive audio file (Ok)
 - Add bill details 
 - Add statistics for transaction per month (OK)
 - Thanh toán dịch vụ (OK)

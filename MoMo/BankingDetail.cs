@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoMo.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,7 @@ namespace MoMo
                                             "Vietinbank|NH TMCP Công thương VN"};
         public int index = -1;
         public string bankName = "";
+
         public BankingDetail()
         {
             InitializeComponent();
@@ -115,10 +117,30 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            // Create a transaction
+            using(UserDbContext db = new())
+            {
+                Session.LoggedInUserInfo!.Balance -= Utils.VNCurrencyToDouble(textBox3.Text);
+                db.Users.Update(Session.LoggedInUserInfo!);
+
+                Transaction transaction = new()
+                {
+                    SenderId = Session.LoggedInUserInfo!.Id,
+                    Amount = Utils.VNCurrencyToDouble(textBox3.Text),
+                    Message = textBox1.Text,
+                    Description = $"Chuyển khoản qua {label1.Text}"
+                };
+
+                db.Transactions.Add(transaction);
+                db.SaveChanges();
+            }
+
             MessageBox.Show("Chuyển khoản thành công số tiền: " + Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(textBox3.Text)),
                 "Thông báo",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+
+            StackNavigation.Pop();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

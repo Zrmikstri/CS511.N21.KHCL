@@ -15,7 +15,7 @@ namespace MoMo
 
             using (UserDbContext db = new())
             {
-                // db.Database.EnsureDeleted();
+                db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
 
                 db.SaveChanges();
