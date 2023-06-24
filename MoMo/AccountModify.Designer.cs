@@ -456,7 +456,6 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(6, 232);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(57, 51);
@@ -514,7 +513,6 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(5, 107);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(57, 51);

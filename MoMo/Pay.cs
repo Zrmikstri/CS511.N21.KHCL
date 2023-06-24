@@ -16,11 +16,12 @@ namespace MoMo
     public partial class Pay : Form
     {
         private Panel[] panels;
+        private int ChosenBankId = 1;
         public Pay()
         {
             InitializeComponent();
 
-            panels = new Panel[] { panel6, panel7, panel8 };
+            panels = new Panel[] { panel7, panel6, panel8 };
             foreach (var panel in panels)
                 panel.Click += panel_Click_change_color!;
         }
@@ -34,13 +35,17 @@ namespace MoMo
         {
             var ClickedPanel = (Panel)sender;
             ClickedPanel.BackgroundImage = Image.FromFile(@"../../../Images/pink_round_line.png");
-
+            int ChosenBankId = 1;
             foreach (var panel in panels)
             {
                 if (panel != ClickedPanel)
                 {
                     panel.BackgroundImage = Image.FromFile(@"../../../Images/round_line.png");
+                    ChosenBankId++;
                 }
+                else
+                    this.ChosenBankId = ChosenBankId;
+
             }
         }
 
@@ -80,20 +85,27 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            string ChosenBankName = "";
+            if (this.ChosenBankId == 1)
+                ChosenBankName = label8.Text;
+            else if (this.ChosenBankId == 2)
+                ChosenBankName = label10.Text;
+            else if (this.ChosenBankId == 3)
+                ChosenBankName = "Tiền mặt";
+
             using (UserDbContext db = new())
             {
                 // Update the balance of the logged in user
                 Session.LoggedInUserInfo!.Balance += Utils.VNCurrencyToDouble(textBox1.Text);
                 db.Users.Update(Session.LoggedInUserInfo!);
                 db.SaveChanges();
-
                 // Create a transaction
                 Transaction transaction = new()
                 {
                     Amount = Utils.VNCurrencyToDouble(textBox1.Text),
                     Date = DateTime.Now,
                     ReceiverId = Session.LoggedInUserInfo!.Id,
-                    BankId = 1, // Vietcombank
+                    BankId = db.Banks.Where(b => b.Name.Contains(ChosenBankName)).FirstOrDefault()!.Id,
                     Type = Transaction.TransactionType.Bank
                 };
                 db.Transactions.Add(transaction);

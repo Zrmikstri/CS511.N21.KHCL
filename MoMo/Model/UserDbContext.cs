@@ -337,7 +337,14 @@ namespace MoMo.Model
                 {
                     Id = 12,
                     Name = "Ngân hàng OCB",
-                });
+                },
+                new Bank
+                {
+                    Id = 13,
+                    Name = "Tiền mặt",
+                }
+                );
+                
 
             modelBuilder.Entity<Transaction>().HasData(
                 new Transaction

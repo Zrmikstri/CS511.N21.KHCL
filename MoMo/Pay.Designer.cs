@@ -312,9 +312,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(61, 33);
             label6.Name = "label6";
-            label6.Size = new Size(206, 20);
+            label6.Size = new Size(142, 20);
             label6.TabIndex = 2;
-            label6.Text = "Phí giao dịch 2.200đ + 2% GD";
+            label6.Text = "Miễn phí thanh toán";
             // 
             // pictureBox3
             // 
