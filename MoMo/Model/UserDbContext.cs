@@ -400,7 +400,7 @@ namespace MoMo.Model
                 new Transaction
                 {
                     Id = 6,
-                    Amount = 2000000,
+                    Amount = 200000,
                     Type = Transaction.TransactionType.Service,
                     Date = DateTime.Now.AddMonths(1),
                     Message = "0123456789|Viettel",
@@ -410,7 +410,7 @@ namespace MoMo.Model
                 new Transaction
                 {
                     Id = 7,
-                    Amount = 50000000,
+                    Amount = 500000,
                     Type = Transaction.TransactionType.Service,
                     Date = DateTime.Now.AddMonths(-1),
                     Message = "0123456789|Viettel",

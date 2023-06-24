@@ -103,7 +103,7 @@ namespace MoMo
                 foreach (Transaction transaction in group)
                 {
                     HistoryItem historyItem = new(transaction);
-
+                    historyItem.Click += (s, e) => HistoryItem_Click(historyItem, e);
                     flowLayoutPanel1.Controls.Add(historyItem);
                 }
             }
@@ -140,7 +140,7 @@ namespace MoMo
                 foreach (Transaction transaction in group)
                 {
                     HistoryItem historyItem = new(transaction);
-
+                    historyItem.Click += (s, e) => HistoryItem_Click(historyItem, e);
                     flowLayoutPanel1.Controls.Add(historyItem);
                 }
             }
@@ -177,7 +177,7 @@ namespace MoMo
                 foreach (Transaction transaction in group)
                 {
                     HistoryItem historyItem = new(transaction);
-
+                    historyItem.Click += (s, e) => HistoryItem_Click(historyItem, e);
                     flowLayoutPanel1.Controls.Add(historyItem);
                 }
             }
@@ -216,7 +216,7 @@ namespace MoMo
                 foreach (Transaction transaction in group)
                 {
                     HistoryItem historyItem = new(transaction);
-
+                    historyItem.Click += (s, e) => HistoryItem_Click(historyItem, e);
                     flowLayoutPanel1.Controls.Add(historyItem);
                 }
             }
@@ -254,14 +254,14 @@ namespace MoMo
                 foreach (Transaction transaction in group)
                 {
                     HistoryItem historyItem = new(transaction);
-
+                    historyItem.Click += (s, e) => HistoryItem_Click(historyItem, e);
                     flowLayoutPanel1.Controls.Add(historyItem);
                 }
             }
         }
 
 
-        private void History_Load(object sender, EventArgs e)
+        private void HistoryItem_Click(object sender, EventArgs e)
         {
             HistoryItem historyItem = (sender as HistoryItem)!;
             BillDetail billDetail = new(historyItem.Transaction);
