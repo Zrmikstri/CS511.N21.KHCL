@@ -132,6 +132,7 @@ namespace MoMo
                 Transaction transaction = new()
                 {
                     SenderId = Session.LoggedInUserInfo!.Id,
+                    BankId = db.Banks.Where(b => b.Name.Contains(bankName)).FirstOrDefault()!.Id,
                     Amount = Utils.VNCurrencyToDouble(textBox3.Text),
                     Message = $"{textBox2.Text}|{textBox1.Text}", // Message = "Số tài khoản người nhận|Lời nhắn"
                     Description = $"Chuyển khoản qua {label1.Text}",
