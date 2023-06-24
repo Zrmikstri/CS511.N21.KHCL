@@ -121,7 +121,9 @@ namespace MoMo.Model
                     Email = "vinh123@gmail.com",
                     PhoneNumber = "0123456789",
                     Address = "123 Trần Phú P10 Q5 TP.Hồ Chí Minh",
-                    Password = "123"
+                    Password = "123",
+                    Balance = 1000000,
+                    Birthday = DateTime.ParseExact("11/10/2002", "dd/MM/yyyy", null),
                 },
                 new User
                 {
@@ -129,72 +131,89 @@ namespace MoMo.Model
                     FullName = "Đào Trần Anh Tuấn",
                     Email = "tdao67216@gmail.com",
                     PhoneNumber = "0987654321",
-                    Address = "456 Đào Tuấn P5 Q10 TP.Hồ Chí Minh",
+                    Address = "456 Thuận Giao, Thuận An, Bình Dương",
                     Password = "456",
-                    Balance = 50000000
+                    Balance = 50000000,
+                    Birthday = DateTime.ParseExact("07/10/2002", "dd/MM/yyyy", null),
                 },
                 new User
                 {
                     Id = 3,
-                    Email = "ckinset0@ehow.com",
-                    PhoneNumber = "7377393940",
-                    Address = "9911 Mandrake Circle",
-                    Password = "599"
+                    Email = "ckinset0@gmail.com",
+                    FullName = "Nguyễn Thị Hiền",
+                    PhoneNumber = "0346541478",
+                    Address = "134, Đường 3/2, Phường 11, Quận 10, TP.Hồ Chí Minh",
+                    Password = "599",
+                    Birthday = DateTime.ParseExact("11/02/1997", "dd/MM/yyyy", null),
                 },
                 new User
                 {
                     Id = 4,
-                    Email = "ltrounce1@newyorker.com",
-                    PhoneNumber = "2207764683",
-                    Address = "0 Chinook Hill",
-                    Password = "865"
+                    Email = "ltrounce1@gmail.com",
+                    FullName = "Nguyễn Thị Hồng",
+                    PhoneNumber = "0916541569",
+                    Address = "18 Đường Trần Hưng Đạo, Phường 6, Quận 5, TP.Hồ Chí Minh",
+                    Password = "865",
+                    Birthday = DateTime.ParseExact("19/01/1995", "dd/MM/yyyy", null),
                 },
                 new User
                 {
                     Id = 5,
-                    Email = "wspeariett2@wiley.com",
-                    PhoneNumber = "5763806149",
-                    Address = "9 Hollow Ridge Way",
+                    Email = "wspeariett2@gmail.com",
+                    FullName = "Nguyễn Văn Bình",
+                    PhoneNumber = "0971552698",
+                    Address = "1 Đường Nam Kỳ Khởi Nghĩa, Phường 3, Quận 1, TP.Hồ Chí Minh",
+                    Birthday = DateTime.ParseExact("25/12/1994", "dd/MM/yyyy", null),
                     Password = "939"
                 },
                 new User
                 {
                     Id = 6,
-                    Email = "nswapp3@cbc.ca",
-                    PhoneNumber = "9263002147",
-                    Address = "661 Forest Run Parkway",
+                    Email = "nswapp3@gmail.com",
+                    FullName = "Trần Thị Thanh Thảo",
+                    PhoneNumber = "0385891286",
+                    Address = "178 Đường Nguyễn Văn Cừ, Phường 4, Quận 5, TP.Hồ Chí Minh",
+                    Birthday = DateTime.ParseExact("11/12/2000", "dd/MM/yyyy", null),
                     Password = "169"
                 },
                 new User
                 {
                     Id = 7,
-                    Email = "ibosden4@yale.edu",
-                    PhoneNumber = "2155269819",
-                    Address = "5 Algoma Plaza",
+                    Email = "ibosden4@gmail.com",
+                    FullName = "Trương Thị Tuyết Nhung",
+                    PhoneNumber = "0798521698",
+                    Address = "175 Đường Phạm Văn Đồng, Phường 3, Quận Gò Vấp, TP.Hồ Chí Minh",
+                    Birthday = DateTime.ParseExact("11/10/2002", "dd/MM/yyyy", null),
                     Password = "538"
                 },
                 new User
                 {
                     Id = 8,
-                    Email = "cknapman5@jugem.jp",
-                    PhoneNumber = "3578582722",
-                    Address = "5896 Vahlen Hill",
+                    Email = "cknapman5@gmail.com",
+                    FullName = "Nguyễn Văn Cường",
+                    PhoneNumber = "0912556919",
+                    Address = "178 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP.Hồ Chí Minh",
+                    Birthday = DateTime.ParseExact("11/10/2002", "dd/MM/yyyy", null),
                     Password = "923"
                 },
                 new User
                 {
                     Id = 9,
-                    Email = "troffey6@mashable.com",
-                    PhoneNumber = "5736157050",
-                    Address = "69 Ridgeview Circle",
+                    Email = "troffey6@gmail.com",
+                    PhoneNumber = "0335691284",
+                    FullName = "Ngô Văn Thắng",
+                    Address = "999 Đường Nguyễn Văn Linh, Phường Tân Phong, Quận 7, TP.Hồ Chí Minh",
+                    Birthday = DateTime.ParseExact("11/10/2002", "dd/MM/yyyy", null),
                     Password = "316"
                 },
                 new User
                 {
                     Id = 10,
-                    Email = "rclipson7@lulu.com",
-                    PhoneNumber = "6094288724",
+                    Email = "rclipson7@gmail.com",
+                    PhoneNumber = "0885661289",
+                    FullName = "Ngô Đoàn Phúc Thịnh",
                     Address = "46 Haas Drive",
+                    Birthday = DateTime.ParseExact("11/10/2002", "dd/MM/yyyy", null),
                     Password = "649"
                 });
 

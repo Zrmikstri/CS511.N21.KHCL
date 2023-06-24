@@ -65,6 +65,9 @@
             panel7 = new Panel();
             label19 = new Label();
             pictureBox6 = new PictureBox();
+            label17 = new Label();
+            label18 = new Label();
+            pictureBox7 = new PictureBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -78,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -147,9 +151,9 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(15, 218);
+            pictureBox4.Location = new Point(13, 218);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(40, 36);
+            pictureBox4.Size = new Size(41, 36);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 10;
             pictureBox4.TabStop = false;
@@ -358,6 +362,9 @@
             panel4.BackColor = Color.Transparent;
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(label17);
+            panel4.Controls.Add(label18);
+            panel4.Controls.Add(pictureBox7);
             panel4.Controls.Add(label23);
             panel4.Controls.Add(label24);
             panel4.Controls.Add(pictureBox8);
@@ -367,14 +374,14 @@
             panel4.Controls.Add(label27);
             panel4.Location = new Point(6, 558);
             panel4.Name = "panel4";
-            panel4.Size = new Size(441, 173);
+            panel4.Size = new Size(441, 240);
             panel4.TabIndex = 17;
             // 
             // label23
             // 
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label23.Location = new Point(154, 124);
+            label23.Location = new Point(173, 124);
             label23.Name = "label23";
             label23.Size = new Size(99, 20);
             label23.TabIndex = 6;
@@ -385,9 +392,9 @@
             label24.AutoSize = true;
             label24.Location = new Point(72, 124);
             label24.Name = "label24";
-            label24.Size = new Size(82, 20);
+            label24.Size = new Size(94, 20);
             label24.TabIndex = 5;
-            label24.Text = "Ngân hàng";
+            label24.Text = "Ngân hàng 1";
             // 
             // pictureBox8
             // 
@@ -444,7 +451,7 @@
             panel7.BackgroundImageLayout = ImageLayout.Stretch;
             panel7.Controls.Add(label19);
             panel7.Controls.Add(pictureBox6);
-            panel7.Location = new Point(6, 761);
+            panel7.Location = new Point(6, 820);
             panel7.Name = "panel7";
             panel7.Size = new Size(435, 61);
             panel7.TabIndex = 18;
@@ -471,6 +478,35 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox6.TabIndex = 1;
             pictureBox6.TabStop = false;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label17.Location = new Point(171, 191);
+            label17.Name = "label17";
+            label17.Size = new Size(99, 20);
+            label17.TabIndex = 9;
+            label17.Text = "Vietcombank";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(72, 191);
+            label18.Name = "label18";
+            label18.Size = new Size(94, 20);
+            label18.TabIndex = 8;
+            label18.Text = "Ngân hàng 2";
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(9, 175);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(57, 51);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 7;
+            pictureBox7.TabStop = false;
             // 
             // Account
             // 
@@ -504,6 +540,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
         }
 
@@ -545,5 +582,8 @@
         private Panel panel7;
         private Label label19;
         private PictureBox pictureBox6;
+        private Label label17;
+        private Label label18;
+        private PictureBox pictureBox7;
     }
 }

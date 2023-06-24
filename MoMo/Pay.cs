@@ -121,11 +121,17 @@ namespace MoMo
 
             using (UserDbContext db = new())
             {
-                Bank bank = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId).FirstOrDefault()!;
-                string bankName = bank.Name.Replace("Ngân hàng ", "");
+                Bank bank1 = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[0]).FirstOrDefault()!;
+                string bankName1 = bank1.Name.Replace("Ngân hàng ", "");
 
-                label8.Text = bankName;
-                pictureBox2.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName}.png");
+                label8.Text = bankName1;
+                pictureBox2.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName1}.png");
+
+                Bank bank2 = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[1]).FirstOrDefault()!;
+                string bankName2 = bank2.Name.Replace("Ngân hàng ", "");
+
+                label10.Text = bankName2;
+                pictureBox3.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName2}.png");
             }
         }
     }

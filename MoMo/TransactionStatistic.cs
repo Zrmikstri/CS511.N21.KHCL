@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LiveChartsCore.Measure;
+using LiveChartsCore.SkiaSharpView.Painting.Effects;
 
 namespace MoMo
 {
@@ -57,6 +58,28 @@ namespace MoMo
                         && (t.SenderId == Session.LoggedInUserInfo!.Id || t.ReceiverId == Session.LoggedInUserInfo!.Id))
                     .ToList();
             }
+
+            // calculate total income and expense
+            var income = transactions
+                .Where(t => t.SenderId == Session.LoggedInUserInfo!.Id)
+                .Sum(t => t.Amount)
+                .ToString();
+
+            var outcome = transactions
+                .Where(t => t.ReceiverId == Session.LoggedInUserInfo!.Id)
+                .Sum(t => t.Amount)
+                .ToString();
+
+            var averageWeekIncome = Utils.VNCurrencyToDouble(income) / 4;
+
+
+            label4.Text = Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(income));
+            label7.Text = Utils.FormatVNCurrency(averageWeekIncome);
+
+            // convert datetime to month/year string
+            label3.Text = "Tháng " + monthToFilter.Month.ToString() + "/" + monthToFilter.Year.ToString();
+
+            label9.Text = Utils.FormatVNCurrency(Utils.VNCurrencyToDouble(outcome) - Utils.VNCurrencyToDouble(income));
 
             // Income group by week
             var incomeGroupByWeek = transactions
@@ -154,11 +177,17 @@ namespace MoMo
                    Labeler = (value) => Utils.FormatVNCurrency(value, isShorten:true),
                    TextSize = 12,
                    ShowSeparatorLines = true,
+                   SeparatorsPaint = new SolidColorPaint{
+                       Color = new SKColor(160, 160, 160),
+                       StrokeThickness = 1,
+                       PathEffect = new DashEffect(new float[] { 3, 3 })
+                   },
                 }
             };
 
             cartesianChart.LegendPosition = LegendPosition.Top;
             cartesianChart.ZoomMode = ZoomAndPanMode.X;
+            cartesianChart.BackColor = Color.White;
 
             cartesianChart.Dock = DockStyle.Fill;
             panel2.Controls.Add(cartesianChart);
