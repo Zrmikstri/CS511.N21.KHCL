@@ -117,6 +117,12 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            if(Utils.VNCurrencyToDouble(textBox3.Text) > Session.LoggedInUserInfo!.Balance)
+            {
+                MessageBox.Show("Số dư không đủ để thực hiện giao dịch này", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Create a transaction
             using(UserDbContext db = new())
             {
@@ -127,7 +133,7 @@ namespace MoMo
                 {
                     SenderId = Session.LoggedInUserInfo!.Id,
                     Amount = Utils.VNCurrencyToDouble(textBox3.Text),
-                    Message = textBox1.Text,
+                    Message = $"{textBox2.Text}|{textBox1.Text}",
                     Description = $"Chuyển khoản qua {label1.Text}"
                 };
 

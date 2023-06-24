@@ -77,7 +77,7 @@ namespace MoMo
                 else
                 {
                     // Bill logo
-                    pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\ReceivedMoeny.jpg");
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\ReceivedMoney.jpg");
 
                     // Name of the receiver's wallet 
                     label15.Text = "Tên ví MoMo";
@@ -96,7 +96,12 @@ namespace MoMo
             }
             else if(transaction.Type == Transaction.TransactionType.Bank)
             {
-                if (transaction.SenderId == Session.LoggedInUserInfo!.Id)
+                if(!string.IsNullOrEmpty(transaction.Description))
+                {
+                    // Bill logo
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\SendThroughBank.jpg");
+                }    
+                else if (transaction.SenderId == Session.LoggedInUserInfo!.Id)
                 {
                     // Bill logo
                     pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\SendMoney.jpg");
@@ -111,7 +116,7 @@ namespace MoMo
                 else
                 {
                     // Bill logo
-                    pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\ReceivedMoeny.jpg");
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\ReceivedMoney.jpg");
 
                     // Name of the receiver's wallet 
                     label15.Text = "Tên ngân hàng";

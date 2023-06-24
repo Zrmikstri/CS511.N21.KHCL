@@ -62,6 +62,16 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            if (Utils.VNCurrencyToDouble(textBox2.Text) > Session.LoggedInUserInfo!.Balance)
+            {
+                MessageBox.Show(
+                      "Số dư không đủ để thực hiện giao dịch này",
+                      "Lưu ý",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Warning);
+                return;
+            }
+
             // Transfer money from current user to userToBeTransferMoneyTo
             using (UserDbContext db = new())
             {
