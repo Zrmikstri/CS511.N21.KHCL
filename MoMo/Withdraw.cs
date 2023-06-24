@@ -80,6 +80,12 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            if (Utils.VNCurrencyToDouble(textBox1.Text) > Session.LoggedInUserInfo!.Balance)
+            {
+                MessageBox.Show("Số dư không đủ để thực hiện giao dịch", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string ChosenBankName = "";
             if (this.ChosenBankId == 1)
                 ChosenBankName = label8.Text;

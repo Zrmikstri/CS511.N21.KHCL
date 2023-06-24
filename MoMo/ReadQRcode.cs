@@ -99,15 +99,22 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            if (label3.Text == Session.LoggedInUserInfo!.PhoneNumber)
+            {
+                MessageBox.Show("Bạn không thể chuyển tiền cho chính mình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+             
+            // Check if the current user has enough money
+            if (Session.LoggedInUserInfo!.Balance < Utils.VNCurrencyToDouble(textBox1.Text))
+            {
+                MessageBox.Show("Số dư không đủ để thực hiện giao dịch", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Get the user to be transferred
             using (UserDbContext db = new())
-            {
-                if (label3.Text == Session.LoggedInUserInfo!.PhoneNumber)
-                {
-                    MessageBox.Show("Bạn không thể chuyển tiền cho chính mình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
+            { 
                 User? userToBeTransferMoneyTo = db.Users.FirstOrDefault(u => u.PhoneNumber == label3.Text);
                 if (userToBeTransferMoneyTo == null)
                 {
@@ -115,12 +122,6 @@ namespace MoMo
                     return;
                 }
 
-                // Check if the current user has enough money
-                if (Session.LoggedInUserInfo!.Balance < Utils.VNCurrencyToDouble(textBox1.Text))
-                {
-                    MessageBox.Show("Số dư không đủ để thực hiện giao dịch", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
                 // Update the balance of the current user
                 Session.LoggedInUserInfo!.Balance -= Utils.VNCurrencyToDouble(textBox1.Text);

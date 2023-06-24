@@ -56,19 +56,7 @@ namespace MoMo
 
                 foreach (Transaction transaction in group)
                 {
-                    HistoryItem historyItem = new();
-
-                    historyItem.Description = transaction.GenerateDescription();
-
-                    historyItem.TransactionDate = transaction.Date.ToString("HH:mm dd/MM/yyyy");
-
-                    historyItem.Amount = transaction.SenderId == Session.LoggedInUserInfo!.Id
-                        ? "-" + Utils.FormatVNCurrency(transaction.Amount)
-                        : "+" + Utils.FormatVNCurrency(transaction.Amount);
-
-                    historyItem.Avatar = transaction.SenderId == Session.LoggedInUserInfo!.Id
-                        ? Properties.Resources.send_money
-                        : Properties.Resources.receive_money;
+                    HistoryItem historyItem = new(transaction);
 
                     flowLayoutPanel1.Controls.Add(historyItem);
                 }

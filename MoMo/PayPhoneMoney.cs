@@ -125,13 +125,14 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            if (Session.LoggedInUserInfo!.Balance < Utils.VNCurrencyToDouble(value))
+            {
+                MessageBox.Show("Số dư không đủ để thực hiện giao dịch", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             using (UserDbContext db = new UserDbContext())
             {
-                if (Session.LoggedInUserInfo!.Balance < Utils.VNCurrencyToDouble(value))
-                {
-                    MessageBox.Show("Số dư không đủ để thực hiện giao dịch", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
                 Session.LoggedInUserInfo.Balance -= Utils.VNCurrencyToDouble(value);
                 db.Users.Update(Session.LoggedInUserInfo);
