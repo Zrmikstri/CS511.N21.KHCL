@@ -38,11 +38,12 @@
             pictureBox1 = new PictureBox();
             label2 = new Label();
             panel1 = new Panel();
+            radioButton6 = new RadioButton();
+            radioButton5 = new RadioButton();
             radioButton4 = new RadioButton();
             radioButton3 = new RadioButton();
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
-            radioButton5 = new RadioButton();
             panel5.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -140,6 +141,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(radioButton6);
             panel1.Controls.Add(radioButton5);
             panel1.Controls.Add(radioButton4);
             panel1.Controls.Add(radioButton3);
@@ -150,15 +152,51 @@
             panel1.Size = new Size(453, 51);
             panel1.TabIndex = 18;
             // 
+            // radioButton6
+            // 
+            radioButton6.Appearance = Appearance.Button;
+            radioButton6.AutoSize = true;
+            radioButton6.BackColor = Color.White;
+            radioButton6.BackgroundImageLayout = ImageLayout.Stretch;
+            radioButton6.FlatAppearance.BorderColor = Color.Black;
+            radioButton6.FlatStyle = FlatStyle.Flat;
+            radioButton6.ForeColor = Color.Black;
+            radioButton6.Location = new Point(644, 9);
+            radioButton6.Name = "radioButton6";
+            radioButton6.Size = new Size(158, 32);
+            radioButton6.TabIndex = 27;
+            radioButton6.TabStop = true;
+            radioButton6.Text = "Giao dịch ngân hàng";
+            radioButton6.UseVisualStyleBackColor = false;
+            radioButton6.Click += radioButton_Click;
+            // 
+            // radioButton5
+            // 
+            radioButton5.Appearance = Appearance.Button;
+            radioButton5.AutoSize = true;
+            radioButton5.BackColor = Color.White;
+            radioButton5.BackgroundImageLayout = ImageLayout.Stretch;
+            radioButton5.FlatAppearance.BorderColor = Color.Black;
+            radioButton5.FlatStyle = FlatStyle.Flat;
+            radioButton5.ForeColor = Color.Black;
+            radioButton5.Location = new Point(470, 9);
+            radioButton5.Name = "radioButton5";
+            radioButton5.Size = new Size(154, 32);
+            radioButton5.TabIndex = 26;
+            radioButton5.TabStop = true;
+            radioButton5.Text = "Thanh toán hoá đơn";
+            radioButton5.UseVisualStyleBackColor = false;
+            radioButton5.Click += radioButton_Click;
+            // 
             // radioButton4
             // 
             radioButton4.Appearance = Appearance.Button;
             radioButton4.AutoSize = true;
             radioButton4.BackColor = Color.White;
             radioButton4.BackgroundImageLayout = ImageLayout.Stretch;
-            radioButton4.FlatAppearance.BorderColor = Color.FromArgb(219, 45, 139);
+            radioButton4.FlatAppearance.BorderColor = Color.Black;
             radioButton4.FlatStyle = FlatStyle.Flat;
-            radioButton4.ForeColor = Color.FromArgb(219, 45, 139);
+            radioButton4.ForeColor = Color.Black;
             radioButton4.Location = new Point(303, 9);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new Size(149, 32);
@@ -166,6 +204,7 @@
             radioButton4.TabStop = true;
             radioButton4.Text = "Nạp tiền điện thoại";
             radioButton4.UseVisualStyleBackColor = false;
+            radioButton4.Click += radioButton_Click;
             // 
             // radioButton3
             // 
@@ -173,9 +212,9 @@
             radioButton3.AutoSize = true;
             radioButton3.BackColor = Color.White;
             radioButton3.BackgroundImageLayout = ImageLayout.Stretch;
-            radioButton3.FlatAppearance.BorderColor = Color.FromArgb(219, 45, 139);
+            radioButton3.FlatAppearance.BorderColor = Color.Black;
             radioButton3.FlatStyle = FlatStyle.Flat;
-            radioButton3.ForeColor = Color.FromArgb(219, 45, 139);
+            radioButton3.ForeColor = Color.Black;
             radioButton3.Location = new Point(197, 9);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(85, 32);
@@ -183,6 +222,7 @@
             radioButton3.TabStop = true;
             radioButton3.Text = "Nhận tiền";
             radioButton3.UseVisualStyleBackColor = false;
+            radioButton3.Click += radioButton_Click;
             // 
             // radioButton2
             // 
@@ -190,9 +230,9 @@
             radioButton2.AutoSize = true;
             radioButton2.BackColor = Color.White;
             radioButton2.BackgroundImageLayout = ImageLayout.Stretch;
-            radioButton2.FlatAppearance.BorderColor = Color.FromArgb(219, 45, 139);
+            radioButton2.FlatAppearance.BorderColor = Color.Black;
             radioButton2.FlatStyle = FlatStyle.Flat;
-            radioButton2.ForeColor = Color.FromArgb(219, 45, 139);
+            radioButton2.ForeColor = Color.Black;
             radioButton2.Location = new Point(78, 9);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(98, 32);
@@ -200,6 +240,7 @@
             radioButton2.TabStop = true;
             radioButton2.Text = "Chuyển tiền";
             radioButton2.UseVisualStyleBackColor = false;
+            radioButton2.Click += radioButton_Click;
             // 
             // radioButton1
             // 
@@ -217,23 +258,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "Tất cả";
             radioButton1.UseVisualStyleBackColor = false;
-            // 
-            // radioButton5
-            // 
-            radioButton5.Appearance = Appearance.Button;
-            radioButton5.AutoSize = true;
-            radioButton5.BackColor = Color.White;
-            radioButton5.BackgroundImageLayout = ImageLayout.Stretch;
-            radioButton5.FlatAppearance.BorderColor = Color.FromArgb(219, 45, 139);
-            radioButton5.FlatStyle = FlatStyle.Flat;
-            radioButton5.ForeColor = Color.FromArgb(219, 45, 139);
-            radioButton5.Location = new Point(470, 9);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(154, 32);
-            radioButton5.TabIndex = 26;
-            radioButton5.TabStop = true;
-            radioButton5.Text = "Thanh toán hoá đơn";
-            radioButton5.UseVisualStyleBackColor = false;
+            radioButton1.Click += radioButton_Click;
             // 
             // History
             // 
@@ -278,5 +303,6 @@
         private RadioButton radioButton3;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
+        private RadioButton radioButton6;
     }
 }
