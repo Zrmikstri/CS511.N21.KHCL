@@ -50,10 +50,14 @@
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
+            label16 = new Label();
+            panel4 = new Panel();
+            label20 = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -110,6 +114,7 @@
             iconButton1.Size = new Size(32, 30);
             iconButton1.TabIndex = 0;
             iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // panel1
             // 
@@ -249,11 +254,12 @@
             panel3.Controls.Add(label13);
             panel3.Controls.Add(label14);
             panel3.Controls.Add(label15);
-            panel3.Location = new Point(8, 299);
+            panel3.Location = new Point(8, 297);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
             panel3.Size = new Size(382, 74);
             panel3.TabIndex = 7;
+            panel3.Visible = false;
             // 
             // label12
             // 
@@ -293,11 +299,46 @@
             label15.TabIndex = 11;
             label15.Text = "Tên ví MoMo";
             // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label16.Location = new Point(8, 389);
+            label16.Name = "label16";
+            label16.Size = new Size(86, 21);
+            label16.TabIndex = 8;
+            label16.Text = "LỜI NHẮN";
+            label16.Visible = false;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.Transparent;
+            panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
+            panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(label20);
+            panel4.Location = new Point(8, 423);
+            panel4.Margin = new Padding(3, 2, 3, 2);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(382, 43);
+            panel4.TabIndex = 9;
+            panel4.Visible = false;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(10, 15);
+            label20.Name = "label20";
+            label20.Size = new Size(76, 15);
+            label20.TabIndex = 11;
+            label20.Text = "Tên ví MoMo";
+            // 
             // BillDetail
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(396, 780);
+            Controls.Add(panel4);
+            Controls.Add(label16);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(panel2);
@@ -314,7 +355,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -340,5 +384,8 @@
         private Label label13;
         private Label label14;
         private Label label15;
+        private Label label16;
+        private Panel panel4;
+        private Label label20;
     }
 }

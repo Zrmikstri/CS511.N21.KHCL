@@ -20,6 +20,7 @@ namespace MoMo
         private string[] Viettel = { "086", "096", "097", "098", "032", "033", "034", "035", "036", "037", "038", "039" };
         private string[] Vinaphone = { "088", "091", "094", "081", "082", "086", "084", "085" };
         private string[] Mobifone = { "089", "090", "093", "070", "079", "077", "076", "078" };
+        string provider = string.Empty;
 
         public PayPhoneMoney()
         {
@@ -74,6 +75,8 @@ namespace MoMo
                     label2.Visible = false;
                     pictureBox5.Image = Image.FromFile(@"../../../Images/pay_button.png");
                     pictureBox5.Enabled = true;
+
+                    provider = "Viettel";
                 }
                 else if (Vinaphone.Contains(textBox.Text.Substring(0, 3)))
                 {
@@ -81,6 +84,8 @@ namespace MoMo
                     label2.Visible = false;
                     pictureBox5.Image = Image.FromFile(@"../../../Images/pay_button.png");
                     pictureBox5.Enabled = true;
+
+                    provider = "Vinaphone";
                 }
                 else if (Mobifone.Contains(textBox.Text.Substring(0, 3)))
                 {
@@ -88,6 +93,8 @@ namespace MoMo
                     label2.Visible = false;
                     pictureBox5.Image = Image.FromFile(@"../../../Images/pay_button.png");
                     pictureBox5.Enabled = true;
+
+                    provider = "Mobifone";
                 }
                 else
                 {
@@ -143,6 +150,7 @@ namespace MoMo
                     Amount = Utils.VNCurrencyToDouble(value),
                     Type = Transaction.TransactionType.Service,
                     SenderId = Session.LoggedInUserInfo!.Id,
+                    Message = $"{textBox1.Text}|{provider}", // phone number to recharge|provider
                     ServiceId = 1,
                 };
                 db.Transactions.Add(transaction);

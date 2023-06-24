@@ -393,6 +393,7 @@ namespace MoMo.Model
                     Amount = 200000,
                     Type = Transaction.TransactionType.Service,
                     Date = DateTime.Now,
+                    Message = "0123456789|Viettel",
                     SenderId = 1,
                     ServiceId = 1,
                 },
@@ -402,6 +403,7 @@ namespace MoMo.Model
                     Amount = 2000000,
                     Type = Transaction.TransactionType.Service,
                     Date = DateTime.Now.AddMonths(1),
+                    Message = "0123456789|Viettel",
                     SenderId = 1,
                     ServiceId = 1,
                 },
@@ -411,6 +413,7 @@ namespace MoMo.Model
                     Amount = 50000000,
                     Type = Transaction.TransactionType.Service,
                     Date = DateTime.Now.AddMonths(-1),
+                    Message = "0123456789|Viettel",
                     SenderId = 1,
                     ServiceId = 1,
                 });

@@ -133,8 +133,9 @@ namespace MoMo
                 {
                     SenderId = Session.LoggedInUserInfo!.Id,
                     Amount = Utils.VNCurrencyToDouble(textBox3.Text),
-                    Message = $"{textBox2.Text}|{textBox1.Text}",
-                    Description = $"Chuyển khoản qua {label1.Text}"
+                    Message = $"{textBox2.Text}|{textBox1.Text}", // Message = "Số tài khoản người nhận|Lời nhắn"
+                    Description = $"Chuyển khoản qua {label1.Text}",
+                    Type = Transaction.TransactionType.Bank
                 };
 
                 db.Transactions.Add(transaction);

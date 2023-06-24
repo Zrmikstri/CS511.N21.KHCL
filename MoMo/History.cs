@@ -58,19 +58,24 @@ namespace MoMo
                 {
                     HistoryItem historyItem = new(transaction);
 
+                    historyItem.Click += (s, e) => HistoryItem_Click(historyItem, e);
+
                     flowLayoutPanel1.Controls.Add(historyItem);
                 }
             }
         }
 
+        private void HistoryItem_Click(object sender, EventArgs e)
+        {
+            HistoryItem historyItem = (sender as HistoryItem)!;
+            BillDetail billDetail = new(historyItem.Transaction);
+            
+            StackNavigation.Push(billDetail);
+        }
+
         private void History_Load(object sender, EventArgs e)
         {
             LoadTransationHistory();
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

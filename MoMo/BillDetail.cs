@@ -51,7 +51,7 @@ namespace MoMo
             label3.Text = transaction.GetAmount();
 
             // Transaction status
-            label8.Text = transaction.Status == 0 ? "Thất bại" : "Thành công";
+            label8.Text = transaction.Status == Transaction.TransactionStatus.Success ? "Thành công" : "Thất bại";
 
             // Transaction date
             label9.Text = transaction.Date.ToString(" HH:mm - dd/MM/yyyy");
@@ -59,8 +59,24 @@ namespace MoMo
             // Transaction id
             label10.Text = transaction.Id.ToString();
 
+            // Message
+            if (string.IsNullOrEmpty(transaction.Message) || transaction.Message.Contains("|"))
+            {
+                label16.Visible = false;
+                panel4.Visible = false;
+            }
+            else
+            {
+                label16.Visible = true;
+                panel4.Visible = true;
+
+                label20.Text = transaction.Message;
+            }
+
             if (transaction.Type == Transaction.TransactionType.Transfer)
             {
+                panel3.Visible = true;
+
                 if (transaction.SenderId == Session.LoggedInUserInfo!.Id)
                 {
                     // Bill logo
@@ -68,8 +84,8 @@ namespace MoMo
 
                     // Name of the receiver's wallet 
                     label15.Text = "Tên ví MoMo";
-                    label13.Text = transaction.Sender!.FullName;
-           
+                    label13.Text = transaction.Receiver!.FullName;
+
                     // Receiver's phone number
                     label14.Text = "Số điện thoại";
                     label12.Text = transaction.Receiver!.PhoneNumber;
@@ -81,26 +97,55 @@ namespace MoMo
 
                     // Name of the receiver's wallet 
                     label15.Text = "Tên ví MoMo";
-                    label13.Text = transaction.Receiver!.FullName;
+                    label13.Text = transaction.Sender!.FullName;
 
                     // Receiver's phone number
                     label14.Text = "Số điện thoại";
                     label12.Text = transaction.Sender!.PhoneNumber;
-                }    
+                }
             }
             else if (transaction.Type == Transaction.TransactionType.Service)
             {
-                pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\Recharge.jpg");
+                if (transaction.Service!.Name == "Nạp tiền điện thoại")
+                {
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\Recharge.jpg");
 
-                panel3.Visible = false;
+                    // Recharge phone number and service provider
+                    panel3.Visible = true;
+                    label15.Text = "Số điện thoại";
+                    label13.Text = transaction.Message.Split("|")[0];
+
+                    label14.Text = "Nhà mạng";
+                    label12.Text = transaction.Message.Split("|")[1];
+                }    
+                else
+                {
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\Withdraw.jpg");
+                    panel3.Visible = false;
+                }    
+
             }
-            else if(transaction.Type == Transaction.TransactionType.Bank)
+            else if (transaction.Type == Transaction.TransactionType.Bank)
             {
-                if(!string.IsNullOrEmpty(transaction.Description))
+                if (!string.IsNullOrEmpty(transaction.Description))
                 {
                     // Bill logo
                     pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\SendThroughBank.jpg");
-                }    
+
+                    panel3.Visible = true;
+                    // Bank number of the receiver
+                    label15.Text = "Số tài khoản";
+                    label13.Text = transaction.Message.Split("|")[0];
+
+                    // Bank name of the receiver
+                    label14.Text = "Tên ngân hàng";
+                    label12.Text = transaction.Bank!.Name;
+
+                    label16.Visible = true;
+                    panel4.Visible = true;
+                    //Message
+                    label20.Text = transaction.Message.Split("|")[1];
+                }
                 else if (transaction.SenderId == Session.LoggedInUserInfo!.Id)
                 {
                     // Bill logo
@@ -116,7 +161,7 @@ namespace MoMo
                 else
                 {
                     // Bill logo
-                    pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\ReceivedMoney.jpg");
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\Images\BillLogo\TopUpWallet.jpg");
 
                     // Name of the receiver's wallet 
                     label15.Text = "Tên ngân hàng";
@@ -125,7 +170,12 @@ namespace MoMo
                     label14.Visible = false;
                     label12.Visible = false;
                 }
-            }    
+            }
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            StackNavigation.Pop();
         }
     }
 }

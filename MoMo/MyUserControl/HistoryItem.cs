@@ -18,6 +18,7 @@ namespace MoMo.MyUserControl
             InitializeComponent();
         }
 
+        public Transaction Transaction { get; set; } = null!;
         public string Description
         {
             get { return label1.Text; }
@@ -47,9 +48,37 @@ namespace MoMo.MyUserControl
             set { pictureBox1.Image = value; }
         }
 
+        public new event EventHandler Click
+        {
+            add
+            {
+                base.Click += value;
+                foreach (Control control in Controls)
+                {
+                    control.Click += value;
+                    if (control is Panel panel)
+                        foreach (Control panelControl in panel.Controls)
+                            panelControl.Click += value;
+                }
+            }
+            remove
+            {
+                base.Click -= value;
+                foreach (Control control in Controls)
+                {
+                    control.Click -= value;
+                    if (control is Panel panel)
+                        foreach (Control panelControl in panel.Controls)
+                            panelControl.Click -= value;
+                }
+            }
+        }
+
         public HistoryItem(Transaction transaction)
         {
             InitializeComponent();
+
+            Transaction = transaction;
 
             Description = transaction.GenerateDescription();
 
