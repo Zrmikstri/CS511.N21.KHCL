@@ -77,17 +77,31 @@ namespace MoMo
             // Linked bank name
             using (UserDbContext db = new())
             {
-                Bank linkedBank1 = db.Banks.Find(Session.LoggedInUserInfo!.LinkedBankId[0])!;
-                string bankName1 = linkedBank1.Name.Replace("Ngân hàng ", "");
+                if (Session.LoggedInUserInfo!.LinkedBankId[0] == 14)
+                {
+                    label23.Text = "Chưa liên kết ngân hàng";
+                }
+                else
+                {
+                    Bank bank1 = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[0]).FirstOrDefault()!;
+                    string bankName1 = bank1.Name.Replace("Ngân hàng ", "");
 
-                Bank linkedBank2 = db.Banks.Find(Session.LoggedInUserInfo!.LinkedBankId[1])!;
-                string bankName2 = linkedBank2.Name.Replace("Ngân hàng ", "");
+                    label23.Text = bankName1;
+                    pictureBox8.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName1}.png");
+                }
 
-                label23.Text = bankName1;
-                pictureBox8.Image = Image.FromFile(@"../../../Images/BankLogo/" + bankName1 + ".png");
+                if (Session.LoggedInUserInfo!.LinkedBankId[1] == 14)
+                {
+                    label17.Text = "Chưa liên kết ngân hàng";
+                }
+                else
+                {
+                    Bank bank2 = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[1]).FirstOrDefault()!;
+                    string bankName2 = bank2.Name.Replace("Ngân hàng ", "");
 
-                label17.Text = bankName2;
-                pictureBox7.Image = Image.FromFile(@"../../../Images/BankLogo/" + bankName2 + ".png");
+                    label17.Text = bankName2;
+                    pictureBox7.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName2}.png");
+                }
             }
         }
     }

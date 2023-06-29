@@ -22,6 +22,8 @@ namespace MoMo
             panels = new Panel[] { panel7, panel6, panel8 };
             foreach (var panel in panels)
                 panel.Click += panel_Click_change_color!;
+
+            panel_Click_change_color(panel8, null!);
         }
 
         private void panel_Click_change_color(object sender, EventArgs e)
@@ -140,17 +142,35 @@ namespace MoMo
 
             using (UserDbContext db = new())
             {
-                Bank bank = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[0]).FirstOrDefault()!;
-                string bankName = bank.Name.Replace("Ngân hàng ", "");
+                if (Session.LoggedInUserInfo!.LinkedBankId[0] == 14)
+                {
+                    label8.Text = "Chưa liên kết ngân hàng";
+                    panel7.Enabled = false;
+                    label7.Visible = false;
+                }
+                else
+                {
+                    Bank bank1 = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[0]).FirstOrDefault()!;
+                    string bankName1 = bank1.Name.Replace("Ngân hàng ", "");
 
-                label8.Text = bankName;
-                pictureBox2.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName}.png");
+                    label8.Text = bankName1;
+                    pictureBox2.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName1}.png");
+                }
 
-                Bank bank2 = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[1]).FirstOrDefault()!;
-                string bankName2 = bank2.Name.Replace("Ngân hàng ", "");
+                if (Session.LoggedInUserInfo!.LinkedBankId[1] == 14)
+                {
+                    label10.Text = "Chưa liên kết ngân hàng";
+                    panel6.Enabled = false;
+                    label6.Visible = false;
+                }
+                else
+                {
+                    Bank bank2 = db.Banks.Where(b => b.Id == Session.LoggedInUserInfo!.LinkedBankId[1]).FirstOrDefault()!;
+                    string bankName2 = bank2.Name.Replace("Ngân hàng ", "");
 
-                label10.Text = bankName2;
-                pictureBox3.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName2}.png");
+                    label10.Text = bankName2;
+                    pictureBox3.Image = Image.FromFile($@"../../../Images/BankLogo/{bankName2}.png");
+                }
             }
         }
     }
