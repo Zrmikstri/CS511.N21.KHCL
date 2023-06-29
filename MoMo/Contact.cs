@@ -23,6 +23,10 @@ namespace MoMo
         private void Contact_Load(object sender, EventArgs e)
         {
             LoadChattedProfiles();
+
+            // Start timer to check for new message
+            timer1.Interval = 2000;
+            timer1.Start();
         }
 
         private void LoadChattedProfiles()
@@ -57,9 +61,9 @@ namespace MoMo
                         User = contact,
                         ContactName = contact.FullName,
                         ContactAvatar = Utils.BytesArrayToImage(contact.AvatarImage),
-                        LatestMessage = latestMessage.Image is not null?
+                        LatestMessage = latestMessage.Image is not null ?
                              "[Ảnh]"
-                            : latestMessage.Audio is not null?
+                            : latestMessage.Audio is not null ?
                              "[Đoạn ghi âm]"
                              : latestMessage.Message,
                     };
@@ -75,10 +79,10 @@ namespace MoMo
                         contactItem.LatestMessageDate = latestMessage.Date.ToString("dd/MM");
                     }
 
-                    if (latestMessage.Image != null)
-                    {
-                        contactItem.LatestMessage = "[Ảnh]";
-                    }
+                    if (latestMessage.ReceiverId == Session.LoggedInUserInfo!.Id && latestMessage.IsRead == false)
+                        contactItem.SetLatestMessageBold(true);
+                    else
+                        contactItem.SetLatestMessageBold(false);
 
                     contactItem.Click += (sender, e) => ContactItem_Click(contactItem, e);
 
@@ -112,12 +116,12 @@ namespace MoMo
             else
             {
                 // Search database for user that has name or has phone number like the text in textbox
-                using(UserDbContext db = new())
+                using (UserDbContext db = new())
                 {
                     List<User> users = db.Users
                         .Where(user => user.Id != Session.LoggedInUserInfo!.Id)
                         .ToList()
-                        .Where(user => 
+                        .Where(user =>
                             user.FullName.Contains(richTextBox.Text, StringComparison.InvariantCultureIgnoreCase) || user.PhoneNumber.Contains(richTextBox.Text))
                         .ToList();
 
@@ -139,6 +143,17 @@ namespace MoMo
                     }
                 }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            LoadChattedProfiles();
+        }
+
+        private void Contact_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }
