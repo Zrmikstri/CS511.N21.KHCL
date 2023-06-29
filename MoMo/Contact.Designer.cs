@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             richTextBox1 = new RichTextBox();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,6 +79,10 @@
             flowLayoutPanel1.Size = new Size(390, 615);
             flowLayoutPanel1.TabIndex = 2;
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
             // Contact
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -87,6 +93,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Contact";
             Text = "Contact";
+            FormClosing += Contact_FormClosing;
             Load += Contact_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -98,5 +105,6 @@
         private RichTextBox richTextBox1;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

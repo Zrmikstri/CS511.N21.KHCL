@@ -62,6 +62,18 @@ namespace MoMo.MyUserControl
             label3.Visible = visible;
         }
 
+        public void SetLatestMessageBold(bool bold)
+        {
+            if (bold)
+            {
+                label2.Font = new Font(label2.Font, FontStyle.Bold);
+            }
+            else
+            {
+                label2.Font = new Font(label2.Font, FontStyle.Regular);
+            }
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             TransferMoneyDetail transferMoneyDetail = new TransferMoneyDetail(User);

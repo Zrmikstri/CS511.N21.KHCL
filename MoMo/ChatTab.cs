@@ -229,7 +229,10 @@ namespace MoMo
                     return;
 
                 // Set all unread messages to read using LINQ
-                messagesHistory.ForEach(m => m.IsRead = true);
+                messagesHistory
+                    .Where(m => m.ReceiverId == Session.LoggedInUserInfo!.Id)
+                    .ToList()
+                    .ForEach(m => m.IsRead = true);
 
                 dbContext.SaveChanges();
             }
@@ -264,8 +267,7 @@ namespace MoMo
 
                 messages = dbContext.ChatMessages
                 .Where(m =>
-                    m.SenderId == receiverId
-                    && m.ReceiverId == senderId
+                    m.SenderId == receiverId && m.ReceiverId == senderId
                     && !m.IsRead)
                 .ToList();
 
