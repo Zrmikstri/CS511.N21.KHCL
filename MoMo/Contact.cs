@@ -100,6 +100,10 @@ namespace MoMo
                 Text = Session.LoggedInUserInfo.FullName
             };
 
+            message_sender.FormClosed += (sender, e) => { timer1.Enabled = true; };
+            
+            timer1.Enabled = false;
+
             StackNavigation.Push(message_sender);
         }
 

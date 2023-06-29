@@ -191,7 +191,7 @@ namespace MoMo
             {
                 if (message.Image != null)
                     AddSentImageMessage(message);
-                if (message.Audio != null)
+                else if (message.Audio != null)
                     AddSentAudioMessage(message);
                 else
                     AddSentMessage(message);
@@ -200,7 +200,7 @@ namespace MoMo
             {
                 if (message.Image != null)
                     AddReceivedImageMessage(message);
-                if (message.Audio != null)
+                else if (message.Audio != null)
                     AddReceivedAudioMessage(message);
                 else
                     AddReceivedMessage(message);
