@@ -112,9 +112,9 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.White;
-            pictureBox1.Location = new Point(22, 14);
+            pictureBox1.Location = new Point(19, 14);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(51, 60);
+            pictureBox1.Size = new Size(60, 60);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -186,6 +186,7 @@
             textBox3.Size = new Size(287, 27);
             textBox3.TabIndex = 0;
             textBox3.TextChanged += textBox3_TextChanged;
+            textBox3.KeyPress += textBox3_KeyPress;
             // 
             // label3
             // 

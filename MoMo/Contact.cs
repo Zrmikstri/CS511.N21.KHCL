@@ -59,7 +59,9 @@ namespace MoMo
                         ContactAvatar = Utils.BytesArrayToImage(contact.AvatarImage),
                         LatestMessage = latestMessage.Image is not null?
                              "[Ảnh]"
-                            : latestMessage.Message,
+                            : latestMessage.Audio is not null?
+                             "[Đoạn ghi âm]"
+                             : latestMessage.Message,
                     };
 
                     if (latestMessage.Date.Year != DateTime.Now.Year)

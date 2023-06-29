@@ -395,7 +395,7 @@ namespace MoMo
                 waveIn!.StopRecording();
             }
             else
-            {   
+            {
                 // Record voice into a byte array
                 isRecording = true;
                 iconButton3.IconColor = Color.Red;

@@ -117,14 +117,14 @@ namespace MoMo
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            if(Utils.VNCurrencyToDouble(textBox3.Text) > Session.LoggedInUserInfo!.Balance)
+            if (Utils.VNCurrencyToDouble(textBox3.Text) > Session.LoggedInUserInfo!.Balance)
             {
                 MessageBox.Show("Số dư không đủ để thực hiện giao dịch này", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Create a transaction
-            using(UserDbContext db = new())
+            using (UserDbContext db = new())
             {
                 Session.LoggedInUserInfo!.Balance -= Utils.VNCurrencyToDouble(textBox3.Text);
                 db.Users.Update(Session.LoggedInUserInfo!);
@@ -154,6 +154,14 @@ namespace MoMo
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             label5.Text = "Lời nhắn (" + textBox1.Text.Length + "/160)";
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent the character from being entered
+            }
         }
     }
 }
